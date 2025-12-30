@@ -1,0 +1,192 @@
+---
+import MarketingLayout from '@/layouts/MarketingLayout.astro';
+import Hero from '@sections/marketing/Hero.astro';
+import HowItWorks from '@sections/marketing/HowItWorks.astro';
+import FeaturesSection from '@sections/marketing/FeaturesSection.astro';
+import BentoGrid from '@sections/marketing/BentoGrid.astro';
+import PricingTable from '@sections/pricing/PricingTable.astro';
+import CTA from '@sections/marketing/CTA.astro';
+import Newsletter from '@sections/marketing/Newsletter.astro';
+import { siteConfig } from '@/config';
+
+
+const bentoItems = [
+  {
+    title: 'Visual Web Application',
+    description:
+      'Drag-and-drop interface for instant conversions. Upload HTML, Markdown, or images. Real-time preview. No coding required. Perfect for non-technical users.',
+    icon: 'lucide:mouse-pointer',
+    size: 'large' as const,
+    accent: 'primary' as const,
+    href: '/dashboard',
+  },
+  {
+    title: 'Powerful API',
+    description: 'RESTful API for developers. Automate PDF generation in any language. Full programmatic control.',
+    icon: 'lucide:code',
+    accent: 'blue' as const,
+    href: '/docs',
+  },
+  {
+    title: 'Real-Time Dashboard',
+    description: 'Monitor all conversions—web app and API. Track jobs, view history, manage API keys.',
+    icon: 'lucide:activity',
+    accent: 'green' as const,
+    href: '/dashboard',
+  },
+  {
+    title: 'Webhook Notifications',
+    description:
+      'Get instant updates for API jobs. Perfect for automation and long-running document processing.',
+    icon: 'lucide:bell',
+    size: 'medium' as const,
+    accent: 'purple' as const,
+    href: '/docs',
+  },
+];
+
+const features = [
+  {
+    icon: 'lucide:mouse-pointer',
+    title: 'No Coding Required',
+    description:
+      'Use our visual web app to convert documents with drag-and-drop. Perfect for business users, designers, and non-technical teams.',
+  },
+  {
+    icon: 'lucide:code',
+    title: 'Developer-Friendly API',
+    description:
+      'Simple REST API for automation. One API call to generate PDFs. Support for all major programming languages.',
+  },
+  {
+    icon: 'lucide:zap',
+    title: 'Lightning Fast Results',
+    description:
+      'Generate professional PDFs in under 30 seconds using our web app or API. Serverless infrastructure scales instantly.',
+  },
+  {
+    icon: 'lucide:dollar-sign',
+    title: 'Incredibly Affordable',
+    description:
+      'Start with 100 free PDFs. Then pay only $0.01 per PDF—whether you use the web app or API. No monthly fees.',
+  },
+  {
+    icon: 'lucide:sliders',
+    title: 'Full Customization',
+    description:
+      'Control page size, margins, orientation, scaling, and more. Perfect formatting every time with our visual editor or API.',
+  },
+  {
+    icon: 'lucide:shield',
+    title: 'Enterprise Security',
+    description:
+      'Built on AWS with industry-standard encryption. Your data is always secure whether using the web app or API.',
+  },
+];
+
+const pricingPlans = [
+  {
+    name: 'Free Tier',
+    monthlyPrice: 0,
+    description: 'Perfect for testing and small projects',
+    features: ['100 PDFs (lifetime)', '20 requests/minute', 'Full API access', 'Dashboard & webhooks', 'All features included'],
+    cta: { label: 'Start Free', href: '/register' },
+  },
+  {
+    name: 'Pay As You Go',
+    monthlyPrice: null,
+    customPrice: '$0.01/PDF',
+    description: 'For production applications',
+    features: [
+      'Unlimited PDFs',
+      'No rate limits',
+      'Just $0.01 per PDF',
+      'Priority support',
+      'Full API access',
+    ],
+    highlighted: true,
+    cta: { label: 'Get Started', href: '/register' },
+  },
+  {
+    name: 'Enterprise',
+    monthlyPrice: null,
+    customPrice: 'Custom',
+    description: 'For high-volume needs',
+    features: ['Volume discounts', 'Dedicated support', 'Custom SLA', 'Priority processing', 'Invoice billing'],
+    cta: { label: 'Contact Sales', href: '/register' },
+  },
+];
+---
+
+<MarketingLayout
+  title={`${siteConfig.name} - ${siteConfig.description}`}
+  description={siteConfig.description}
+>
+  <Hero
+    title="Transform Your Content into Professional PDFs"
+    subtitle="Use our visual web app for instant conversions, or integrate our powerful API into your applications. Convert HTML, Markdown, and images to high-quality PDFs in seconds. Start with 100 free PDFs, then just $0.01 per PDF."
+    primaryCTA={{ label: 'Start Free - No Credit Card', href: '/register' }}
+    secondaryCTA={{ label: 'See How It Works', href: '#how-it-works' }}
+  />
+
+
+  <HowItWorks
+    id="how-it-works"
+    title="Two ways to generate PDFs - Choose what works for you"
+    subtitle="Use our web app for quick conversions or integrate our API for automation."
+    steps={[
+      {
+        title: 'Sign up for free',
+        description:
+          "Create your account in seconds. Get 100 free PDFs to start—no credit card required.",
+        icon: 'lucide:user-plus',
+      },
+      {
+        title: 'Use the web app OR API',
+        description:
+          'Non-technical? Use our visual Convert page with drag-and-drop. Developer? Grab your API key and integrate in minutes.',
+        icon: 'lucide:layers',
+      },
+      {
+        title: 'Generate PDFs instantly',
+        description: 'Upload files or send API requests. Get professional PDFs back in under 30 seconds.',
+        icon: 'lucide:file-check',
+      },
+    ]}
+    variant="horizontal"
+    background="muted"
+  />
+
+
+  <FeaturesSection
+    title="Everything you need to generate professional PDFs"
+    subtitle="Whether you prefer a visual interface or programmatic control, PodPDF makes it simple. No coding required for the web app, full API access for developers."
+    features={features}
+    background="muted"
+    footerLink={undefined}
+  />
+
+  <BentoGrid
+    title="Built for Everyone—From Business Users to Developers"
+    subtitle="Use our visual web app for manual conversions or integrate our API for automation. Both methods use the same reliable infrastructure."
+    items={bentoItems}
+    background="muted"
+  />
+
+  <PricingTable
+    title="Simple, transparent pricing"
+    subtitle="Start free with 100 PDFs. No credit card required. Pay only for what you use."
+    plans={pricingPlans}
+    annualDiscount={0}
+    background="default"
+    footerLink={{ label: 'View full pricing details →', href: '/pricing' }}
+  />
+
+  <CTA
+    title="Ready to start generating PDFs?"
+    description="Whether you need a simple web app for manual conversions or a powerful API for automation, PodPDF has you covered. Start with 100 free PDFs, no credit card required."
+    action={{ label: 'Start Free Now', href: '/register' }}
+  />
+
+  <Newsletter />
+</MarketingLayout>
