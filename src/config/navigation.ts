@@ -20,12 +20,12 @@ export const navigation: Navigation = {
   header: {
     main: [
       { label: 'Pricing', href: '/pricing' },
-      { label: 'API Docs', href: '/docs' },
+      { label: 'API Docs', href: 'https://apidocs.podpdf.com' },
       { label: 'Help', href: '/help' },
     ],
     cta: [
-      { label: 'Login', href: '/login', variant: 'ghost' },
-      { label: 'Sign Up', href: '/register', variant: 'primary' },
+      { label: 'Login', href: 'https://app.podpdf.com/login', variant: 'ghost' },
+      { label: 'Sign Up', href: 'https://app.podpdf.com/signup', variant: 'primary' },
     ],
   },
 
@@ -36,14 +36,14 @@ export const navigation: Navigation = {
   footer: {
     product: [
       { label: 'Pricing', href: '/pricing' },
-      { label: 'API Documentation', href: '/docs' },
+      { label: 'API Documentation', href: 'https://apidocs.podpdf.com' },
       { label: 'Changelog', href: '/changelog' },
     ],
     solutions: [
-      { label: 'Dashboard', href: '/dashboard' },
+      { label: 'Dashboard', href: 'https://app.podpdf.com' },
     ],
     resources: [
-      { label: 'Documentation', href: '/docs' },
+      { label: 'Documentation', href: 'https://apidocs.podpdf.com' },
       { label: 'Help Center', href: '/help' },
       { label: 'Changelog', href: '/changelog' },
     ],
