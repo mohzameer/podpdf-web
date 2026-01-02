@@ -21,6 +21,7 @@ export const navigation: Navigation = {
     main: [
       { label: 'Pricing', href: '/pricing' },
       { label: 'API Docs', href: '/docs' },
+      { label: 'Help', href: '/help' },
     ],
     cta: [
       { label: 'Login', href: '/login', variant: 'ghost' },
@@ -36,14 +37,22 @@ export const navigation: Navigation = {
     product: [
       { label: 'Pricing', href: '/pricing' },
       { label: 'API Documentation', href: '/docs' },
+      { label: 'Changelog', href: '/changelog' },
     ],
     solutions: [
       { label: 'Dashboard', href: '/dashboard' },
     ],
     resources: [
       { label: 'Documentation', href: '/docs' },
+      { label: 'Help Center', href: '/help' },
+      { label: 'Changelog', href: '/changelog' },
     ],
-    company: [],
-    legal: [],
+    company: [
+      { label: 'Contact', href: '/help' },
+    ],
+    legal: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+    ],
   },
 };

@@ -13,7 +13,7 @@ const plans = [
   {
     name: 'Free Tier',
     monthlyPrice: 0,
-    description: 'Perfect for testing and small projects',
+    description: 'Perfect for testing and small projects. Same speed as paid plans.',
     features: [
       '100 PDFs (lifetime quota)',
       'Web app + API access',
@@ -22,6 +22,7 @@ const plans = [
       'Dashboard & job history',
       'Webhook notifications',
       'All features included',
+      'Same speed as paid plans',
     ],
     highlighted: false,
     cta: { label: 'Start Free', href: '/register' },
@@ -37,7 +38,7 @@ const plans = [
       'No rate limits',
       'Just $0.01 per PDF',
       'Priority support',
-      'Extended job history (365 days)',
+      'Full job history',
       'Unlimited API keys',
       'Webhook notifications',
     ],
@@ -54,7 +55,6 @@ const plans = [
       'Web app + API access',
       'Dedicated support team',
       '99.9% uptime SLA',
-      'Priority processing',
       'Custom contracts',
       'Invoice billing (NET-30)',
       'Multiple webhook URLs',
@@ -73,12 +73,12 @@ const faqs = [
   {
     question: 'How does the free tier work?',
     answer:
-      "You get 100 PDFs for free—a lifetime quota that never expires. Use them via the web app, API, or both. Perfect for testing and small projects. No credit card required.",
+      "You get 100 PDFs for free—a lifetime quota that never expires. Use them via the web app, API, or both. Perfect for testing and small projects. No credit card required. Same speed and performance as paid plans.",
   },
   {
     question: 'What happens after I use my 100 free PDFs?',
     answer:
-      "After your free tier is exhausted, you'll automatically move to pay-as-you-go pricing at $0.01 per PDF. Whether you use the web app or API, you only pay for what you use—no monthly fees.",
+      'User will have to upgrade the plan to paid ones to continue using',
   },
   {
     question: 'Are there any rate limits?',
@@ -101,7 +101,7 @@ const comparisonCategories = [
   {
     name: 'Usage Limits',
     features: [
-      { name: 'Monthly PDFs', values: ['100 (lifetime)', 'Unlimited', 'Unlimited'] },
+      { name: 'Total PDFs', values: ['100 (lifetime)', 'Unlimited', 'Unlimited'] },
       { name: 'Rate Limits', values: ['20 req/min', 'Unlimited', 'Unlimited'] },
       { name: 'Price per PDF', values: ['$0', '$0.01', 'Custom'] },
       { name: 'API Keys', values: ['5', 'Unlimited', 'Unlimited'] },
@@ -122,11 +122,10 @@ const comparisonCategories = [
     name: 'Features',
     features: [
       { name: 'Dashboard Access', values: [true, true, true] },
-      { name: 'Job History', values: ['90 days', '365 days', 'Custom'] },
+      { name: 'Job History', values: ['Unlimited', 'Unlimited', 'Unlimited'] },
       { name: 'Webhook Notifications', values: [true, true, true] },
+      { name: 'Processing Speed', values: ['Same as paid', 'Same as paid', 'Same as paid'] },
       { name: 'Multiple Webhooks', values: [false, false, true] },
-      { name: 'Priority Processing', values: [false, false, true] },
-      { name: 'Custom SLA', values: [false, false, true] },
     ],
   },
   {
@@ -135,7 +134,6 @@ const comparisonCategories = [
       { name: 'Documentation', values: [true, true, true] },
       { name: 'Email Support', values: [true, true, true] },
       { name: 'Response Time', values: ['24-48hrs', '12hrs', 'Priority'] },
-      { name: 'Dedicated Manager', values: [false, false, true] },
     ],
   },
 ];
@@ -143,11 +141,11 @@ const comparisonCategories = [
 
 <MarketingLayout
   title={`Pricing - ${siteConfig.name}`}
-  description="Use our web app or API. Start with 100 free PDFs, then pay only $0.01 per PDF. No monthly fees, no hidden costs."
+  description="Use our web app or API. Start with 100 free PDFs, then pay only $0.01 per PDF. Same speed for all users. No monthly fees, no hidden costs."
 >
   <PricingTable
     title="Simple, transparent pricing"
-    subtitle="Use the web app or API—both count toward the same quota. Start with 100 free PDFs, then pay only $0.01 per PDF. No monthly fees, no hidden costs."
+    subtitle="Use the web app or API—both count toward the same quota. Start with 100 free PDFs, then pay only $0.01 per PDF. Same speed and performance for all users. No monthly fees, no hidden costs."
     plans={plans}
     annualDiscount={0}
     defaultPeriod="monthly"

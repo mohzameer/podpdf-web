@@ -52,6 +52,10 @@ We bill monthly based on usage. You only pay for what you use beyond the free ti
 
 Yes, you can upgrade or downgrade at any time. Changes take effect immediately, and we prorate charges.
 
+### What happens after I use my 100 free PDFs?
+
+User will have to upgrade the plan to paid ones to continue using.
+
 ## Deployments
 
 ### How fast are deployments?

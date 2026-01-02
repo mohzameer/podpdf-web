@@ -161,9 +161,6 @@ function renderValue(value: boolean | string) {
                           {rendered.type === 'check' && (
                             <Icon name="lucide:check" class="w-5 h-5 text-primary mx-auto" />
                           )}
-                          {rendered.type === 'x' && (
-                            <Icon name="lucide:minus" class="w-5 h-5 text-text-muted mx-auto" />
-                          )}
                           {rendered.type === 'text' && (
                             <span class="text-text font-medium">{rendered.text}</span>
                           )}
@@ -208,9 +205,6 @@ function renderValue(value: boolean | string) {
                         <span class="shrink-0">
                           {rendered.type === 'check' && (
                             <Icon name="lucide:check" class="w-5 h-5 text-primary" />
-                          )}
-                          {rendered.type === 'x' && (
-                            <Icon name="lucide:minus" class="w-5 h-5 text-text-muted" />
                           )}
                           {rendered.type === 'text' && (
                             <span class="text-text font-medium">{rendered.text}</span>

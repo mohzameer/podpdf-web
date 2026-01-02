@@ -14,11 +14,11 @@ export const contact: ContactInfo = {
   supportEmail: 'podpdfapp@gmail.com',
   salesEmail: 'podpdfapp@gmail.com',
   address: {
-    street: '123 Market Street, Suite 400',
-    city: 'San Francisco',
-    state: 'CA',
-    zip: '94102',
-    country: 'United States',
+    street: '148, Alpitiya road',
+    city: 'Mawanella',
+    state: '',
+    zip: '71500',
+    country: 'Sri Lanka',
   },
 };
 

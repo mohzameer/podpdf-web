@@ -6,7 +6,6 @@ import FeaturesSection from '@sections/marketing/FeaturesSection.astro';
 import BentoGrid from '@sections/marketing/BentoGrid.astro';
 import PricingTable from '@sections/pricing/PricingTable.astro';
 import CTA from '@sections/marketing/CTA.astro';
-import Newsletter from '@sections/marketing/Newsletter.astro';
 import { siteConfig } from '@/config';
 
 
@@ -18,21 +17,18 @@ const bentoItems = [
     icon: 'lucide:mouse-pointer',
     size: 'large' as const,
     accent: 'primary' as const,
-    href: '/dashboard',
   },
   {
     title: 'Powerful API',
     description: 'RESTful API for developers. Automate PDF generation in any language. Full programmatic control.',
     icon: 'lucide:code',
     accent: 'blue' as const,
-    href: '/docs',
   },
   {
     title: 'Real-Time Dashboard',
     description: 'Monitor all conversions—web app and API. Track jobs, view history, manage API keys.',
     icon: 'lucide:activity',
     accent: 'green' as const,
-    href: '/dashboard',
   },
   {
     title: 'Webhook Notifications',
@@ -41,7 +37,6 @@ const bentoItems = [
     icon: 'lucide:bell',
     size: 'medium' as const,
     accent: 'purple' as const,
-    href: '/docs',
   },
 ];
 
@@ -68,7 +63,7 @@ const features = [
     icon: 'lucide:dollar-sign',
     title: 'Incredibly Affordable',
     description:
-      'Start with 100 free PDFs. Then pay only $0.01 per PDF—whether you use the web app or API. No monthly fees.',
+      'Start with 100 free PDFs. Then pay only $0.01 per PDF—whether you use the web app or API. Same speed for all users. No monthly fees.',
   },
   {
     icon: 'lucide:sliders',
@@ -89,7 +84,7 @@ const pricingPlans = [
     name: 'Free Tier',
     monthlyPrice: 0,
     description: 'Perfect for testing and small projects',
-    features: ['100 PDFs (lifetime)', '20 requests/minute', 'Full API access', 'Dashboard & webhooks', 'All features included'],
+    features: ['100 PDFs (lifetime)', '20 requests/minute', 'Full API access', 'Same speed as paid plans', 'Dashboard & webhooks', 'All features included'],
     cta: { label: 'Start Free', href: '/register' },
   },
   {
@@ -124,7 +119,7 @@ const pricingPlans = [
 >
   <Hero
     title="Transform Your Content into Professional PDFs"
-    subtitle="Use our visual web app for instant conversions, or integrate our powerful API into your applications. Convert HTML, Markdown, and images to high-quality PDFs in seconds. Start with 100 free PDFs, then just $0.01 per PDF."
+    subtitle="Use our visual web app for instant conversions, or integrate our powerful API into your applications. Convert HTML, Markdown, and images to high-quality PDFs in seconds. Start with 100 free PDFs, then just $0.01 per PDF. Same speed for everyone."
     primaryCTA={{ label: 'Start Free - No Credit Card', href: '/register' }}
     secondaryCTA={{ label: 'See How It Works', href: '#how-it-works' }}
   />
@@ -138,7 +133,7 @@ const pricingPlans = [
       {
         title: 'Sign up for free',
         description:
-          "Create your account in seconds. Get 100 free PDFs to start—no credit card required.",
+          "Create your account in seconds. Get 100 free PDFs to start—no credit card required. Same speed and performance as paid plans.",
         icon: 'lucide:user-plus',
       },
       {
@@ -175,7 +170,7 @@ const pricingPlans = [
 
   <PricingTable
     title="Simple, transparent pricing"
-    subtitle="Start free with 100 PDFs. No credit card required. Pay only for what you use."
+    subtitle="Start free with 100 PDFs. Same speed as paid plans. No credit card required. Pay only for what you use."
     plans={pricingPlans}
     annualDiscount={0}
     background="default"
@@ -184,9 +179,7 @@ const pricingPlans = [
 
   <CTA
     title="Ready to start generating PDFs?"
-    description="Whether you need a simple web app for manual conversions or a powerful API for automation, PodPDF has you covered. Start with 100 free PDFs, no credit card required."
+    description="Whether you need a simple web app for manual conversions or a powerful API for automation, PodPDF has you covered. Start with 100 free PDFs, same speed as paid plans, no credit card required."
     action={{ label: 'Start Free Now', href: '/register' }}
   />
-
-  <Newsletter />
 </MarketingLayout>

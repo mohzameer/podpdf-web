@@ -13,7 +13,7 @@ export const name = import.meta.env.SITE_NAME || 'PodPDF';
 
 /** Site description for SEO and meta tags */
 export const description =
-  import.meta.env.SITE_DESCRIPTION || 'Convert HTML, Markdown, and images to professional PDFs. Use our visual web app or integrate our API. Start with 100 free PDFs.';
+  import.meta.env.SITE_DESCRIPTION || 'Convert HTML, Markdown, and images to professional PDFs. Use our visual web app or integrate our API. Start with 100 free PDFs. Same speed for all users.';
 
 /** Production URL of your site (used for sitemap, RSS, canonical URLs) */
 export const url = import.meta.env.SITE_URL || 'http://localhost:4321';
@@ -29,9 +29,9 @@ export const ogImage = '/images/og-image.png';
 
 /** Social media links */
 export const social: SocialLinks = {
-  twitter: 'https://twitter.com/podpdf',
-  github: 'https://github.com/podpdf',
-  discord: 'https://discord.gg/podpdf',
+  twitter: 'https://x.com/podpdf',
+  github: '',
+  discord: '',
 };
 
 /** Legal configuration for privacy policy and terms pages */

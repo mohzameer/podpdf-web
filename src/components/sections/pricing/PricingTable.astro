@@ -201,7 +201,6 @@ function formatPrice(price: number): string {
                         <span class="text-4xl font-bold text-text">
                           {formatPrice(monthlyPrice)}
                         </span>
-                        <span class="text-text-muted">/month</span>
                       </div>
 
                       {/* Annual Price Display */}
@@ -210,7 +209,6 @@ function formatPrice(price: number): string {
                         data-period="annual"
                       >
                         <span class="text-4xl font-bold text-text">{formatPrice(annualPrice)}</span>
-                        <span class="text-text-muted">/month</span>
                         {monthlyPrice > 0 && (
                           <div class="mt-1">
                             <span class="text-xs text-text-muted line-through mr-2">
@@ -229,8 +227,11 @@ function formatPrice(price: number): string {
                       <span class="text-4xl font-bold text-text">
                         {plan.customPrice || 'Custom'}
                       </span>
-                      <span class="text-text-muted">/month</span>
                     </div>
+                  )}
+                  {/* Usage billed monthly note */}
+                  {plan.name !== 'Free Tier' && (
+                    <p class="mt-2 text-xs text-text-muted">Usage billed monthly</p>
                   )}
                 </div>
               </div>
