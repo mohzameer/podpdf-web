@@ -1,0 +1,687 @@
+---
+/**
+ * Terms of Service Page
+ *
+ * @description
+ * Legal terms and conditions for using PodPDF service.
+ */
+import MarketingLayout from '@/layouts/MarketingLayout.astro';
+import { siteConfig } from '@/config';
+---
+
+<MarketingLayout
+  title={`Terms of Service - ${siteConfig.name}`}
+  description="Terms of Service for PodPDF - PDF generation platform. Read our terms and conditions before using our service."
+>
+  <article class="py-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="mb-12">
+        <h1 class="text-4xl sm:text-5xl font-bold text-text mb-4">Terms of Service</h1>
+        <p class="text-text-muted">Last Updated: December 30, 2025</p>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <div class="text-text-muted leading-relaxed space-y-8">
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">1. Introduction and Acceptance of Terms</h2>
+            <p>
+              Welcome to PodPDF ("Service", "we", "us", or "our"). These Terms of Service ("Terms") govern your access to and use of the PodPDF platform, including our website at https://app.podpdf.com, our API services, and all related services (collectively, the "Service").
+            </p>
+            <p>
+              <strong>We operate globally using cloud infrastructure.</strong> PodPDF is built on Amazon Web Services (AWS) and serves customers worldwide. <strong>Customers worldwide may use the Service</strong> regardless of their location.
+            </p>
+            <p>
+              By accessing or using PodPDF, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Service.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">2. Service Description</h2>
+            <p>PodPDF is a PDF generation platform that provides two primary methods of access:</p>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">2.1 Web Application</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Browser-based interface for manual PDF generation</li>
+              <li>No coding knowledge required</li>
+              <li>Upload HTML, Markdown, or image files</li>
+              <li>Real-time PDF generation and download</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">2.2 API Integration</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>RESTful API for automated PDF generation</li>
+              <li>Programmatic access via API keys</li>
+              <li>Support for HTML, Markdown, and image inputs</li>
+              <li>Webhook notifications for asynchronous jobs</li>
+              <li>Integration into applications and workflows</li>
+            </ul>
+            <p>Both methods count toward your usage quota and are subject to the same terms and limitations.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">3. Account Registration and Authentication</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">3.1 Account Creation</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You must create an account to use the Service</li>
+              <li>You must provide a valid email address</li>
+              <li>You must be at least 13 years of age to use the Service</li>
+              <li>Email verification is required before accessing the Service</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">3.2 Authentication Methods</h3>
+            <p>We support the following authentication methods:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Email and Password</strong>: Traditional account creation via AWS Cognito</li>
+              <li><strong>Google OAuth</strong>: Sign in using your Google account</li>
+              <li><strong>API Keys</strong>: For programmatic API access (created within the dashboard)</li>
+            </ul>
+            <p>When using Google OAuth, you authorize us to access your Google profile information (name, email) as permitted by Google's OAuth policies. You are responsible for maintaining the security of your Google account.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">3.3 Account Security</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You are responsible for maintaining the confidentiality of your account credentials</li>
+              <li>You are responsible for all activities that occur under your account</li>
+              <li>You must notify us immediately at <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a> of any unauthorized access</li>
+              <li>We are not liable for any loss or damage from your failure to maintain account security</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">3.4 Account Information</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You must provide accurate and complete information</li>
+              <li>You must keep your account information up to date</li>
+              <li>We reserve the right to suspend or terminate accounts with false or misleading information</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">4. Plans, Pricing, and Billing</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.1 Free Tier</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Quota</strong>: 100 PDFs (all-time free, non-renewable, cumulative)</li>
+              <li><strong>Rate Limit</strong>: 20 requests per minute</li>
+              <li><strong>Price</strong>: $0.00 per PDF</li>
+              <li><strong>Features</strong>: Full access to all PDF generation features</li>
+              <li><strong>Limitations</strong>: Once quota is exhausted, you must upgrade to continue</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.2 Paid Tier Plan 1</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Quota</strong>: Unlimited PDFs</li>
+              <li><strong>Rate Limit</strong>: No rate limiting</li>
+              <li><strong>Price</strong>: $0.01 per PDF generated</li>
+              <li><strong>Features</strong>: Full access, priority support, unlimited API keys</li>
+              <li><strong>Billing</strong>: Monthly billing based on actual usage</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.3 Tailored Plans</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We may offer tailored plans with custom pricing, quotas, and features for specific customers</li>
+              <li>Tailored plans are subject to individual agreements and may differ from standard plans</li>
+              <li>Contact us at <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a> for information about tailored plan options</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.4 Free Credits</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We may provide users with free credits at our sole discretion</li>
+              <li>Free credits may be offered as discounts, bonuses, promotional offers, or for any other reason we determine</li>
+              <li>We control who receives free credits and the amount of credits provided</li>
+              <li>Free credits are subject to any terms and conditions we specify at the time of issuance</li>
+              <li>We reserve the right to revoke or modify free credits at any time</li>
+              <li>Free credits cannot be transferred, sold, or exchanged for cash</li>
+              <li>Free credits may have expiration dates as determined by us</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.5 Price Changes</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>We reserve the right to change pricing at any time</strong></li>
+              <li><strong>Notification</strong>: We will notify you of price changes via email to your registered email address</li>
+              <li><strong>Advance Notice</strong>: Price changes will be communicated at least 14 days before taking effect</li>
+              <li><strong>Your Options</strong>: If you do not agree to price changes, you may:
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                  <li>Discontinue using the Service</li>
+                  <li>Delete your account</li>
+                  <li>Continue using the Service at the new rates after the effective date</li>
+                </ul>
+              </li>
+              <li><strong>Continued Use</strong>: Your continued use of the Service after price changes take effect constitutes acceptance of the new pricing</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.6 Payment and Billing</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Billing occurs monthly for paid plan users</li>
+              <li>You will be charged based on the number of PDFs generated in each calendar month (for per-PDF pricing plans)</li>
+              <li>Payment is due immediately upon invoice</li>
+              <li>We reserve the right to suspend service for non-payment</li>
+              <li>All prices are in United States Dollars (USD)</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.7 Refunds and Service Credits</h3>
+            
+            <p class="font-semibold text-text mt-4 mb-2">European Users (14-Day Refund Policy):</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Users located in European countries have the right to request a refund within 14 days of payment</li>
+              <li><strong>PDFs already generated are non-refundable</strong> - refunds apply only to unused portions of payments</li>
+              <li>To request a refund, contact us at <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a> within 14 days of your payment</li>
+              <li>Refunds will be processed within 30 business days of approval</li>
+            </ul>
+
+            <p class="font-semibold text-text mt-4 mb-2">Users from Other Countries:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>No refunds for consumed services</strong> - charges for PDFs already generated are non-refundable</li>
+              <li>No refunds for partial months or unused quota</li>
+              <li>All charges are non-refundable except as required by applicable law</li>
+            </ul>
+
+            <p class="font-semibold text-text mt-4 mb-2">Service Credits for Errors:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>In case of service errors, technical issues, or failures on our part, we may issue service credits at our discretion</li>
+              <li>Service credits are provided as free PDF generation credits and cannot be redeemed for cash</li>
+              <li>Service credits are subject to the terms specified at the time of issuance</li>
+              <li>Contact us at <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a> to report errors and request service credits</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">5. Usage Limits and Technical Restrictions</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">5.1 Content Size Limits</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>HTML/Markdown</strong>: Maximum 5 MB per request</li>
+              <li><strong>Images</strong>: Maximum 5 MB per image</li>
+              <li><strong>Total Upload</strong>: Maximum 10 MB per request</li>
+              <li><strong>Image Dimensions</strong>: Maximum 10,000 x 10,000 pixels per image</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">5.2 Page Limits</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Production Environment</strong>: Maximum 100 pages per PDF</li>
+              <li><strong>Development Environment</strong>: Maximum 2 pages per PDF</li>
+              <li>Requests exceeding page limits will be rejected with an error</li>
+              <li>No truncation is performed; the entire request will fail</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">5.3 Rate Limits</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Free Tier</strong>: 20 requests per minute</li>
+              <li><strong>Paid Tier Plan 1</strong>: No rate limiting</li>
+              <li><strong>Tailored Plans</strong>: Rate limits as specified in your plan agreement</li>
+              <li>API Gateway throttling may apply to all users during high traffic</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">5.4 Processing Timeouts</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Quick Jobs</strong>: Maximum 30-second processing time</li>
+              <li>Jobs exceeding 30 seconds will timeout and fail</li>
+              <li>Use long job endpoint for larger documents</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">5.5 Image Limits</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>API</strong>: Maximum 100 images per request</li>
+              <li><strong>Playground (Web UI)</strong>: Maximum 20 images per request</li>
+              <li>Supported formats: PNG, JPEG only</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">6. API Keys and Security</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">6.1 API Key Creation</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You may create API keys through the Settings page</li>
+              <li>API keys are shown only once upon creation</li>
+              <li>You are responsible for storing API keys securely</li>
+              <li>Lost API keys cannot be recovered; you must create new ones</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">6.2 API Key Security</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Never commit API keys to version control</li>
+              <li>Never share API keys publicly</li>
+              <li>Use environment variables to store keys</li>
+              <li>Use separate keys for development and production</li>
+              <li>Rotate keys regularly for production systems</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">6.3 API Key Management</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You can revoke API keys at any time</li>
+              <li>Revoked keys cannot be reactivated</li>
+              <li>You must create new keys to replace revoked ones</li>
+              <li>We may revoke keys if we detect abuse or security violations</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">6.4 Responsibility for API Key Usage</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You are responsible for all API requests made with your API keys</li>
+              <li>All usage charges apply regardless of whether requests were authorized by you</li>
+              <li>Immediately revoke compromised API keys and contact <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">7. Content and Data Ownership</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">7.1 Your Content</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You retain all rights to content you submit to PodPDF (HTML, Markdown, images)</li>
+              <li>You grant us a limited license to process your content solely for providing the Service</li>
+              <li>We do not claim ownership of your content</li>
+              <li>We do not use your content for any purpose other than PDF generation</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">7.2 License to Use the Service</h3>
+            <p>You grant us permission to:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Process your submitted content to generate PDFs</li>
+              <li>Store your content temporarily during processing</li>
+              <li>Store generated PDFs temporarily as described in Section 8</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">7.3 Content Restrictions</h3>
+            <p>You may not submit content that:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Violates any law or regulation</li>
+              <li>Infringes intellectual property rights of others</li>
+              <li>Contains malware, viruses, or harmful code</li>
+              <li>Is defamatory, obscene, or hateful</li>
+              <li>Violates privacy rights of others</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">8. PDF Storage and Data Retention</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.1 Temporary PDF Storage</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Generated PDFs are stored temporarily for 1 hour only</strong></li>
+              <li>After 1 hour, PDFs are automatically deleted from our servers</li>
+              <li><strong>Quick Jobs</strong>: PDF is returned directly in HTTP response; not stored persistently</li>
+              <li><strong>Long Jobs</strong>: PDF is stored in S3 with a pre-signed URL valid for 1 hour</li>
+              <li><strong>Your Responsibility</strong>: Download PDFs immediately if you need to keep them</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.2 No Long-Term Storage</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We do not provide long-term PDF storage</li>
+              <li>We are not responsible for PDFs not downloaded within the 1-hour window</li>
+              <li>Expired PDFs cannot be recovered</li>
+              <li>You must regenerate PDFs if you need them again</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.3 Job Records</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Job metadata (status, creation time, page count) is retained indefinitely for all tiers</li>
+              <li>All job records are kept permanently with no automatic deletion</li>
+              <li>Job records do not include PDF content, only metadata</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.4 Input Content</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Your input content (HTML, Markdown, images) is processed in memory</li>
+              <li>Input content is not stored persistently on our servers</li>
+              <li>Input content is deleted immediately after PDF generation</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">9. Acceptable Use Policy</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">9.1 Prohibited Activities</h3>
+            <p>You may not use PodPDF to:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Generate illegal, fraudulent, or deceptive content</li>
+              <li>Create spam, phishing materials, or malicious documents</li>
+              <li>Violate intellectual property rights</li>
+              <li>Harass, threaten, or harm others</li>
+              <li>Circumvent usage limits or quotas</li>
+              <li>Reverse engineer or attempt to extract source code</li>
+              <li>Use automated systems to abuse the Service</li>
+              <li>Resell or redistribute the Service without authorization</li>
+              <li>Generate excessive traffic to disrupt service availability</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">9.2 Compliance with Laws</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You must comply with all applicable laws and regulations</li>
+              <li>You are responsible for ensuring your use complies with local laws</li>
+              <li>You must comply with export control and sanctions laws</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">9.3 Enforcement</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We reserve the right to investigate violations</li>
+              <li>We may suspend or terminate accounts for violations</li>
+              <li>We may report illegal activity to law enforcement</li>
+              <li>We are not obligated to provide advance notice before termination for violations</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">10. Service Availability and Support</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.1 Service Level Agreement (SLA)</h3>
+            <p><strong>Uptime Commitment:</strong></p>
+            <p>We commit to maintaining <strong>99.9% uptime</strong> for the PodPDF Service, calculated on a monthly basis.</p>
+            
+            <p class="mt-4"><strong>SLA Coverage:</strong></p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Applies to</strong>: Paid Tier Plan 1 and eligible tailored plans</li>
+              <li><strong>Does not apply to</strong>: Free Tier users (best-effort service)</li>
+              <li><strong>Tailored Plans</strong>: SLA eligibility and terms as specified in your plan agreement</li>
+              <li><strong>Measurement Period</strong>: Calendar month</li>
+            </ul>
+
+            <p class="mt-4"><strong>What Counts as Downtime:</strong></p>
+            <p>Downtime is measured when the Service is unavailable and you cannot:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Access the dashboard at https://app.podpdf.com</li>
+              <li>Successfully authenticate to your account</li>
+              <li>Generate PDFs via API with valid requests</li>
+              <li>Access job history and account information</li>
+            </ul>
+
+            <p class="mt-4"><strong>What Does NOT Count as Downtime:</strong></p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Scheduled Maintenance</strong>: Announced at least 48 hours in advance</li>
+              <li><strong>Emergency Maintenance</strong>: Critical security or infrastructure updates</li>
+              <li><strong>Your Network/Systems</strong>: Issues with your internet connection, systems, or infrastructure</li>
+              <li><strong>Third-Party Services</strong>: AWS service outages, Google OAuth outages, or other third-party failures beyond our control</li>
+              <li><strong>Force Majeure</strong>: Natural disasters, acts of war, terrorism, or other events beyond our reasonable control</li>
+              <li><strong>Your Violations</strong>: Downtime caused by your violation of these Terms</li>
+              <li><strong>Beta Features</strong>: Features marked as beta, experimental, or preview</li>
+              <li><strong>API Client Errors</strong>: Errors caused by invalid requests (4xx HTTP status codes)</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.2 SLA Credits and Remedies</h3>
+            <p>If we fail to meet the 99.9% uptime commitment, eligible Paid Tier Plan 1 users and users on tailored plans with SLA guarantees may request SLA credits in the form of <strong>free PDF generation credits</strong>.</p>
+            
+            <p class="mt-4"><strong>Credit Amounts (Based on Monthly Usage):</strong></p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>&lt; 99.9% but ≥ 99.0%: 10% of PDFs generated</li>
+              <li>&lt; 99.0% but ≥ 95.0%: 25% of PDFs generated</li>
+              <li>&lt; 95.0%: 50% of PDFs generated</li>
+            </ul>
+
+            <p class="mt-4"><strong>How to Request Credits:</strong></p>
+            <ol class="list-decimal pl-6 space-y-2">
+              <li>Email <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a> within 30 days of the incident</li>
+              <li>Include: Your account email, date and time of downtime, description of the issue, and evidence</li>
+              <li>We will investigate and respond within 15 business days</li>
+              <li>If approved, free PDF credits will be added to your account within 5 business days</li>
+            </ol>
+
+            <p class="mt-4"><strong>Free Tier Users:</strong></p>
+            <p>Free Tier users are not eligible for SLA credits. Service is provided on a best-effort basis without uptime guarantees.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.3 Service Availability</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We strive to exceed the 99.9% uptime commitment</li>
+              <li>We continuously monitor service health and performance</li>
+              <li>We use AWS infrastructure for high availability and redundancy</li>
+              <li>We may perform maintenance that temporarily affects availability</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.4 Maintenance and Updates</h3>
+            <p><strong>Scheduled Maintenance:</strong></p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We will provide at least 48 hours advance notice via email</li>
+              <li>Scheduled maintenance is excluded from downtime calculations</li>
+              <li>We will schedule maintenance during low-traffic periods when possible</li>
+            </ul>
+
+            <p class="mt-4"><strong>Emergency Maintenance:</strong></p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>May be performed without advance notice for critical security or infrastructure issues</li>
+              <li>Emergency maintenance is excluded from downtime calculations</li>
+              <li>We will notify you as soon as reasonably possible during or after emergency maintenance</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.5 Support</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Email Support</strong>: <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a></li>
+              <li><strong>Free Tier</strong>: Support provided on a best-effort basis, no guaranteed response times</li>
+              <li><strong>Paid Tier Plan 1</strong>: Priority support with target response times:
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                  <li>Critical issues (service down): 4 business hours</li>
+                  <li>High priority (major functionality impaired): 1 business day</li>
+                  <li>Normal priority (general questions): 2 business days</li>
+                  <li>Low priority (feature requests, documentation): 5 business days</li>
+                </ul>
+              </li>
+              <li><strong>Tailored Plans</strong>: Support levels as specified in your plan agreement</li>
+              <li>Response times are targets, not guarantees</li>
+              <li>Support available in English during business hours (9 AM - 6 PM Sri Lanka Time, Monday-Friday)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">11. Intellectual Property</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">11.1 PodPDF Platform</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>PodPDF owns all rights to the platform, infrastructure, and codebase</li>
+              <li>The PodPDF name, logo, and branding are our trademarks</li>
+              <li>You may not use our trademarks without written permission</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">11.2 User Content</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You retain all rights to content you submit</li>
+              <li>You grant us only the rights necessary to provide the Service</li>
+              <li>We make no claim to ownership of your generated PDFs</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">11.3 Third-Party Components</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>The Service may include open-source software</li>
+              <li>Third-party components are subject to their respective licenses</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">12. Webhooks and Integrations</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">12.1 Webhook Configuration</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You may configure webhook URLs to receive job completion notifications</li>
+              <li>Webhook URLs must be valid HTTPS endpoints</li>
+              <li>You are responsible for maintaining webhook endpoint security and availability</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">12.2 Webhook Delivery</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We will attempt to deliver webhooks with up to 3 retries</li>
+              <li>We are not responsible for failed webhook deliveries due to endpoint unavailability</li>
+              <li>Webhook failures do not affect job completion status</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">12.3 Third-Party Integrations</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You are responsible for compliance with third-party service terms</li>
+              <li>We are not liable for issues with third-party services you integrate with</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">13. Limitation of Liability</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">13.1 Disclaimer of Warranties</h3>
+            <p class="font-mono text-sm bg-surface p-4 rounded border border-border">
+              THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+            </p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">13.2 Limitation of Liability</h3>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, PODPDF SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Your use or inability to use the Service</li>
+              <li>Any unauthorized access to or use of our servers or your data</li>
+              <li>Any interruption or cessation of the Service</li>
+              <li>Any bugs, viruses, or harmful code transmitted through the Service</li>
+              <li>Any errors or omissions in content</li>
+              <li>Any third-party content or conduct</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">13.3 Maximum Liability</h3>
+            <p>OUR TOTAL LIABILITY TO YOU FOR ANY CLAIMS ARISING FROM OR RELATED TO THE SERVICE SHALL NOT EXCEED THE AMOUNT YOU PAID TO US IN THE 12 MONTHS PRECEDING THE CLAIM, OR $100 USD, WHICHEVER IS GREATER.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">13.4 Jurisdictional Limitations</h3>
+            <p>Some jurisdictions do not allow the exclusion or limitation of certain warranties or liabilities. In such jurisdictions, our liability will be limited to the maximum extent permitted by law.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">14. Indemnification</h2>
+            <p>You agree to indemnify, defend, and hold harmless PodPDF, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Your access to or use of the Service</li>
+              <li>Your violation of these Terms</li>
+              <li>Your violation of any rights of another party</li>
+              <li>Content you submit to the Service</li>
+              <li>Your use of API keys or webhooks</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">15. Account Termination</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">15.1 Termination by You</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You may delete your account at any time through the Settings page</li>
+              <li>Account deletion is permanent and cannot be undone</li>
+              <li>Deletion removes your account, job records, and rate limit records</li>
+              <li>Outstanding balances must be paid before account deletion</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">15.2 Termination by Us</h3>
+            <p>We may suspend or terminate your account at any time, without notice, for:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Violation of these Terms</li>
+              <li>Violation of Acceptable Use Policy</li>
+              <li>Fraudulent or illegal activity</li>
+              <li>Non-payment of fees</li>
+              <li>Abusive behavior toward our staff or other users</li>
+              <li>Any reason at our sole discretion</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">15.3 Effect of Termination</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You will lose access to the Service immediately</li>
+              <li>Outstanding fees remain due and payable</li>
+              <li>We may delete your data in accordance with our retention policies</li>
+              <li>Sections that by their nature should survive termination will survive (e.g., liability limitations, indemnification, dispute resolution)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">16. Privacy and Data Protection</h2>
+            <p>Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your information. By using the Service, you agree to our Privacy Policy, which is incorporated into these Terms by reference.</p>
+            
+            <p class="mt-4">Key privacy points:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We collect minimal personal information (email, name, usage data)</li>
+              <li>We use AWS infrastructure with industry-standard security</li>
+              <li>We comply with GDPR and CCPA requirements</li>
+              <li>Generated PDFs are stored for 1 hour only</li>
+              <li>You can request data deletion by deleting your account</li>
+            </ul>
+            
+            <p class="mt-4">Please review our <a href="/privacy" class="text-primary hover:text-primary-dark">Privacy Policy</a> for complete details.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">17. Changes to Terms</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">17.1 Right to Modify</h3>
+            <p>We reserve the right to modify these Terms at any time. Changes may include but are not limited to:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Changes to pricing (with email notification)</li>
+              <li>Changes to usage limits or features</li>
+              <li>Changes to supported services or authentication methods</li>
+              <li>Updates to comply with legal requirements</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">17.2 Notification of Changes</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>We will notify you of material changes via email to your registered email address</li>
+              <li>We may also post notices on our website or dashboard</li>
+              <li>Changes will be effective 14 days after notification, or immediately for legal compliance</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">17.3 Your Options</h3>
+            <p>If you do not agree to changes:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>You may stop using the Service</li>
+              <li>You may delete your account</li>
+              <li>Continued use after changes take effect constitutes acceptance</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">18. Dispute Resolution and Governing Law</h2>
+            <p><strong>We operate globally using cloud infrastructure</strong> and serve customers worldwide. However, for legal purposes, the following governing law and jurisdiction apply:</p>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">18.1 Governing Law</h3>
+            <p>These Terms shall be governed by and construed in accordance with the laws of <strong>Sri Lanka</strong>, without regard to its conflict of law provisions.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">18.2 Jurisdiction</h3>
+            <p>Any disputes arising from or relating to these Terms or the Service shall be subject to the exclusive jurisdiction of the courts of <strong>Sri Lanka</strong>.</p>
+
+            <p class="mt-4"><strong>Note:</strong> While Sri Lanka law governs these Terms, we comply with applicable international data protection regulations (GDPR, CCPA) and industry standards wherever our customers are located.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">18.3 Informal Resolution</h3>
+            <p>Before filing a legal claim, you agree to contact us at <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a> to attempt to resolve the dispute informally for at least 30 days.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">18.4 Waiver of Class Actions</h3>
+            <p>You agree to resolve disputes with us on an individual basis only. You waive any right to bring claims as part of a class action, collective action, or representative proceeding.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">19. Miscellaneous Provisions</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.1 Entire Agreement</h3>
+            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and PodPDF regarding the Service.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.2 Severability</h3>
+            <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.3 Waiver</h3>
+            <p>Our failure to enforce any right or provision of these Terms will not be deemed a waiver of such right or provision.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.4 Assignment</h3>
+            <p>You may not assign or transfer these Terms or your account without our prior written consent. We may assign these Terms at any time without notice.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.5 Force Majeure</h3>
+            <p>We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to acts of God, war, terrorism, natural disasters, internet disruptions, or AWS service outages.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.6 Third-Party Services</h3>
+            <p>The Service relies on third-party infrastructure providers (AWS, Google OAuth). We are not responsible for third-party service failures, terms changes, or discontinuation.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.7 Export Controls</h3>
+            <p>You may not use or export the Service in violation of export laws and regulations of Sri Lanka, the United States, or any other applicable jurisdiction.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">20. Contact Information</h2>
+            <p>If you have any questions about these Terms, please contact us:</p>
+            <p class="mt-4">
+              <strong>Email</strong>: <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a><br />
+              <strong>Website</strong>: <a href="https://app.podpdf.com" class="text-primary hover:text-primary-dark">https://app.podpdf.com</a>
+            </p>
+          </section>
+        </div>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="mt-12 p-6 rounded-lg bg-surface border border-border">
+        <p class="text-sm text-text-muted">
+          <strong>By using PodPDF, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</strong>
+        </p>
+        <p class="text-sm text-text-muted mt-2">Last Updated: December 30, 2025</p>
+      </div>
+    </div>
+  </article>
+</MarketingLayout>

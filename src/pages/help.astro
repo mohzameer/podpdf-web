@@ -1,0 +1,298 @@
+---
+/**
+ * Help & FAQ Page
+ *
+ * @description
+ * Comprehensive help page with FAQs, contact information, and company details.
+ */
+import MarketingLayout from '@/layouts/MarketingLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { siteConfig } from '@/config';
+
+interface FAQ {
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+const faqs: FAQ[] = [
+  // Getting Started
+  {
+    question: 'How do I get started with PodPDF?',
+    answer:
+      "Sign up for a free account at PodPDF. You'll get 100 free PDFs to start with—no credit card required. You get the same speed and performance as paid plans. You can use our visual web app to convert files instantly, or create an API key to integrate PDF generation into your applications.",
+    category: 'Getting Started',
+  },
+  {
+    question: 'Do I need coding skills to use PodPDF?',
+    answer:
+      'Not at all! Our visual web application has a drag-and-drop interface that anyone can use—no coding required. However, we also offer a powerful API for developers who want to automate PDF generation or integrate it into their applications.',
+    category: 'Getting Started',
+  },
+  {
+    question: 'What file formats can I convert to PDF?',
+    answer:
+      'PodPDF supports three input formats: HTML (with full CSS styling), Markdown (GitHub-flavored with tables and code blocks), and Images (PNG and JPEG). You can convert these using either our web app or API.',
+    category: 'Getting Started',
+  },
+
+  // Pricing & Billing
+  {
+    question: 'How does pricing work?',
+    answer:
+      'We offer a free tier with 100 PDFs (lifetime quota). After that, you pay $0.01 per PDF with no monthly fees or commitments. Whether you use the web app or API, the pricing is the same. Free users get the same speed and performance as paid users—no compromises. Enterprise customers can get volume discounts—contact us for details.',
+    category: 'Pricing & Billing',
+  },
+  {
+    question: 'Can I use both the web app and API?',
+    answer:
+      'Yes! All plans include access to both the web app and API. They count toward the same quota, so you can use whichever method works best for your needs at any time.',
+    category: 'Pricing & Billing',
+  },
+  {
+    question: 'What happens after I use my 100 free PDFs?',
+    answer:
+      'User will have to upgrade the plan to paid ones to continue using',
+    category: 'Pricing & Billing',
+  },
+  {
+    question: 'Do you offer refunds?',
+    answer:
+      'Yes, we offer refunds on a case-by-case basis. If you encounter technical issues or are unsatisfied with our service, contact us at podpdfapp@gmail.com and we\'ll work with you to resolve it.',
+    category: 'Pricing & Billing',
+  },
+
+  // Technical
+  {
+    question: 'Are there any rate limits?',
+    answer:
+      'Free tier accounts have a rate limit of 20 API requests per minute. The web app has no rate limits. Pay-as-you-go and Enterprise plans have unlimited API requests.',
+    category: 'Technical',
+  },
+  {
+    question: 'How long does PDF generation take?',
+    answer:
+      'Most PDFs are generated in under 30 seconds. Simple documents are typically ready in just a few seconds. Complex documents with many pages or images may take longer.',
+    category: 'Technical',
+  },
+  {
+    question: 'What are the size limits?',
+    answer:
+      'Content size is limited to 5 MB per request. Images can be up to 5 MB each with a total of 10 MB per batch. Image dimensions can be up to 10,000 x 10,000 pixels. Generated PDFs can have up to 100 pages.',
+    category: 'Technical',
+  },
+  {
+    question: 'How do webhooks work?',
+    answer:
+      'Webhooks allow you to receive real-time notifications when long-running PDF jobs complete. Configure a webhook URL in your settings, and we\'ll send a POST request with the job status and download link when ready.',
+    category: 'Technical',
+  },
+
+  // Account & Security
+  {
+    question: 'How do I create an API key?',
+    answer:
+      'Log in to your dashboard, navigate to Settings → API Keys, and click "Create New API Key". Give it a name and copy the key immediately—you won\'t be able to see it again. Store it securely.',
+    category: 'Account & Security',
+  },
+  {
+    question: 'Is my data secure?',
+    answer:
+      'Yes! PodPDF is built on AWS infrastructure with industry-standard encryption. Your content is processed securely and stored temporarily (7-30 days). We never read, analyze, or share your data.',
+    category: 'Account & Security',
+  },
+  {
+    question: 'How long are PDFs stored?',
+    answer:
+      'Generated PDFs are stored for 7-30 days depending on your plan. After that, they are automatically deleted. You can download them anytime during this period from your dashboard or via the API.',
+    category: 'Account & Security',
+  },
+];
+
+// Group FAQs by category
+const categories = [...new Set(faqs.map((faq) => faq.category))];
+const groupedFAQs = categories.map((category) => ({
+  category,
+  items: faqs.filter((faq) => faq.category === category),
+}));
+---
+
+<MarketingLayout
+  title={`Help Center - ${siteConfig.name}`}
+  description="Find answers to frequently asked questions about PodPDF. Get help with pricing, technical questions, and account management."
+>
+  <!-- Hero Section -->
+  <section class="py-section bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <Icon name="lucide:help-circle" class="w-16 h-16 mx-auto text-primary mb-4" />
+        <h1 class="text-4xl sm:text-5xl font-bold text-text">Help Center</h1>
+        <p class="mt-6 text-lg text-text-muted">
+          Find answers to common questions or get in touch with our support team.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Cards -->
+  <section class="py-12 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Email Support -->
+        <div class="p-6 rounded-lg border border-border bg-surface">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-primary/10">
+              <Icon name="lucide:mail" class="w-6 h-6 text-primary" />
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-text mb-2">Email Support</h3>
+              <p class="text-text-muted mb-3">Get help from our support team</p>
+              <a
+                href="mailto:podpdfapp@gmail.com"
+                class="text-primary hover:text-primary-dark font-medium"
+              >
+                podpdfapp@gmail.com
+              </a>
+              <p class="text-sm text-text-muted mt-2">Response time: 24-48 hours</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Documentation -->
+        <div class="p-6 rounded-lg border border-border bg-surface">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-primary/10">
+              <Icon name="lucide:book-open" class="w-6 h-6 text-primary" />
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-text mb-2">API Documentation</h3>
+              <p class="text-text-muted mb-3">Comprehensive guides and examples</p>
+              <a href="/docs" class="text-primary hover:text-primary-dark font-medium">
+                View API Docs →
+              </a>
+              <p class="text-sm text-text-muted mt-2">Code examples in multiple languages</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text">Frequently Asked Questions</h2>
+        <p class="mt-4 text-lg text-text-muted">Quick answers to common questions</p>
+      </div>
+
+      <div class="space-y-12">
+        {
+          groupedFAQs.map((group) => (
+            <div>
+              <h3 class="text-xl font-bold text-text mb-6 flex items-center gap-2">
+                <span class="w-1 h-6 bg-primary rounded-full" />
+                {group.category}
+              </h3>
+              <div class="space-y-6">
+                {group.items.map((faq) => (
+                  <div class="p-6 rounded-lg border border-border bg-surface hover:border-primary/50 transition-colors">
+                    <h4 class="text-lg font-semibold text-text mb-3">{faq.question}</h4>
+                    <p class="text-text-muted leading-relaxed">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Information -->
+  <section class="py-section bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-text">Company Information</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Company Details -->
+        <div class="p-6 rounded-lg border border-border bg-background">
+          <div class="flex items-start gap-3 mb-4">
+            <Icon name="lucide:building-2" class="w-6 h-6 text-primary mt-1" />
+            <div>
+              <h3 class="font-semibold text-text mb-2">Legal Entity</h3>
+              <p class="text-text-muted">XadLabs (PVT) Ltd</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="p-6 rounded-lg border border-border bg-background">
+          <div class="flex items-start gap-3 mb-4">
+            <Icon name="lucide:map-pin" class="w-6 h-6 text-primary mt-1" />
+            <div>
+              <h3 class="font-semibold text-text mb-2">Office Address</h3>
+              <p class="text-text-muted">
+                148, Alpitiya road<br />
+                Mawanella, 71500<br />
+                Sri Lanka
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="p-6 rounded-lg border border-border bg-background">
+          <div class="flex items-start gap-3 mb-4">
+            <Icon name="lucide:mail" class="w-6 h-6 text-primary mt-1" />
+            <div>
+              <h3 class="font-semibold text-text mb-2">Contact Email</h3>
+              <a
+                href="mailto:podpdfapp@gmail.com"
+                class="text-primary hover:text-primary-dark"
+              >
+                podpdfapp@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Website -->
+        <div class="p-6 rounded-lg border border-border bg-background">
+          <div class="flex items-start gap-3 mb-4">
+            <Icon name="lucide:globe" class="w-6 h-6 text-primary mt-1" />
+            <div>
+              <h3 class="font-semibold text-text mb-2">Website</h3>
+              <a href={siteConfig.url} class="text-primary hover:text-primary-dark">
+                {siteConfig.url.replace('https://', '')}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Still Need Help -->
+  <section class="py-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 rounded-lg bg-primary/5 border border-primary/20 text-center">
+        <Icon name="lucide:message-circle" class="w-12 h-12 mx-auto text-primary mb-4" />
+        <h2 class="text-2xl font-bold text-text mb-3">Still need help?</h2>
+        <p class="text-text-muted mb-6">
+          Can't find what you're looking for? Our support team is here to help.
+        </p>
+        <a
+          href="mailto:podpdfapp@gmail.com"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-white font-medium hover:bg-primary-dark transition-colors"
+        >
+          <Icon name="lucide:send" class="w-5 h-5" />
+          Contact Support
+        </a>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>
+

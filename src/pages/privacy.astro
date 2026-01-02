@@ -1,0 +1,209 @@
+---
+/**
+ * Privacy Policy Page
+ *
+ * @description
+ * Privacy policy explaining how PodPDF collects, uses, and protects user information.
+ */
+import MarketingLayout from '@/layouts/MarketingLayout.astro';
+import { siteConfig } from '@/config';
+---
+
+<MarketingLayout
+  title={`Privacy Policy - ${siteConfig.name}`}
+  description="Privacy Policy for PodPDF - Learn how we collect, use, and protect your information when using our PDF generation service."
+>
+  <article class="py-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="mb-12">
+        <h1 class="text-4xl sm:text-5xl font-bold text-text mb-4">Privacy Policy</h1>
+        <p class="text-text-muted">Last Updated: December 30, 2025</p>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <div class="text-text-muted leading-relaxed space-y-8">
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">1. Introduction</h2>
+            <p>
+              Welcome to PodPDF ("we", "us", "our", or "Service"). This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our PDF generation platform at https://app.podpdf.com, including our web application and API services.
+            </p>
+            <p>
+              <strong>We operate globally using cloud infrastructure.</strong> PodPDF is built on Amazon Web Services (AWS) and serves <strong>customers worldwide</strong>. We comply with international data protection standards including GDPR and CCPA.
+            </p>
+            <p>
+              By using PodPDF, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with this Privacy Policy, please do not use our Service.
+            </p>
+            <p>This Privacy Policy should be read in conjunction with our <a href="/terms" class="text-primary hover:text-primary-dark">Terms of Service</a>.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">2. Information We Collect</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">2.1 Personal Information You Provide</h3>
+            <p><strong>Account Registration:</strong></p>
+            <p>When you create an account, we collect:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Email address</strong> (required for authentication and communication)</li>
+              <li><strong>Password</strong> (encrypted and stored securely via AWS Cognito)</li>
+              <li><strong>Display name</strong> (optional)</li>
+            </ul>
+
+            <p class="mt-4"><strong>Google OAuth Authentication:</strong></p>
+            <p>When you sign in using Google, we collect:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Google account email address</li>
+              <li>Google account name (if provided by Google)</li>
+              <li>Google user ID (for authentication purposes)</li>
+            </ul>
+            <p>We only access the information you authorize Google to share with us. We do not have access to your Google password.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">2.2 Automatically Collected Information</h3>
+            <p>When you use the Service, we automatically collect usage data, technical information, and cookies as detailed in the full Privacy Policy.</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">2.3 Content You Submit</h3>
+            <p><strong>Important</strong>: Your input content (HTML, Markdown, or Images) is processed in memory and <strong>not stored persistently</strong> on our servers. It is deleted immediately after PDF generation.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">3. How We Use Your Information</h2>
+            <p>We use the information we collect for:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Service Provision</strong>: Authentication, PDF generation, API access, job tracking</li>
+              <li><strong>Billing and Payment</strong>: Calculate charges, process payments, generate invoices</li>
+              <li><strong>Communication</strong>: Send service notifications, support responses, security alerts</li>
+              <li><strong>Service Improvement</strong>: Analytics, error tracking, feature development</li>
+              <li><strong>Security and Fraud Prevention</strong>: Detect unauthorized access, prevent abuse</li>
+              <li><strong>Legal Compliance</strong>: Comply with applicable laws and regulations</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">4. Data Storage and Infrastructure</h2>
+            <p>We use <strong>Amazon Web Services (AWS)</strong> infrastructure for all data storage and processing. Your data is primarily stored in AWS data centers with industry-standard security.</p>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.3 PDF Storage and Deletion</h3>
+            <p><strong>Critical: PDFs are stored for 1 hour only</strong></p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>PDFs are automatically deleted after 1 hour</li>
+              <li>No recovery: Expired PDFs cannot be recovered</li>
+              <li>Your responsibility: Download PDFs immediately if you need to keep them</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">5. Data Sharing and Disclosure</h2>
+            <p><strong>We never sell, rent, or trade your personal information to third parties for marketing purposes.</strong></p>
+            <p>We may share information with:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Service Providers</strong>: AWS, Google OAuth, payment processors (only as necessary)</li>
+              <li><strong>Legal Requirements</strong>: When required by law or valid legal processes</li>
+              <li><strong>With Your Consent</strong>: When you explicitly authorize sharing</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">6. Cookies and Tracking Technologies</h2>
+            <p>We use essential cookies for session management and authentication. We do not use tracking cookies for advertising purposes.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">7. Data Security</h2>
+            <p>We implement industry-standard security measures including HTTPS/TLS encryption, AWS security infrastructure, and secure password hashing. However, no method of transmission over the Internet is 100% secure.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">8. Your Privacy Rights</h2>
+            
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.1 Rights Under GDPR (European Users)</h3>
+            <p>If you are in the European Economic Area, you have rights to:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Access your personal information</li>
+              <li>Rectify inaccurate information</li>
+              <li>Request erasure ("right to be forgotten")</li>
+              <li>Data portability</li>
+              <li>Object to processing</li>
+              <li>Withdraw consent</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.2 Rights Under CCPA (California Users)</h3>
+            <p>California residents have rights to know, delete, and opt-out of sale of personal information (we do not sell personal information).</p>
+
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.3 Exercising Your Rights</h3>
+            <p>To exercise any of these rights, email us at <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a>. We will respond within 30 days.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">9. International Data Transfers</h2>
+            <p><strong>We operate globally using cloud infrastructure</strong> and welcome customers from around the world. Your data is processed using AWS global infrastructure with appropriate safeguards for international data transfers.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">10. Children's Privacy</h2>
+            <p><strong>PodPDF is not intended for use by children under 13 years of age.</strong> We do not knowingly collect personal information from children under 13.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">11. Data Retention</h2>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>PDFs</strong>: Stored for 1 hour only, then automatically deleted</li>
+              <li><strong>Input Content</strong>: Not stored persistently, deleted immediately after processing</li>
+              <li><strong>Job Metadata</strong>: All tiers - retained indefinitely</li>
+              <li><strong>Account Information</strong>: Retained while account is active</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">12. Changes to This Privacy Policy</h2>
+            <p>We reserve the right to modify this Privacy Policy at any time. We will notify you of material changes via email at least 14 days before they take effect.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">13. Contact Us</h2>
+            <p>If you have questions, concerns, or requests regarding this Privacy Policy:</p>
+            <p>
+              <strong>Email</strong>: <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a><br />
+              <strong>Website</strong>: <a href="https://app.podpdf.com" class="text-primary hover:text-primary-dark">https://app.podpdf.com</a>
+            </p>
+            <p class="mt-4"><strong>Company Information:</strong></p>
+            <p>PodPDF is operated by <strong>XadLabs (PVT) Ltd</strong>, registered in Sri Lanka.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-text mt-8 mb-4">14. Compliance and Certifications</h2>
+            <p>We comply with:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>GDPR</strong>: General Data Protection Regulation for EEA users</li>
+              <li><strong>CCPA</strong>: California Consumer Privacy Act for California residents</li>
+              <li><strong>AWS Security Standards</strong>: ISO 27001, SOC 2, PCI DSS Level 1</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <!-- Summary Box -->
+      <div class="mt-12 p-6 rounded-lg bg-surface border border-border">
+        <h3 class="text-lg font-semibold text-text mb-4">Summary of Key Privacy Points</h3>
+        <ul class="space-y-2 text-sm text-text-muted">
+          <li>✅ <strong>Minimal Data Collection</strong>: We collect only essential information (email, name, usage data)</li>
+          <li>✅ <strong>No Data Selling</strong>: We never sell your personal information</li>
+          <li>✅ <strong>Short PDF Storage</strong>: PDFs stored for 1 hour only, then automatically deleted</li>
+          <li>✅ <strong>No Content Storage</strong>: Input content processed in memory, not stored persistently</li>
+          <li>✅ <strong>AWS Infrastructure</strong>: Industry-leading security and compliance</li>
+          <li>✅ <strong>GDPR & CCPA Compliant</strong>: Full compliance with data protection regulations</li>
+          <li>✅ <strong>Your Control</strong>: Easy account deletion and data access requests</li>
+        </ul>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="mt-8 p-6 rounded-lg bg-primary/5 border border-primary/20">
+        <p class="text-sm text-text-muted">
+          <strong>By using PodPDF, you acknowledge that you have read, understood, and agree to this Privacy Policy.</strong>
+        </p>
+        <p class="text-sm text-text-muted mt-2">Last Updated: December 30, 2025</p>
+      </div>
+    </div>
+  </article>
+</MarketingLayout>
+

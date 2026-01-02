@@ -1,0 +1,184 @@
+---
+import MarketingLayout from '@/layouts/MarketingLayout.astro';
+import PricingTable from '@sections/pricing/PricingTable.astro';
+import ComparisonTable from '@sections/pricing/ComparisonTable.astro';
+import TrustBadges from '@sections/pricing/TrustBadges.astro';
+import FAQSection from '@sections/content/FAQSection.astro';
+import CTA from '@sections/marketing/CTA.astro';
+import { siteConfig } from '@/config';
+
+const planNames = ['Free Tier', 'Pay As You Go', 'Enterprise'];
+
+const plans = [
+  {
+    name: 'Free Tier',
+    monthlyPrice: 0,
+    description: 'Perfect for testing and small projects. Same speed as paid plans.',
+    features: [
+      '100 PDFs (lifetime quota)',
+      'Web app + API access',
+      '20 requests per minute',
+      'HTML, Markdown & Images',
+      'Dashboard & job history',
+      'Webhook notifications',
+      'All features included',
+      'Same speed as paid plans',
+    ],
+    highlighted: false,
+    cta: { label: 'Start Free', href: '/register' },
+  },
+  {
+    name: 'Pay As You Go',
+    monthlyPrice: null,
+    customPrice: '$0.01 per PDF',
+    description: 'For production use and automation',
+    features: [
+      'Unlimited PDFs',
+      'Web app + Full API access',
+      'No rate limits',
+      'Just $0.01 per PDF',
+      'Priority support',
+      'Full job history',
+      'Unlimited API keys',
+      'Webhook notifications',
+    ],
+    highlighted: true,
+    cta: { label: 'Get Started', href: '/register' },
+  },
+  {
+    name: 'Enterprise',
+    monthlyPrice: null,
+    customPrice: 'Custom',
+    description: 'For high-volume and custom needs',
+    features: [
+      'Volume discounts available',
+      'Web app + API access',
+      'Dedicated support team',
+      '99.9% uptime SLA',
+      'Custom contracts',
+      'Invoice billing (NET-30)',
+      'Multiple webhook URLs',
+    ],
+    highlighted: false,
+    cta: { label: 'Contact Sales', href: '/register' },
+  },
+];
+
+const faqs = [
+  {
+    question: 'Can I use both the web app and API?',
+    answer:
+      "Yes! Both methods are included in all plans and count toward the same quota. Use the web app for manual conversions and the API for automation—whatever works best for your workflow.",
+  },
+  {
+    question: 'How does the free tier work?',
+    answer:
+      "You get 100 PDFs for free—a lifetime quota that never expires. Use them via the web app, API, or both. Perfect for testing and small projects. No credit card required. Same speed and performance as paid plans.",
+  },
+  {
+    question: 'What happens after I use my 100 free PDFs?',
+    answer:
+      'User will have to upgrade the plan to paid ones to continue using',
+  },
+  {
+    question: 'Are there any rate limits?',
+    answer:
+      'Free tier has a rate limit of 20 API requests per minute. The web app has no rate limits. Pay-as-you-go and Enterprise plans have unlimited API requests.',
+  },
+  {
+    question: 'Do I need coding skills to use PodPDF?',
+    answer:
+      'Not at all! Use our visual web application with drag-and-drop—no coding required. Developers can use our API for programmatic access and automation. Choose what works for you.',
+  },
+  {
+    question: 'What input formats do you support?',
+    answer:
+      "Both the web app and API support HTML (with full CSS), Markdown (GitHub-flavored), and images (PNG/JPEG). Content up to 5 MB, PDFs up to 100 pages.",
+  },
+];
+
+const comparisonCategories = [
+  {
+    name: 'Usage Limits',
+    features: [
+      { name: 'Total PDFs', values: ['100 (lifetime)', 'Unlimited', 'Unlimited'] },
+      { name: 'Rate Limits', values: ['20 req/min', 'Unlimited', 'Unlimited'] },
+      { name: 'Price per PDF', values: ['$0', '$0.01', 'Custom'] },
+      { name: 'API Keys', values: ['5', 'Unlimited', 'Unlimited'] },
+    ],
+  },
+  {
+    name: 'Input Formats',
+    features: [
+      { name: 'HTML to PDF', values: [true, true, true] },
+      { name: 'Markdown to PDF', values: [true, true, true] },
+      { name: 'Images to PDF', values: [true, true, true] },
+      { name: 'Custom CSS/Styling', values: [true, true, true] },
+      { name: 'Content Size Limit', values: ['5 MB', '5 MB', '5 MB'] },
+      { name: 'Page Limit', values: ['100', '100', '100+'] },
+    ],
+  },
+  {
+    name: 'Features',
+    features: [
+      { name: 'Dashboard Access', values: [true, true, true] },
+      { name: 'Job History', values: ['Unlimited', 'Unlimited', 'Unlimited'] },
+      { name: 'Webhook Notifications', values: [true, true, true] },
+      { name: 'Processing Speed', values: ['Same as paid', 'Same as paid', 'Same as paid'] },
+      { name: 'Multiple Webhooks', values: [false, false, true] },
+    ],
+  },
+  {
+    name: 'Support',
+    features: [
+      { name: 'Documentation', values: [true, true, true] },
+      { name: 'Email Support', values: [true, true, true] },
+      { name: 'Response Time', values: ['24-48hrs', '12hrs', 'Priority'] },
+    ],
+  },
+];
+---
+
+<MarketingLayout
+  title={`Pricing - ${siteConfig.name}`}
+  description="Use our web app or API. Start with 100 free PDFs, then pay only $0.01 per PDF. Same speed for all users. No monthly fees, no hidden costs."
+>
+  <PricingTable
+    title="Simple, transparent pricing"
+    subtitle="Use the web app or API—both count toward the same quota. Start with 100 free PDFs, then pay only $0.01 per PDF. Same speed and performance for all users. No monthly fees, no hidden costs."
+    plans={plans}
+    annualDiscount={0}
+    defaultPeriod="monthly"
+  />
+
+  <TrustBadges
+    guarantee={{
+      title: 'Start free, scale confidently',
+      description:
+        'No credit card required to start. Pay only for what you use. Cancel anytime with no penalties.',
+    }}
+  />
+
+  <ComparisonTable
+    title="Compare plans in detail"
+    subtitle="See exactly what's included in each plan."
+    plans={planNames}
+    categories={comparisonCategories}
+    highlightedPlan={1}
+    background="default"
+  />
+
+  <FAQSection
+    title="Frequently asked questions"
+    faqs={faqs}
+    variant="simple"
+    background="default"
+  />
+
+  <CTA
+    title="Need high-volume pricing or custom features?"
+    description="Generating thousands of PDFs? Need dedicated support or custom integrations? Let's talk about Enterprise pricing tailored to your needs."
+    action={{ label: 'Contact Sales', href: '/register' }}
+    background="muted"
+  />
+</MarketingLayout>

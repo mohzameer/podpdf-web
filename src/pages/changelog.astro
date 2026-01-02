@@ -1,0 +1,198 @@
+---
+/**
+ * Changelog Page
+ *
+ * @description
+ * Displays product updates, new features, and improvements in reverse chronological order.
+ */
+import MarketingLayout from '@/layouts/MarketingLayout.astro';
+import { Icon } from 'astro-icon/components';
+import { siteConfig } from '@/config';
+
+interface ChangelogEntry {
+  version: string;
+  date: string;
+  title: string;
+  type: 'major' | 'minor' | 'patch';
+  changes: {
+    category: 'New' | 'Improved' | 'Fixed' | 'Security';
+    items: string[];
+  }[];
+}
+
+const changelog: ChangelogEntry[] = [
+  {
+    version: '1.0.0',
+    date: 'December 30, 2024',
+    title: 'Initial Release',
+    type: 'minor',
+    changes: [
+      {
+        category: 'New',
+        items: [
+          'Visual web application for drag-and-drop PDF conversion',
+          'REST API for programmatic PDF generation',
+          'Support for HTML to PDF conversion with full CSS styling',
+          'Support for Markdown to PDF conversion (GitHub-flavored)',
+          'Support for Images to PDF (PNG and JPEG)',
+          'User dashboard with job history and monitoring',
+          'API key management for secure API access',
+          'Real-time job status tracking',
+          'Webhook notifications for long-running jobs',
+          'Customizable PDF options (page size, margins, orientation)',
+          'Free tier with 100 lifetime PDFs',
+          'Pay-as-you-go pricing at $0.01 per PDF',
+          'Comprehensive API documentation',
+          'Multiple authentication methods (JWT and API keys)',
+          'Complete job history (all records retained)',
+        ],
+      },
+    ],
+  },
+];
+
+const getTypeColor = (type: string) => {
+  switch (type) {
+    case 'major':
+      return 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20';
+    case 'minor':
+      return 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20';
+    case 'patch':
+      return 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20';
+    default:
+      return 'bg-gray-500/10 text-gray-600 dark:text-gray-400 border-gray-500/20';
+  }
+};
+
+const getCategoryIcon = (category: string) => {
+  switch (category) {
+    case 'New':
+      return 'lucide:sparkles';
+    case 'Improved':
+      return 'lucide:trending-up';
+    case 'Fixed':
+      return 'lucide:wrench';
+    case 'Security':
+      return 'lucide:shield';
+    default:
+      return 'lucide:circle';
+  }
+};
+
+const getCategoryColor = (category: string) => {
+  switch (category) {
+    case 'New':
+      return 'text-blue-600 dark:text-blue-400';
+    case 'Improved':
+      return 'text-green-600 dark:text-green-400';
+    case 'Fixed':
+      return 'text-orange-600 dark:text-orange-400';
+    case 'Security':
+      return 'text-red-600 dark:text-red-400';
+    default:
+      return 'text-gray-600 dark:text-gray-400';
+  }
+};
+---
+
+<MarketingLayout
+  title={`Changelog - ${siteConfig.name}`}
+  description="Stay up to date with the latest features, improvements, and bug fixes in PodPDF."
+>
+  <!-- Hero Section -->
+  <section class="py-section bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold text-text">Changelog</h1>
+        <p class="mt-6 text-lg text-text-muted">
+          Stay up to date with new features, improvements, and bug fixes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Changelog Entries -->
+  <section class="py-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-12">
+        {
+          changelog.map((entry) => (
+            <article class="relative">
+              {/* Version Header */}
+              <div class="flex items-center gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                  <h2 class="text-2xl font-bold text-text">v{entry.version}</h2>
+                </div>
+                <span class="text-sm text-text-muted">— {entry.date}</span>
+              </div>
+
+              {/* Title */}
+              {entry.title && (
+                <h3 class="text-xl font-semibold text-text mb-6">{entry.title}</h3>
+              )}
+
+              {/* Changes */}
+              <div class="space-y-8">
+                {entry.changes.map((change) => (
+                  <div>
+                    <div class="flex items-center gap-2 mb-3">
+                      <Icon
+                        name={getCategoryIcon(change.category)}
+                        class:list={['w-5 h-5', getCategoryColor(change.category)]}
+                      />
+                      <h4
+                        class:list={[
+                          'text-sm font-semibold uppercase tracking-wide',
+                          getCategoryColor(change.category),
+                        ]}
+                      >
+                        {change.category}
+                      </h4>
+                    </div>
+                    <ul class="space-y-2 ml-7">
+                      {change.items.map((item) => (
+                        <li class="text-text-muted flex items-start gap-2">
+                          <span class="text-primary mt-1.5">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+              {/* Divider */}
+              {changelog.indexOf(entry) < changelog.length - 1 && (
+                <div class="mt-12 border-b border-border" />
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe Section -->
+  <section class="py-section bg-surface">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <Icon name="lucide:bell" class="w-12 h-12 mx-auto text-primary mb-4" />
+        <h2 class="text-2xl font-bold text-text mb-4">Stay Updated</h2>
+        <p class="text-text-muted mb-6">
+          Get notified about new features and updates. Follow us on social media or subscribe to our
+          newsletter.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href={siteConfig.social.twitter}
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-border bg-background text-text font-medium hover:bg-surface transition-colors"
+          >
+            <Icon name="lucide:twitter" class="w-5 h-5" />
+            Follow on Twitter
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>
+
