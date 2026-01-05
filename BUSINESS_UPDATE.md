@@ -33,7 +33,7 @@ PodPDF now offers TWO ways to generate professional PDFs:
 **Title:** "Transform Your Content into Professional PDFs"
 
 **Subtitle:** 
-"Use our visual web app for instant conversions, or integrate our powerful API into your applications. Convert HTML, Markdown, and images to high-quality PDFs in seconds. Start with 100 free PDFs, then just $0.01 per PDF."
+"Use our visual web app for instant conversions, or integrate our powerful API into your applications. Convert HTML, Markdown, and images to high-quality PDFs in seconds. Start with 100 free PDFs, then just $0.01 per PDF. **We operate globally using cloud infrastructure**—serving customers in all countries with industry-leading reliability."
 
 **CTAs:**
 - Primary: "Start Free - No Credit Card"
@@ -100,6 +100,9 @@ PodPDF now offers TWO ways to generate professional PDFs:
 
 4. **Webhook Notifications**
    - Instant updates for API jobs
+   - Multiple webhook configurations (1 for free, 5 for paid)
+   - Event-based subscriptions (job.completed, job.failed, job.timeout, etc.)
+   - Delivery history and statistics
    - Perfect for automation
 
 ### Pricing Preview
@@ -121,20 +124,28 @@ PodPDF now offers TWO ways to generate professional PDFs:
 ### Pricing Plans (All include Web App + API)
 
 #### Free Tier
-- 100 PDFs (lifetime quota)
+- **100 PDFs** - Lifetime quota (one-time, non-renewable, cumulative)
 - **Web app + API access** ✨
-- 20 requests per minute
-- HTML, Markdown & Images
-- Dashboard & job history
-- All features included
+- **20 requests per minute** - Rate limit
+- **$0/PDF** - Completely free
+- HTML, Markdown & Images (subject to conversion type restrictions)
+- Dashboard & job history (permanent retention)
+- **1 Webhook** - Maximum webhook configuration
+- **Upgrade Path** - Purchase credits to automatically upgrade to paid plan
 
 #### Pay As You Go (Highlighted)
-- Unlimited PDFs
+- **Unlimited PDFs** - No quota limit (subject to credit balance)
 - **Web app + Full API access** ✨
-- No rate limits
-- Just $0.01 per PDF
+- **No rate limits** - Unlimited requests
+- **$0.01 per PDF** - Credit-based billing (purchase credits upfront)
+- **Credit System** - Credits deducted after each PDF generation
+- **Automatic Upgrade** - Free tier users automatically upgraded when purchasing credits
+- HTML, Markdown & Images (subject to conversion type restrictions)
+- **99.9% Uptime SLA** - Guaranteed availability with SLA credits
 - Priority support
-- Extended job history (365 days)
+- Permanent job history retention
+- **5 Webhooks** - Multiple webhook configurations with event subscriptions
+- **Webhook Delivery History** - Permanent retention of delivery records
 - Unlimited API keys
 
 #### Enterprise
@@ -144,6 +155,41 @@ PodPDF now offers TWO ways to generate professional PDFs:
 - 99.9% SLA
 - Custom contracts
 - Invoice billing (NET-30)
+- Up to 50 webhook configurations
+
+### Credit Purchase & Billing System
+
+**How It Works:**
+- **Free Tier**: Start with 100 free PDFs. Once exhausted, purchase credits to continue.
+- **Automatic Upgrade**: When you purchase credits for the first time, your account automatically upgrades to the paid plan ($0.01 per PDF).
+- **Credit-Based Billing**: Paid plans use a credit system - purchase credits upfront, and they're deducted after each PDF generation.
+- **Credit Balance**: You must have sufficient credits (or free credits) to generate PDFs. Requests are rejected if balance is insufficient.
+- **Transaction History**: All credit purchases and deductions are logged for audit purposes.
+
+**Purchasing Credits:**
+- Credits can be purchased at any time through your account dashboard
+- Credits are added to your balance immediately upon successful payment
+- Credits do not expire (unless otherwise specified)
+- Unused credits remain in your account until consumed
+
+**Important Notes:**
+- Plan upgrade is permanent - you cannot revert to free tier after upgrading
+- Credits are forfeited upon account deletion
+- Credit purchase automatically clears quota exceeded flags
+- Free credits (if included in your plan) are consumed before purchased credits
+
+### Conversion Type Restrictions
+
+**Plan-Based Restrictions:**
+- Plans may have restrictions on which conversion types are enabled
+- **Enabled Conversion Types**: Plans may specify which input types are allowed:
+  - `html` - HTML to PDF conversion
+  - `markdown` - Markdown to PDF conversion
+  - `image` - Image to PDF conversion
+- If your plan has `enabled_conversion_types` configured, only those types are allowed
+- If your plan does not specify restrictions, all types are enabled (backward compatible)
+- Requests for disabled conversion types will be rejected with `403 CONVERSION_TYPE_NOT_ENABLED` error
+- Check your plan details via API or dashboard to see which conversion types are enabled
 
 ### Updated FAQs
 
@@ -154,7 +200,13 @@ A: "Yes! Both methods are included in all plans and count toward the same quota.
 **Updated Questions:**
 
 **Q: How does the free tier work?**
-A: "You get 100 PDFs for free—use them via the web app, API, or both."
+A: "You get 100 PDFs for free (lifetime quota, one-time, non-renewable)—use them via the web app, API, or both. Once exhausted, purchase credits to continue and automatically upgrade to the paid plan."
+
+**Q: How does credit-based billing work?**
+A: "Paid plans use a credit system. Purchase credits upfront ($0.01 per PDF), and they're deducted after each PDF generation. You must have sufficient credits to generate PDFs. Free credits are consumed before purchased credits."
+
+**Q: Can I revert to the free tier after upgrading?**
+A: "No, plan upgrade is permanent. Once you purchase credits and upgrade to the paid plan, you cannot revert to the free tier."
 
 **Q: Are there any rate limits?**
 A: "Free tier has 20 API requests/minute. The web app has no rate limits. Paid plans have unlimited API requests."
@@ -163,7 +215,10 @@ A: "Free tier has 20 API requests/minute. The web app has no rate limits. Paid p
 A: "Not at all! Use our visual web application with drag-and-drop—no coding required. Developers can use our API for automation."
 
 **Q: What input formats do you support?**
-A: "Both the web app and API support HTML, Markdown, and images."
+A: "Both the web app and API support HTML, Markdown, and images. Note that some plans may have restrictions on which conversion types are enabled—check your plan details."
+
+**Q: What happens if I run out of credits?**
+A: "If you have insufficient credits, PDF generation requests will be rejected with an INSUFFICIENT_CREDITS error. Purchase more credits through your dashboard to continue."
 
 ---
 
@@ -385,14 +440,28 @@ Many customers will use BOTH:
    - Drag-and-drop file upload
    - Real-time preview
    - Instant download button
+   - Show conversion type restrictions if applicable
 
 2. **API Documentation**
    - Add comprehensive API docs
    - Code examples in multiple languages
-   - Webhook setup guides
+   - Webhook setup guides (including event subscriptions)
    - Authentication instructions
+   - Error handling guide (including new error codes)
 
-3. **Navigation Updates**
+3. **Credit Management UI**
+   - Credit purchase interface
+   - Credit balance display
+   - Transaction history
+   - Credit purchase flow with automatic upgrade messaging
+
+4. **Webhook Management**
+   - Multiple webhook configuration UI
+   - Event subscription selection
+   - Webhook delivery history viewer
+   - Webhook activation/deactivation
+
+5. **Navigation Updates**
    - Add "Convert" link in dashboard (web app)
    - Add "API Docs" in main navigation
    - Ensure both are equally discoverable
@@ -419,7 +488,7 @@ Many customers will use BOTH:
 ## 💼 Sales & Marketing Messages
 
 ### For Homepage
-"Transform your content into professional PDFs—your way. Use our visual web app for instant conversions, or integrate our powerful API for automation. Start with 100 free PDFs."
+"Transform your content into professional PDFs—your way. Use our visual web app for instant conversions, or integrate our powerful API for automation. Start with 100 free PDFs. **Available globally**—serving customers in all countries."
 
 ### For Social Media
 "Need PDFs? PodPDF gives you two options: 🖱️ Visual web app (no coding) or 💻 Developer API (full automation). Same infrastructure, same pricing. Start free! 🚀"
@@ -472,6 +541,114 @@ Many customers will use BOTH:
 
 ---
 
+## 🔔 Webhook System Details
+
+### Multiple Webhooks with Event Subscriptions
+
+**Plan-Based Limits:**
+- **Free Tier**: Maximum 1 webhook configuration
+- **Paid Standard**: Maximum 5 webhook configurations (default)
+- **Enterprise Plans**: Up to 50 webhook configurations
+
+**Event Types:**
+- `job.completed` - When a job successfully completes (default)
+- `job.failed` - When a job fails during processing
+- `job.timeout` - When a quick job exceeds 30-second timeout
+- `job.queued` - When a long job is queued
+- `job.processing` - When a long job starts processing
+
+**Webhook Features:**
+- Event-based subscriptions (subscribe only to events you care about)
+- Webhook delivery history (permanent retention for audit purposes)
+- Delivery statistics and monitoring
+- Activate/deactivate webhooks without deletion
+- Idempotency support via `X-Webhook-Delivery-Id` header
+
+**Delivery & Retry:**
+- 3 retries with exponential backoff (1s, 2s, 4s)
+- Retries on: network errors, timeouts (10 seconds), HTTP 5xx errors, HTTP 429
+- At-least-once delivery guarantee
+- All delivery attempts permanently logged
+
+## ⚠️ Error Handling Updates
+
+### New Error Codes
+
+**Credit & Billing Errors:**
+- `INSUFFICIENT_CREDITS` - Insufficient credit balance to generate PDF
+- `QUOTA_EXCEEDED` - Free tier limit reached (100 PDFs)
+
+**Conversion Type Errors:**
+- `CONVERSION_TYPE_NOT_ENABLED` - Requested conversion type not enabled for plan
+
+**Webhook Errors:**
+- `WEBHOOK_LIMIT_EXCEEDED` - Maximum webhooks reached for plan
+
+**Error Response Format:**
+All errors include detailed information:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable message",
+    "details": {
+      "additional_info": "context"
+    }
+  }
+}
+```
+
+## 📊 SLA & Support Details
+
+### Service Level Agreement (Paid Plans)
+
+**99.9% Uptime Guarantee:**
+- Calculated monthly
+- **SLA Credits as Free PDFs** if uptime commitment not met:
+  - 10% of monthly PDFs if uptime < 99.9% but ≥ 99.0%
+  - 25% of monthly PDFs if uptime < 99.0% but ≥ 95.0%
+  - 50% of monthly PDFs if uptime < 95.0%
+- Credits provided as free PDF generation quota (valid for 12 months)
+- Excludes scheduled maintenance (48-hour notice) and force majeure events
+
+**Free Tier:**
+- Best-effort service without uptime guarantees
+- Not eligible for SLA credits
+
+### Support Response Times
+
+**Free Tier:**
+- Best-effort support, no guaranteed response time
+
+**Paid Standard:**
+- Critical issues (service down): 4 business hours
+- High priority: 1 business day
+- Normal priority: 2 business days
+- Low priority: 5 business days
+
+## 🌍 Global Availability
+
+**We operate globally using cloud infrastructure:**
+- Built on Amazon Web Services (AWS) with worldwide availability
+- Serves customers in all countries
+- Industry-leading reliability and scale
+- Support provided in English
+
+## 📋 Limits & Quotas Summary
+
+| Resource | Free Tier | Paid Standard |
+|----------|-----------|---------------|
+| **PDF Quota** | 100 (lifetime) | Unlimited (credit-based) |
+| **Billing Model** | Free | Credit-based ($0.01/PDF) |
+| **Rate Limit** | 20 req/min | Unlimited |
+| **Job History** | Permanent | Permanent |
+| **Webhooks** | 1 webhook | 5 webhooks (default) |
+| **Webhook Events** | Event subscriptions | Event subscriptions |
+| **Webhook History** | ✅ | ✅ (permanent retention) |
+| **Conversion Types** | Plan-dependent | Plan-dependent |
+| **Uptime SLA** | Best-effort | 99.9% guaranteed |
+| **Support** | Email (best-effort) | Priority Email |
+
 ## 📝 Summary
 
 **The Big Change:**  
@@ -485,15 +662,32 @@ PodPDF is now positioned as a **dual-purpose platform** that serves both:
 3. Multiple use cases per customer
 4. Natural upgrade path (web app → API)
 5. Same infrastructure, same pricing
+6. Global availability (serves customers in all countries)
+7. Credit-based billing (flexible, pay-as-you-go)
+8. Comprehensive webhook system (event subscriptions, delivery history)
+9. 99.9% uptime SLA for paid plans with SLA credits
 
 **What This Means:**
 - More inclusive messaging
 - Equal emphasis on both methods
 - Clear explanations of when to use each
 - Flexible pricing that works for both
+- Credit-based billing system (purchase upfront, deduct per PDF)
+- Plan-based conversion type restrictions
+- Enhanced webhook system with event subscriptions
+- Permanent webhook delivery history for audit purposes
+- Detailed SLA with specific credit percentages
+
+**New Features to Highlight:**
+- Credit purchase automatically upgrades free users to paid plan
+- Plan upgrade is permanent (cannot revert to free tier)
+- Free credits consumed before purchased credits
+- Conversion types may be restricted per plan
+- Webhook delivery history permanently retained
+- Job history retention: Permanent for all plans
 
 ---
 
-*Last updated: December 30, 2024*  
-*Based on: Business.md v2.0 (Web App + API)*  
-*Previous version: Business.md v1.0 (API-only)*
+*Last updated: January 2025*  
+*Based on: Business.md v2.0 (Web App + API with Credit System)*  
+*Previous version: Business.md v2.0 (Web App + API)*

@@ -33,7 +33,7 @@ const bentoItems = [
   {
     title: 'Webhook Notifications',
     description:
-      'Get instant updates for API jobs. Perfect for automation and long-running document processing.',
+      'Instant updates for API jobs. Multiple webhook configurations (1 for free, 5 for paid). Event-based subscriptions (job.completed, job.failed, job.timeout, etc.). Delivery history and statistics. Perfect for automation.',
     icon: 'lucide:bell',
     size: 'medium' as const,
     accent: 'purple' as const,
@@ -45,37 +45,37 @@ const features = [
     icon: 'lucide:mouse-pointer',
     title: 'No Coding Required',
     description:
-      'Use our visual web app to convert documents with drag-and-drop. Perfect for business users, designers, and non-technical teams.',
+      'Drag-and-drop web interface. Perfect for business users and non-technical teams.',
   },
   {
     icon: 'lucide:code',
     title: 'Developer-Friendly API',
     description:
-      'Simple REST API for automation. One API call to generate PDFs. Support for all major programming languages.',
+      'Simple REST API for automation. Support for all major programming languages.',
   },
   {
     icon: 'lucide:zap',
     title: 'Lightning Fast Results',
     description:
-      'Generate professional PDFs in under 30 seconds using our web app or API. Serverless infrastructure scales instantly.',
+      'Under 30 seconds (web app or API). Serverless infrastructure scales instantly.',
   },
   {
     icon: 'lucide:dollar-sign',
     title: 'Incredibly Affordable',
     description:
-      'Start with 100 free PDFs. Then pay only $0.01 per PDF—whether you use the web app or API. Same speed for all users. No monthly fees.',
+      '$0.01 per PDF (web app or API). No monthly fees.',
   },
   {
     icon: 'lucide:sliders',
     title: 'Full Customization',
     description:
-      'Control page size, margins, orientation, scaling, and more. Perfect formatting every time with our visual editor or API.',
+      'Control all PDF settings. Visual editor or API parameters.',
   },
   {
     icon: 'lucide:shield',
     title: 'Enterprise Security',
     description:
-      'Built on AWS with industry-standard encryption. Your data is always secure whether using the web app or API.',
+      'AWS infrastructure. Secure for both web app and API.',
   },
 ];
 
@@ -84,7 +84,7 @@ const pricingPlans = [
     name: 'Free Tier',
     monthlyPrice: 0,
     description: 'Perfect for testing and small projects',
-    features: ['100 PDFs (lifetime)', '20 requests/minute', 'Full API access', 'Ultra Fast processing speed', 'Dashboard & webhooks', 'All features included'],
+    features: ['100 PDFs (lifetime quota)', 'Web app + API access', '20 requests/minute', '$0/PDF', 'HTML, Markdown & Images', 'Dashboard & job history', '1 Webhook'],
     cta: { label: 'Start Free', href: 'https://app.podpdf.com/signup' },
   },
   {
@@ -94,11 +94,12 @@ const pricingPlans = [
     description: 'For production applications',
     features: [
       'Unlimited PDFs',
-      '10,000 requests per second',
-      'Just $0.01 per PDF',
+      'Web app + Full API access',
+      'No rate limits',
+      '$0.01 per PDF',
+      '99.9% Uptime SLA',
       'Priority support',
-      'Full API access',
-      'Ultra Fast processing speed',
+      '5 Webhooks',
     ],
     highlighted: true,
     cta: { label: 'Get Started', href: 'https://app.podpdf.com/signup' },
@@ -108,7 +109,7 @@ const pricingPlans = [
     monthlyPrice: null,
     customPrice: 'Custom',
     description: 'For high-volume needs',
-    features: ['Volume discounts', '10,000 requests per second', 'Dedicated support', 'Custom SLA', 'Priority processing', 'Invoice billing', 'Ultra Fast processing speed'],
+    features: ['Volume discounts', 'Web app + API access', 'Dedicated support', '99.9% SLA', 'Custom contracts', 'Invoice billing (NET-30)', 'Up to 50 webhooks'],
     cta: { label: 'Contact Sales', href: 'https://app.podpdf.com/signup' },
   },
 ];
@@ -120,8 +121,9 @@ const pricingPlans = [
 >
   <Hero
     title="Transform Your Content into Professional PDFs"
-    subtitle="Use our visual web app for instant conversions, or integrate our powerful API into your applications. Convert HTML, Markdown, and images to high-quality PDFs in seconds. Start with 100 free PDFs, then just $0.01 per PDF. Same speed for everyone."
+    subtitle="Use our visual web app for instant conversions, or integrate our powerful API into your applications. Convert HTML, Markdown, and images to high-quality PDFs in seconds. Start with 100 free PDFs, then just $0.01 per PDF. We operate globally using cloud infrastructure—serving customers in all countries with industry-leading reliability."
     primaryCTA={{ label: 'Start Free - No Credit Card', href: 'https://app.podpdf.com/signup' }}
+    secondaryCTA={{ label: 'See How It Works', href: '#how-it-works' }}
   />
 
 
@@ -133,18 +135,18 @@ const pricingPlans = [
       {
         title: 'Sign up for free',
         description:
-          "Create your account in seconds. Get 100 free PDFs to start—no credit card required. Same speed and performance as paid plans.",
+          'Get 100 free PDFs, no credit card',
         icon: 'lucide:user-plus',
       },
       {
         title: 'Use the web app OR API',
         description:
-          'Non-technical? Use our visual Convert page with drag-and-drop. Developer? Grab your API key and integrate in minutes.',
+          'Visual interface OR programmatic access',
         icon: 'lucide:layers',
       },
       {
         title: 'Generate PDFs instantly',
-        description: 'Upload files or send API requests. Get professional PDFs back in under 30 seconds.',
+        description: 'Professional results in under 30 seconds',
         icon: 'lucide:file-check',
       },
     ]}
@@ -170,7 +172,7 @@ const pricingPlans = [
 
   <PricingTable
     title="Simple, transparent pricing"
-    subtitle="Start free with 100 PDFs. Same speed as paid plans. No credit card required. Pay only for what you use."
+    subtitle="Three tiers, all include web app + API. Free Tier: 100 PDFs (lifetime). Pay As You Go: $0.01/PDF (highlighted). Enterprise: Custom pricing."
     plans={pricingPlans}
     annualDiscount={0}
     background="default"
@@ -179,7 +181,7 @@ const pricingPlans = [
 
   <CTA
     title="Ready to start generating PDFs?"
-    description="Whether you need a simple web app for manual conversions or a powerful API for automation, PodPDF has you covered. Start with 100 free PDFs, same speed as paid plans, no credit card required."
+    description="Whether you need a simple web app for manual conversions or a powerful API for automation, PodPDF has you covered."
     action={{ label: 'Start Free Now', href: 'https://app.podpdf.com/signup' }}
   />
 </MarketingLayout>

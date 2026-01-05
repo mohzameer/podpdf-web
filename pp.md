@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last Updated: December 30, 2025**
+**Last Updated: December 24, 2025**
 
 ## 1. Introduction
 
@@ -40,12 +40,16 @@ For paid plan users:
 
 **Usage Data:**
 When you use the Service, we automatically collect:
-- **Job Records**: Job ID, status, creation time, completion time, page count, input type (HTML/Markdown/Image)
+- **Job Records**: Job ID, status, creation time, completion time, page count, input type (HTML/Markdown/Image), API key ID used (if applicable)
 - **API Usage**: Number of API requests, request timestamps, API key IDs used
+- **API Key Data**: API key names, creation dates, last used timestamps, revocation status
 - **PDF Generation Metrics**: Number of PDFs generated, file sizes, processing times
 - **Authentication Logs**: Login timestamps, authentication method used (email/password or Google OAuth)
 - **Rate Limit Information**: Request frequency and rate limit status
 - **Service Availability Metrics**: Uptime monitoring data for SLA compliance (Paid Standard plans only)
+- **Webhook Configurations**: Webhook URLs, names, event subscriptions, active status
+- **Webhook Delivery History**: Delivery attempts, success/failure status, HTTP status codes, retry counts, delivery timestamps, payload sizes, duration metrics
+- **Credit Transactions**: Purchase amounts, transaction IDs, timestamps, credit balance changes
 
 **Technical Information:**
 - **IP Address**: For security, fraud prevention, and rate limiting
@@ -74,12 +78,17 @@ We use the information we collect for the following purposes:
 - **Authentication**: To verify your identity and provide secure access to your account
 - **PDF Generation**: To process your content and generate PDFs
 - **API Access**: To authenticate API requests and manage API keys
+- **API Key Management**: To create, track, and revoke API keys for programmatic access
 - **Job Tracking**: To show you job history and status
 - **Quota Management**: To track your usage and enforce plan limits
+- **Webhook Delivery**: To send job notifications to your configured webhook endpoints
+- **Webhook Management**: To manage multiple webhook configurations and track delivery history
 - **SLA Monitoring**: To measure uptime and service availability for Paid Standard plans
 
 ### 3.2 Billing and Payment
 - **Billing Calculation**: To calculate monthly charges for paid plans based on PDF usage
+- **Credit Management**: To track credit purchases, balance, and deductions for paid plans
+- **Transaction Logging**: To maintain audit trail of all credit transactions (purchases and deductions)
 - **Invoice Generation**: To create and send invoices
 - **Payment Processing**: To process payments through third-party providers
 - **SLA Credit Calculation**: To calculate free PDF credits based on monthly usage when SLA is breached
@@ -110,7 +119,7 @@ We use the information we collect for the following purposes:
 ### 4.1 Cloud Infrastructure
 We use **Amazon Web Services (AWS)** infrastructure for all data storage and processing:
 - **AWS Cognito**: User authentication and account management
-- **Amazon DynamoDB**: User accounts, job records, billing data
+- **Amazon DynamoDB**: User accounts, job records, billing data, API keys, webhook configurations, webhook delivery history, credit transactions
 - **Amazon S3**: Temporary PDF storage (1 hour only)
 - **AWS Lambda**: Serverless compute for PDF generation
 - **API Gateway**: API request handling and routing
@@ -120,7 +129,8 @@ We use **Amazon Web Services (AWS)** infrastructure for all data storage and pro
 ### 4.2 Authentication and Security
 - **AWS Cognito**: Manages user authentication with industry-standard security protocols
 - **JWT Tokens**: Used for secure API authentication
-- **API Keys**: Securely hashed and stored in DynamoDB
+- **API Keys**: Securely hashed and stored in DynamoDB with metadata (names, creation dates, last used timestamps)
+- **API Key Security**: Full API keys are only shown once upon creation; only prefixes are shown in listings
 - **Encryption**: All data transmissions use HTTPS/TLS encryption
 - **Password Security**: Passwords are hashed and never stored in plain text
 
@@ -143,7 +153,23 @@ We retain job metadata (not the PDF content) for:
 - **Free Tier Users**: 90 days
 - **Paid Standard Users**: 365 days
 
-Job metadata includes: Job ID, status, creation time, completion time, page count, input type. It does **not** include your actual content or generated PDFs.
+Job metadata includes: Job ID, status, creation time, completion time, page count, input type, API key ID (if used). It does **not** include your actual content or generated PDFs.
+
+### 4.6 Webhook Data Storage
+- **Webhook Configurations**: Stored in DynamoDB and retained while your account is active
+- **Webhook Delivery History**: Permanently retained (no TTL) for debugging, auditing, and troubleshooting
+- **Delivery Records Include**: Delivery ID, webhook ID, job ID, event type, delivery status, HTTP status codes, retry counts, timestamps, duration, payload sizes
+- **Webhook URLs**: Stored securely and used only for sending job notifications to your configured endpoints
+
+### 4.7 API Key Data Storage
+- **API Keys**: Securely hashed and stored in DynamoDB
+- **API Key Metadata**: Names, creation dates, last used timestamps, revocation status retained while account is active
+- **Revoked Keys**: Remain in database with revocation timestamp for audit purposes
+
+### 4.8 Credit Transaction Data
+- **Credit Transactions**: All purchases and deductions logged in DynamoDB for audit trail
+- **Transaction Records**: Include transaction ID, amount, type (purchase/deduction), timestamp, user ID
+- **Retention**: Retained for accounting and audit purposes as required by law
 
 ## 5. Data Sharing and Disclosure
 
@@ -181,6 +207,12 @@ If PodPDF is involved in a merger, acquisition, or asset sale, your information 
 
 ### 5.5 With Your Consent
 We may share your information with third parties when you explicitly consent or direct us to do so (e.g., configuring webhooks to your own servers).
+
+**Webhook Delivery:**
+- When you configure webhooks, we send job completion notifications to your specified webhook URLs
+- Webhook payloads include job metadata (job ID, status, timestamps, page count, S3 URLs for completed jobs)
+- Webhook delivery history is logged and permanently retained
+- You are responsible for the security and privacy practices of your webhook endpoints
 
 ### 5.6 Aggregated and Anonymized Data
 We may share aggregated, anonymized data that cannot identify you personally for:
@@ -244,6 +276,8 @@ You are responsible for:
 - Securing your Google account (if using Google OAuth)
 - Logging out from shared devices
 - Revoking compromised API keys immediately
+- Securing your webhook endpoints and handling webhook payloads securely
+- Protecting API keys stored in your applications or systems
 
 ### 7.3 Security Incident Response
 In the event of a data breach that affects your personal information:
@@ -313,10 +347,25 @@ We will respond to requests within 30 days. We may need to verify your identity 
 To permanently delete your account:
 1. Go to Settings → Danger Zone
 2. Click "Delete Account" and confirm
-3. Your account, job records, and rate limit data will be permanently deleted
+3. The following will be permanently deleted:
+   - Your account information
+   - All job records
+   - All API keys (revoked immediately)
+   - All webhook configurations
+   - Rate limit data
 4. This action cannot be undone
 
-Note: We may retain some information as required by law or for legitimate business purposes (e.g., billing records for tax compliance).
+**Note on Webhook Delivery History:**
+- Webhook delivery history records may be retained for audit and troubleshooting purposes
+- These records contain job IDs and delivery metadata but not your personal information
+- Historical delivery records help us maintain service quality and debug issues
+
+**Note on Credit Transactions:**
+- Credit transaction records may be retained for accounting and tax compliance purposes
+- These records are necessary for financial audit trails
+
+**Note on Billing Records:**
+- Billing records may be retained as required by law for tax compliance
 
 ## 9. International Data Transfers
 
@@ -372,9 +421,13 @@ Some jurisdictions have higher age requirements (e.g., 16 in some EU countries).
 
 ### 11.2 Webhook Integrations
 When you configure webhooks:
-- You direct us to send job completion notifications to your specified URL
-- Your webhook endpoint is subject to your own privacy and security practices
+- You can create multiple webhook configurations (subject to plan-based limits)
+- You direct us to send job notifications to your specified URLs based on subscribed events
+- Webhook payloads include job metadata (job ID, status, timestamps, S3 URLs for completed jobs)
+- All webhook delivery attempts are logged and permanently retained for audit purposes
+- Your webhook endpoints are subject to your own privacy and security practices
 - We are not responsible for how you handle data received via webhooks
+- You are responsible for securing your webhook endpoints and handling webhook payloads securely
 
 ### 11.3 Third-Party Links
 Our Service may contain links to third-party websites or services:
@@ -399,21 +452,38 @@ We retain your account information while your account is active and for as long 
 ### 12.4 Job Metadata
 - **Free Tier**: Retained for 90 days
 - **Paid Standard**: Retained for 365 days
-- Includes: Job ID, status, timestamps, page count, input type
+- Includes: Job ID, status, timestamps, page count, input type, API key ID (if used)
 - Does not include: Actual content or generated PDFs
 
-### 12.5 Billing Records
+### 12.5 API Key Data
+- **Active API Keys**: Retained while account is active
+- **Revoked API Keys**: Retained with revocation timestamp for audit purposes
+- **API Key Metadata**: Names, creation dates, last used timestamps retained while account is active
+
+### 12.6 Webhook Data
+- **Webhook Configurations**: Retained while account is active, deleted upon account deletion
+- **Webhook Delivery History**: Permanently retained (no TTL) for debugging, auditing, and troubleshooting
+- **Delivery Records**: Include delivery ID, webhook ID, job ID, event type, status, HTTP status codes, retry counts, timestamps, duration, payload sizes
+- **Purpose**: Long-term retention helps maintain service quality and enables troubleshooting of delivery issues
+
+### 12.7 Credit Transaction Records
+- **Retention**: Retained for accounting and audit purposes as required by law
+- **Typically**: 7 years or as required by Sri Lankan tax law
+- **Includes**: Transaction ID, amount, type (purchase/deduction), timestamp, user ID
+- **Purpose**: Financial audit trail and tax compliance
+
+### 12.8 Billing Records
 - Retained as required by law for tax and accounting purposes
 - Typically 7 years or as required by Sri Lankan tax law
 - Monthly PDF usage counts retained for 12 months for SLA credit calculation and verification
 
-### 12.6 Analytics and Logs
+### 12.9 Analytics and Logs
 - Aggregated usage data may be retained indefinitely (anonymized)
 - Server logs retained for 90 days for security and debugging
 - SLA uptime metrics retained for 12 months (for Paid Standard plans) for SLA credit verification
 - Monthly PDF usage counts retained for 12 months to calculate SLA credits based on usage percentage
 
-### 12.7 After Account Deletion
+### 12.10 After Account Deletion
 When you delete your account:
 - Personal information is deleted within 30 days
 - Some information may be retained for legal compliance (e.g., billing records)
@@ -516,10 +586,13 @@ If you are accessing the Service from other jurisdictions with data protection l
 
 ## Summary of Key Privacy Points
 
-- ✅ **Minimal Data Collection**: We collect only essential information (email, name, usage data)
+- ✅ **Minimal Data Collection**: We collect only essential information (email, name, usage data, API key metadata, webhook configurations)
 - ✅ **No Data Selling**: We never sell your personal information
 - ✅ **Short PDF Storage**: PDFs stored for 1 hour only, then automatically deleted
 - ✅ **No Content Storage**: Input content processed in memory, not stored persistently
+- ✅ **API Key Security**: Full API keys shown only once; securely hashed and stored
+- ✅ **Webhook Transparency**: Webhook delivery history permanently retained for audit and troubleshooting
+- ✅ **Credit Transaction Logging**: All credit transactions logged for financial audit trail
 - ✅ **AWS Infrastructure**: Industry-leading security and compliance
 - ✅ **GDPR & CCPA Compliant**: Full compliance with data protection regulations
 - ✅ **Your Control**: Easy account deletion and data access requests
@@ -531,5 +604,5 @@ If you are accessing the Service from other jurisdictions with data protection l
 
 ---
 
-*Last Updated: December 30, 2025*
+*Last Updated: December 24, 2025*
 

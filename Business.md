@@ -2,7 +2,9 @@
 
 ## Transform Your Content into Professional PDFs
 
-PodPDF is a powerful PDF generation platform that converts HTML, Markdown, and images into high-quality PDFs in seconds. Use our intuitive web application for instant conversions, or integrate our API into your applications for automated PDF generation. Built on AWS infrastructure for reliability and scale.
+PodPDF is a powerful PDF generation platform that converts HTML, Markdown, and images into high-quality PDFs in seconds. Use our intuitive web application for instant conversions, or integrate our API into your applications for automated PDF generation.
+
+**We operate globally using cloud infrastructure.** Built on Amazon Web Services (AWS) with worldwide availability, PodPDF serves customers in all countries with industry-leading reliability and scale.
 
 ---
 
@@ -58,10 +60,12 @@ Perfect for developers who need to integrate PDF generation into applications, a
 ### Key Benefits
 
 - **⚡ Fast & Reliable** - Generate PDFs in under 30 seconds using our web app or API
+- **🌍 Global Availability** - We operate globally using cloud infrastructure, serving customers worldwide
+- **📈 99.9% Uptime SLA** - Guaranteed availability for paid plans with SLA credits
 - **🖥️ Two Ways to Use** - Interactive web application for manual conversions OR powerful API for automation
 - **🎨 Flexible Input** - Support for HTML, Markdown, and images (PNG/JPEG)
 - **🎯 Precise Control** - Customize page size, margins, orientation, scaling, and more
-- **💰 Cost-Effective** - Start free with 100 PDFs, then pay only $0.005 per PDF
+- **💰 Cost-Effective** - Start free with 100 PDFs, then pay only $0.01 per PDF with credit-based billing
 - **🔒 Secure** - Built on AWS with Cognito authentication and API key support
 - **📊 Full Visibility** - Monitor all jobs through our dashboard with webhook notifications
 - **🌐 No Infrastructure** - Fully serverless, no servers to manage
@@ -91,37 +95,69 @@ Perfect for developers who need to integrate PDF generation into applications, a
 ### Free Tier
 Perfect for testing and small projects
 
-- **100 PDFs** - Lifetime quota (one-time, non-renewable)
+- **100 PDFs** - Lifetime quota (one-time, non-renewable, cumulative)
 - **20 requests/minute** - Rate limit
 - **$0/PDF** - Completely free
-- **Full API Access** - All features included
+- **Full API Access** - All features included (subject to conversion type restrictions)
 - **Dashboard Access** - Monitor jobs and usage
+- **1 Webhook** - Maximum webhook configuration
+- **Upgrade Path** - Purchase credits to automatically upgrade to paid plan
 
 ### Paid Standard
 For production applications and high-volume needs
 
-- **Unlimited PDFs** - No monthly quota
+- **Unlimited PDFs** - No quota limit (subject to credit balance)
 - **Unlimited Requests** - No rate limiting
-- **$0.005/PDF** - Just half a cent per PDF
-- **Full API Access** - All features included
+- **$0.01/PDF** - Just one cent per PDF (credit-based billing)
+- **Credit System** - Purchase credits upfront, deducted per PDF
+- **Automatic Upgrade** - Free tier users automatically upgraded when purchasing credits
+- **Full API Access** - All features included (subject to conversion type restrictions)
+- **99.9% Uptime SLA** - Guaranteed availability with SLA credits
 - **Priority Support** - Get help when you need it
-- **Webhook Notifications** - Real-time job status updates
+- **5 Webhooks** - Multiple webhook configurations with event subscriptions
+- **Webhook Delivery History** - Permanent retention of delivery records
 
 ### Plan Comparison
 
 | Feature | Free Tier | Paid Standard |
 |---------|-----------|---------------|
-| **Quota** | 100 PDFs (lifetime) | Unlimited |
+| **Quota** | 100 PDFs (lifetime) | Unlimited (credit-based) |
 | **Rate Limit** | 20 req/min | Unlimited |
-| **Price per PDF** | $0 | $0.005 |
-| **HTML to PDF** | ✅ | ✅ |
-| **Markdown to PDF** | ✅ | ✅ |
-| **Images to PDF** | ✅ | ✅ |
+| **Price per PDF** | $0 | $0.01 |
+| **Billing Model** | Free | Credit-based (purchase upfront) |
+| **Upgrade** | Purchase credits to upgrade | Automatic when purchasing credits |
+| **Uptime SLA** | Best-effort | 99.9% guaranteed |
+| **HTML to PDF** | ✅ (if enabled) | ✅ (if enabled) |
+| **Markdown to PDF** | ✅ (if enabled) | ✅ (if enabled) |
+| **Images to PDF** | ✅ (if enabled) | ✅ (if enabled) |
+| **Conversion Types** | Plan-dependent | Plan-dependent |
 | **Custom Styling** | ✅ | ✅ |
 | **API Keys** | ✅ | ✅ |
 | **Dashboard** | ✅ | ✅ |
-| **Webhooks** | ✅ | ✅ |
+| **Webhooks** | 1 webhook | 5 webhooks (default) |
+| **Webhook Events** | ✅ | ✅ (event subscriptions) |
 | **Job History** | ✅ | ✅ |
+
+### Credit Purchase & Billing
+
+**How It Works:**
+- **Free Tier**: Start with 100 free PDFs. Once exhausted, purchase credits to continue.
+- **Automatic Upgrade**: When you purchase credits for the first time, your account automatically upgrades to the paid plan ($0.01 per PDF).
+- **Credit-Based Billing**: Paid plans use a credit system - purchase credits upfront, and they're deducted after each PDF generation.
+- **Credit Balance**: You must have sufficient credits (or free credits) to generate PDFs. Requests are rejected if balance is insufficient.
+- **Transaction History**: All credit purchases and deductions are logged for audit purposes.
+
+**Purchasing Credits:**
+- Credits can be purchased at any time through your account dashboard
+- Credits are added to your balance immediately upon successful payment
+- Credits do not expire (unless otherwise specified)
+- Unused credits remain in your account until consumed
+
+**Important Notes:**
+- Plan upgrade is permanent - you cannot revert to free tier after upgrading
+- Credits are forfeited upon account deletion
+- Credit purchase automatically clears quota exceeded flags
+- Free credits (if included in your plan) are consumed before purchased credits
 
 ---
 
@@ -176,6 +212,19 @@ Combine multiple images into organized PDF documents.
 - Scanned documents
 - Image catalogs
 - Product sheets
+
+### Conversion Type Restrictions
+
+**Plan-Based Restrictions:**
+- Plans may have restrictions on which conversion types are enabled
+- **Enabled Conversion Types**: Plans may specify which input types are allowed:
+  - `html` - HTML to PDF conversion
+  - `markdown` - Markdown to PDF conversion
+  - `image` - Image to PDF conversion
+- If your plan has `enabled_conversion_types` configured, only those types are allowed
+- If your plan does not specify restrictions, all types are enabled (backward compatible)
+- Requests for disabled conversion types will be rejected with `403 CONVERSION_TYPE_NOT_ENABLED` error
+- Check your plan details via `GET /plans` or `GET /accounts/me` to see which conversion types are enabled
 
 ### Customization Options
 
@@ -452,7 +501,7 @@ When job completes, receives POST with:
   "plan": {
     "name": "Free Basic",
     "type": "free",
-    "monthly_quota": 100,
+    "monthly_quota": 50,
     "rate_limit_per_minute": 20
   }
 }
@@ -471,19 +520,78 @@ When job completes, receives POST with:
       "type": "free",
       "monthly_quota": 100,
       "price_per_pdf": 0,
-      "rate_limit_per_minute": 20
+      "rate_limit_per_minute": 20,
+      "enabled_conversion_types": ["html", "markdown", "image"],
+      "max_webhooks": 1
     },
     {
       "plan_id": "paid-standard",
       "name": "Paid Standard",
       "type": "paid",
       "monthly_quota": null,
-      "price_per_pdf": 0.005,
-      "rate_limit_per_minute": null
+      "price_per_pdf": 0.01,
+      "rate_limit_per_minute": null,
+      "enabled_conversion_types": ["html", "markdown", "image"],
+      "max_webhooks": 5
     }
   ]
 }
 ```
+
+#### 7. POST /accounts/me/credits/purchase
+**Purchase credits** - Add credits to your account balance (automatically upgrades free users to paid plan)
+
+**Request:**
+```json
+{
+  "amount": 10.50
+}
+```
+
+**Response:**
+```json
+{
+  "message": "Credits purchased successfully. Account upgraded to paid plan.",
+  "credits_balance": 10.50,
+  "amount_purchased": 10.50,
+  "transaction_id": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+  "purchased_at": "2025-12-24T15:30:00.000Z",
+  "upgraded": true,
+  "plan": {
+    "plan_id": "paid-standard",
+    "name": "Paid Standard",
+    "type": "paid",
+    "price_per_pdf": 0.01
+  }
+}
+```
+
+#### 8. POST /accounts/me/webhooks
+**Create webhook** - Create a new webhook configuration
+
+**Request:**
+```json
+{
+  "name": "Production Webhook",
+  "url": "https://api.example.com/webhooks/podpdf",
+  "events": ["job.completed", "job.failed"],
+  "is_active": true
+}
+```
+
+#### 9. GET /accounts/me/webhooks
+**List webhooks** - Get all webhook configurations for your account
+
+#### 10. GET /accounts/me/webhooks/{webhook_id}/history
+**Webhook delivery history** - View delivery history for a specific webhook
+
+#### 11. GET /accounts/me/api-keys
+**List API keys** - View all API keys (shows prefixes only, not full keys)
+
+#### 12. POST /accounts/me/api-keys
+**Create API key** - Generate a new API key (full key shown only once)
+
+**Note:** For complete API documentation, see [ENDPOINTS.md](./ENDPOINTS.md)
 
 ---
 
@@ -922,56 +1030,139 @@ const response = await fetch('https://api.podpdf.com/quickjob', {
 
 ## 🔔 Webhook Integration
 
+### Multiple Webhooks System
+
+PodPDF supports **multiple webhook configurations** per account with event-based subscriptions. This allows you to:
+- Configure different webhooks for different purposes (production, staging, monitoring)
+- Subscribe to specific events you care about
+- Track delivery history and statistics
+- Activate/deactivate webhooks without deletion
+
+**Plan-Based Limits:**
+- **Free Tier**: Maximum 1 webhook configuration
+- **Paid Standard**: Maximum 5 webhook configurations (default)
+- **Enterprise Plans**: Up to 50 webhook configurations
+
 ### Setting Up Webhooks
 
-Webhooks allow you to receive real-time notifications when long jobs complete.
-
-#### Configure Default Webhook (Dashboard)
-
-1. Navigate to **Settings** → **Webhook Configuration**
-2. Enter your webhook URL (must be HTTPS)
-3. Click **Save Webhook**
-
-Your webhook URL will receive POST requests when jobs complete.
-
-#### Per-Job Webhook (API)
+#### Create Webhook via API
 
 ```javascript
-const response = await fetch('https://api.podpdf.com/longjob', {
+// Create a new webhook
+const response = await fetch('https://api.podpdf.com/accounts/me/webhooks', {
   method: 'POST',
   headers: {
     'Authorization': `Bearer ${process.env.PODPDF_API_KEY}`,
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    input_type: 'html',
-    html: '<h1>Large Document</h1>...',
-    webhook_url: 'https://your-domain.com/webhook',
-    options: { format: 'A4' }
+    name: 'Production Webhook',
+    url: 'https://api.example.com/webhooks/podpdf',
+    events: ['job.completed', 'job.failed'],
+    is_active: true
   })
 });
+
+const webhook = await response.json();
+console.log('Webhook created:', webhook.webhook_id);
 ```
 
-#### Webhook Payload
+#### Configure Webhook via Dashboard
 
-When a job completes, you'll receive:
+1. Navigate to **Settings** → **Webhooks**
+2. Click **Create New Webhook**
+3. Enter webhook name and URL (must be HTTPS)
+4. Select event types to subscribe to
+5. Click **Save**
+
+### Webhook Event Types
+
+You can subscribe to the following event types:
+
+- **`job.completed`** - When a job successfully completes (default)
+- **`job.failed`** - When a job fails during processing
+- **`job.timeout`** - When a quick job exceeds 30-second timeout
+- **`job.queued`** - When a long job is queued
+- **`job.processing`** - When a long job starts processing
+
+**Example:** Subscribe only to failures for monitoring:
+```json
+{
+  "name": "Error Monitoring",
+  "url": "https://api.example.com/alerts",
+  "events": ["job.failed", "job.timeout"],
+  "is_active": true
+}
+```
+
+### Webhook Payload Examples
+
+#### job.completed Event
 
 ```json
 {
+  "event": "job.completed",
   "job_id": "9f0a4b78-2c0c-4d14-9b8b-123456789abc",
-  "user_id": "user-uuid",
   "status": "completed",
   "job_type": "long",
-  "input_type": "html",
-  "pages": 42,
-  "s3_url": "https://podpdf-outputs.s3.amazonaws.com/...",
-  "s3_url_expires_at": "2024-01-15T12:00:00Z",
-  "created_at": "2024-01-15T10:30:00Z",
-  "completed_at": "2024-01-15T10:35:45Z",
-  "error_message": null,
-  "webhook_url": "https://your-domain.com/webhook"
+  "mode": "html",
+  "pages": 150,
+  "truncated": false,
+  "s3_url": "https://s3.amazonaws.com/podpdf-dev-pdfs/...",
+  "s3_url_expires_at": "2025-12-21T11:32:15Z",
+  "created_at": "2025-12-21T10:30:00Z",
+  "completed_at": "2025-12-21T10:32:15Z",
+  "timestamp": "2025-12-21T10:32:15Z"
 }
 ```
+
+#### job.failed Event
+
+```json
+{
+  "event": "job.failed",
+  "job_id": "9f0a4b78-2c0c-4d14-9b8b-123456789abc",
+  "status": "failed",
+  "job_type": "long",
+  "mode": "html",
+  "error_message": "PDF generation failed: Chromium process crashed",
+  "created_at": "2025-12-21T10:30:00Z",
+  "failed_at": "2025-12-21T10:32:15Z",
+  "timestamp": "2025-12-21T10:32:15Z"
+}
+```
+
+### Webhook Headers
+
+All webhook requests include standard headers:
+
+```http
+Content-Type: application/json
+User-Agent: PodPDF-Webhook/1.0
+X-Webhook-Event: job.completed
+X-Webhook-Id: 01ARZ3NDEKTSV4RRFFQ69G5FAV
+X-Webhook-Delivery-Id: 01ARZ3NDEKTSV4RRFFQ69G5FAY
+X-Webhook-Timestamp: 2025-12-21T10:32:15Z
+```
+
+**Important:** Use `X-Webhook-Delivery-Id` for idempotency - deduplicate duplicate deliveries.
+
+### Webhook Delivery & Retry Logic
+
+**Retry Behavior:**
+- **3 retries** with exponential backoff (1s, 2s, 4s)
+- Retries on: network errors, timeouts (10 seconds), HTTP 5xx errors, HTTP 429
+- Does NOT retry on: HTTP 2xx (success), HTTP 4xx client errors (except 429)
+
+**Delivery Guarantees:**
+- **At-least-once delivery**: Webhooks may be delivered multiple times
+- **Best-effort delivery**: Failed webhooks are retried, but delivery is not guaranteed if all retries fail
+- **Ordering**: Webhooks are delivered in order, but order is not guaranteed across different webhooks
+
+**Webhook Delivery History:**
+- All delivery attempts are permanently logged
+- View delivery history via `GET /accounts/me/webhooks/{webhook_id}/history`
+- History includes: delivery status, HTTP status codes, retry counts, timestamps, duration, payload sizes
 
 #### Webhook Handler Example
 
@@ -981,22 +1172,65 @@ const app = express();
 
 app.use(express.json());
 
+// Store processed delivery IDs for idempotency
+const processedDeliveries = new Set();
+
 app.post('/webhook', async (req, res) => {
-  const { job_id, status, s3_url, pages } = req.body;
+  // Get delivery ID from headers for idempotency
+  const deliveryId = req.headers['x-webhook-delivery-id'];
+  const eventType = req.headers['x-webhook-event'];
+  const webhookId = req.headers['x-webhook-id'];
   
-  if (status === 'completed') {
-    console.log(`Job ${job_id} completed with ${pages} pages`);
+  // Idempotency check - skip if already processed
+  if (processedDeliveries.has(deliveryId)) {
+    console.log(`Duplicate delivery ${deliveryId}, skipping`);
+    return res.status(200).send('OK');
+  }
+  
+  const { event, job_id, status, s3_url, pages, error_message } = req.body;
+  
+  try {
+    // Handle different event types
+    switch (event) {
+      case 'job.completed':
+        console.log(`Job ${job_id} completed with ${pages} pages`);
+        
+        // Download the PDF
+        const pdfResponse = await fetch(s3_url);
+        const pdfBuffer = await pdfResponse.buffer();
+        
+        // Process or store the PDF
+        // ... your logic here ...
+        
+        break;
+        
+      case 'job.failed':
+        console.error(`Job ${job_id} failed: ${error_message}`);
+        // Send alert, log error, etc.
+        break;
+        
+      case 'job.timeout':
+        console.warn(`Job ${job_id} timed out`);
+        // Handle timeout
+        break;
+        
+      case 'job.queued':
+        console.log(`Job ${job_id} queued`);
+        break;
+        
+      case 'job.processing':
+        console.log(`Job ${job_id} started processing`);
+        break;
+    }
     
-    // Download the PDF
-    const pdfResponse = await fetch(s3_url);
-    const pdfBuffer = await pdfResponse.buffer();
+    // Mark as processed
+    processedDeliveries.add(deliveryId);
     
-    // Process or store the PDF
-    // ... your logic here ...
-    
+    // Return 200 quickly - process asynchronously if needed
     res.status(200).send('OK');
-  } else if (status === 'failed') {
-    console.error(`Job ${job_id} failed: ${req.body.error_message}`);
+  } catch (error) {
+    console.error('Webhook processing error:', error);
+    // Still return 200 to prevent retries for processing errors
     res.status(200).send('OK');
   }
 });
@@ -1081,10 +1315,15 @@ Monitor all your PDF generation jobs:
 Manage your account:
 
 - **Account Info** - View user details and plan information
-- **API Keys** - Create, view, and revoke API keys
-- **Webhook Config** - Set up webhook URLs for notifications
-- **Usage Statistics** - Track quota and PDF generation count
-- **Plan Management** - Upgrade from free to paid plans
+- **API Keys** - Create, view, and revoke API keys (with names and usage tracking)
+- **Webhooks Management** - Create and manage multiple webhook configurations
+  - Configure webhook URLs, names, and event subscriptions
+  - View webhook delivery history and statistics
+  - Activate/deactivate webhooks
+  - Plan-based limits (1 for free, 5 for paid)
+- **Credit Management** - Purchase credits, view balance, and transaction history
+- **Usage Statistics** - Track quota, PDF generation count, and credit balance
+- **Plan Information** - View current plan and enabled conversion types
 
 ---
 
@@ -1096,8 +1335,11 @@ Manage your account:
 |------|--------|-------------|----------|
 | `UNAUTHORIZED` | 401 | Invalid or missing authentication | Check your API key or JWT token |
 | `ACCOUNT_NOT_FOUND` | 403 | User account doesn't exist | Sign up for an account |
-| `QUOTA_EXCEEDED` | 403 | Free tier limit reached | Upgrade to paid plan |
+| `QUOTA_EXCEEDED` | 403 | Free tier limit reached (100 PDFs) | Purchase credits to upgrade |
+| `INSUFFICIENT_CREDITS` | 403 | Insufficient credit balance | Purchase credits to continue |
+| `CONVERSION_TYPE_NOT_ENABLED` | 403 | Requested conversion type not enabled for plan | Check plan details or upgrade |
 | `RATE_LIMIT_EXCEEDED` | 403 | Too many requests | Wait before retrying or upgrade |
+| `WEBHOOK_LIMIT_EXCEEDED` | 403 | Maximum webhooks reached for plan | Upgrade plan or delete unused webhooks |
 | `INVALID_INPUT_TYPE` | 400 | Invalid input_type value | Use 'html', 'markdown', or 'image' |
 | `MISSING_CONTENT_FIELD` | 400 | Missing required content | Include html, markdown, or images |
 | `CONTENT_TOO_LARGE` | 400 | Content exceeds size limit | Reduce content size (max 5 MB) |
@@ -1105,6 +1347,8 @@ Manage your account:
 | `PDF_GENERATION_FAILED` | 500 | PDF generation error | Check content format and try again |
 | `IMAGE_TOO_LARGE` | 400 | Image file too large | Reduce image size (max 5 MB each) |
 | `INVALID_IMAGE_FORMAT` | 400 | Unsupported image format | Use PNG or JPEG only |
+| `INVALID_WEBHOOK_URL` | 400 | Invalid webhook URL | Use valid HTTPS URL |
+| `INVALID_EVENTS` | 400 | Invalid webhook event types | Use valid event types |
 
 ### Error Response Format
 
@@ -1112,10 +1356,42 @@ Manage your account:
 {
   "error": {
     "code": "QUOTA_EXCEEDED",
-    "message": "You have reached your quota limit of 100 PDFs. Please upgrade your plan to continue.",
+    "message": "You have reached your quota limit of 100 PDFs. Please purchase credits to continue.",
     "details": {
       "current_usage": 100,
-      "quota_limit": 100
+      "quota_limit": 100,
+      "action_required": "purchase_credits"
+    }
+  }
+}
+```
+
+**Example: Insufficient Credits Error**
+```json
+{
+  "error": {
+    "code": "INSUFFICIENT_CREDITS",
+    "message": "Insufficient credits. Current balance: $0.05, required: $0.01 per PDF.",
+    "details": {
+      "credits_balance": 0.05,
+      "price_per_pdf": 0.01,
+      "action_required": "purchase_credits"
+    }
+  }
+}
+```
+
+**Example: Conversion Type Not Enabled Error**
+```json
+{
+  "error": {
+    "code": "CONVERSION_TYPE_NOT_ENABLED",
+    "message": "Conversion type 'markdown' is not enabled for your plan.",
+    "details": {
+      "requested_type": "markdown",
+      "enabled_types": ["html"],
+      "plan_id": "free-basic",
+      "action_required": "upgrade_plan"
     }
   }
 }
@@ -1267,19 +1543,26 @@ async function getCachedOrGenerate(html, options) {
 
 ### Getting Help
 
-- **Documentation**: https://docs.podpdf.com
+**We serve customers worldwide** and provide support in English.
+
+- **Documentation**: https://podpdf.com/docs
 - **Dashboard**: https://app.podpdf.com
-- **Email Support**: support@podpdf.com
+- **Email Support**: podpdf@gmail.com
 - **Status Page**: https://status.podpdf.com
+- **Global Service**: Available to customers in all countries
 
 ### Response Times
 
-- **Free Tier**: 24-48 hour response time
-- **Paid Plans**: Priority support with 12-hour response time
+- **Free Tier**: Best-effort support, no guaranteed response time
+- **Paid Standard**: Priority support with target response times:
+  - Critical issues (service down): 4 business hours
+  - High priority: 1 business day
+  - Normal priority: 2 business days
+  - Low priority: 5 business days
 
 ### Useful Links
 
-- API Reference: https://docs.podpdf.com/api
+- API Reference: https://podpdf.com/docs
 - Changelog: https://podpdf.com/changelog
 - Community Forum: https://community.podpdf.com
 - GitHub Examples: https://github.com/podpdf/examples
@@ -1290,17 +1573,21 @@ async function getCachedOrGenerate(html, options) {
 
 | Resource | Free Tier | Paid Standard |
 |----------|-----------|---------------|
-| **Monthly PDFs** | 100 (lifetime) | Unlimited |
+| **PDF Quota** | 100 (lifetime) | Unlimited (credit-based) |
+| **Billing Model** | Free | Credit-based ($0.01/PDF) |
 | **Rate Limit** | 20 requests/min | Unlimited |
 | **Content Size** | 5 MB | 5 MB |
 | **Image Size** | 5 MB per image | 5 MB per image |
 | **Total Upload** | 10 MB | 10 MB |
 | **Image Dimensions** | 10,000 x 10,000 px | 10,000 x 10,000 px |
 | **Page Limit** | 100 pages | 100 pages |
-| **Job History** | 90 days | 365 days |
-| **API Keys** | 5 | Unlimited |
-| **Webhook URL** | 1 | Multiple |
-| **Support** | Email | Priority Email |
+| **Job History** | Permanent | Permanent |
+| **API Keys** | Unlimited | Unlimited |
+| **Webhooks** | 1 webhook | 5 webhooks (default) |
+| **Webhook Events** | Event subscriptions | Event subscriptions |
+| **Conversion Types** | Plan-dependent | Plan-dependent |
+| **Uptime SLA** | Best-effort | 99.9% guaranteed |
+| **Support** | Email (best-effort) | Priority Email |
 
 ---
 
@@ -1328,9 +1615,10 @@ async function getCachedOrGenerate(html, options) {
 - [ ] Implement error handling and retry logic
 
 ### When Ready:
-- [ ] Upgrade to paid plan for unlimited PDFs
+- [ ] Purchase credits to automatically upgrade to paid plan
 - [ ] Set up production API keys
-- [ ] Configure monitoring and alerts
+- [ ] Configure multiple webhooks with event subscriptions
+- [ ] Set up monitoring and alerts
 
 ---
 
@@ -1346,16 +1634,29 @@ async function getCachedOrGenerate(html, options) {
 ### Data & Privacy
 
 - Your content is processed securely on AWS infrastructure
-- Generated PDFs are stored temporarily (7-30 days)
+- Generated PDFs are stored temporarily (1 hour only)
+- Input content is processed in memory and not stored persistently
 - We do not read or analyze your content
 - GDPR and CCPA compliant
+- Webhook delivery history is permanently retained for audit purposes
+- Credit transaction records are retained for accounting compliance
 
 ### SLA (Service Level Agreement)
 
-**Paid Plans:**
-- 99.9% uptime guarantee
-- Automatic failover and redundancy
+**Paid Standard Plan:**
+- **99.9% uptime guarantee** (calculated monthly)
+- **SLA credits as free PDFs** if uptime commitment is not met:
+  - 10% of monthly PDFs if uptime < 99.9% but ≥ 99.0%
+  - 25% of monthly PDFs if uptime < 99.0% but ≥ 95.0%
+  - 50% of monthly PDFs if uptime < 95.0%
+- Credits provided as free PDF generation quota (valid for 12 months)
+- Automatic failover and redundancy via AWS infrastructure
 - Real-time status monitoring
+- Excludes scheduled maintenance (48-hour notice) and force majeure events
+
+**Free Tier:**
+- Best-effort service without uptime guarantees
+- Not eligible for SLA credits
 
 ---
 
@@ -1370,7 +1671,7 @@ Start generating professional PDFs today!
 
 ### For Developers:
 1. **[Create API Keys](https://app.podpdf.com/settings)** - Get your API credentials
-2. **[Read API Docs](https://docs.podpdf.com)** - Explore the full API reference
+2. **[Read API Docs](https://podpdf.com/docs)** - Explore the full API reference
 3. **[View Examples](https://github.com/podpdf/examples)** - Check out code samples
 
 ### Which Option Is Right for You?
@@ -1391,7 +1692,9 @@ Start generating professional PDFs today!
 
 ### Need Help?
 
-Contact us at **support@podpdf.com** or visit our [Help Center](https://help.podpdf.com)
+Contact us at **podpdf@gmail.com** or visit our [Help Center](https://podpdf.com/help)
+
+**Customers worldwide may use the Service** - we serve users in all countries with our global cloud infrastructure.
 
 ---
 

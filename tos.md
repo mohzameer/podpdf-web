@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Last Updated: December 30, 2025**
+**Last Updated: December 24, 2025**
 
 ## 1. Introduction and Acceptance of Terms
 
@@ -62,15 +62,21 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - **Quota**: 100 PDFs (all-time free, non-renewable, cumulative)
 - **Rate Limit**: 20 requests per minute
 - **Price**: $0.00 per PDF
-- **Features**: Full access to all PDF generation features
-- **Limitations**: Once quota is exhausted, you must upgrade to continue
+- **Features**: Access to enabled conversion types (may be limited by plan configuration)
+- **Webhooks**: Maximum 1 webhook configuration
+- **Limitations**: Once quota is exhausted, you must purchase credits to continue
+- **Upgrade Path**: Purchasing credits automatically upgrades your account to the paid plan (see Section 4.6)
 
-### 4.2 Paid Tier Plan 1
-- **Quota**: Unlimited PDFs
+### 4.2 Paid Tier Plan 1 (Default Paid Plan)
+- **Quota**: Unlimited PDFs (subject to credit balance)
 - **Rate Limit**: No rate limiting
 - **Price**: $0.01 per PDF generated
-- **Features**: Full access, priority support, unlimited API keys
-- **Billing**: Monthly billing based on actual usage
+- **Billing Model**: Credit-based system - purchase credits upfront, credits deducted per PDF
+- **Features**: Full access to enabled conversion types, priority support, unlimited API keys
+- **Webhooks**: Maximum 5 webhook configurations (default)
+- **Credit Purchase**: Credits can be purchased at any time to add to your balance
+- **Free Credits**: Plan may include free credits that are consumed before purchased credits
+- **Upgrade Method**: Free tier users are automatically upgraded to this plan when they purchase credits for the first time
 
 ### 4.3 Tailored Plans
 - We may offer tailored plans with custom pricing, quotas, and features for specific customers
@@ -96,25 +102,74 @@ When using Google OAuth, you authorize us to access your Google profile informat
   - Continue using the Service at the new rates after the effective date
 - **Continued Use**: Your continued use of the Service after price changes take effect constitutes acceptance of the new pricing
 
-### 4.6 Payment and Billing
-- Billing occurs monthly for paid plan users
-- You will be charged based on the number of PDFs generated in each calendar month (for per-PDF pricing plans)
-- Payment is due immediately upon invoice
-- We reserve the right to suspend service for non-payment
+### 4.6 Credit Purchase and Billing
+
+**Automatic Plan Upgrade:**
+- **Free Tier Users**: When you purchase credits for the first time, your account is automatically upgraded to the default paid plan ($0.01 per PDF)
+- This upgrade happens atomically with the credit purchase - no separate upgrade step is required
+- Once upgraded, you cannot revert to the free tier plan
+- The upgrade clears any quota exceeded flags and enables unlimited PDF generation (subject to credit balance)
+
+**Credit-Based Billing (Paid Plans):**
+- Paid plans use a credit-based billing system
+- You must purchase credits upfront before generating PDFs
+- Credits are deducted from your balance after each PDF generation
+- Credit balance must be sufficient to cover the cost per PDF (or free credits must be available)
+- If you have insufficient credits, PDF generation requests will be rejected
+- **Default Paid Plan**: $0.01 per PDF (standard rate for automatically upgraded accounts)
+
+**Credit Purchase:**
+- Credits can be purchased at any time through your account dashboard
+- Minimum purchase amount may apply
+- Credits are added to your account immediately upon successful payment
+- All credit purchases are logged for audit purposes
+- Transaction records are retained for accounting and tax compliance
+
+**Credit Usage:**
+- Credits are deducted automatically after each successful PDF generation
+- Free credits (if included in your plan) are consumed before purchased credits
+- Credit balance is displayed in your account dashboard
+- You can view credit purchase and deduction history
+
+**Monthly Billing Records:**
+- Monthly billing records are created for tracking purposes
+- Records show monthly PDF count and billing amount
+- Records are retained for accounting and tax compliance
+- Billing records do not affect your credit balance (credits are purchased separately)
+
+**Payment Terms:**
+- Payment for credit purchases is due immediately
+- We reserve the right to suspend service for insufficient credit balance
 - All prices are in United States Dollars (USD)
 
 ### 4.7 Refunds and Service Credits
 
+**Credit Purchase Refunds:**
+
 **European Users (14-Day Refund Policy):**
-- Users located in European countries have the right to request a refund within 14 days of payment
-- **PDFs already generated are non-refundable** - refunds apply only to unused portions of payments
-- To request a refund, contact us at podpdf@gmail.com within 14 days of your payment
+- Users located in European countries have the right to request a refund for unused credits within 14 days of purchase
+- **Credits already consumed are non-refundable** - refunds apply only to unused credit balance
+- To request a refund, contact us at podpdf@gmail.com within 14 days of your credit purchase
 - Refunds will be processed within 30 business days of approval
+- Refunded credits will be removed from your account balance
 
 **Users from Other Countries:**
-- **No refunds for consumed services** - charges for PDFs already generated are non-refundable
-- No refunds for partial months or unused quota
-- All charges are non-refundable except as required by applicable law
+- **No refunds for consumed credits** - credits already used for PDF generation are non-refundable
+- Unused credits may be refundable at our discretion, subject to applicable law
+- All credit purchases are generally non-refundable except as required by applicable law
+- Contact us at podpdf@gmail.com to discuss refund requests
+
+**Credit Balance:**
+- Unused credits remain in your account until consumed
+- Credits do not expire unless otherwise specified
+- Credits cannot be transferred, sold, or exchanged for cash
+- Credits are forfeited upon account deletion
+
+**Plan Upgrade Permanence:**
+- If you are upgraded from free tier to paid plan upon credit purchase, the upgrade is permanent
+- Even if you receive a refund for unused credits, you remain on the paid plan
+- You cannot revert to the free tier plan after upgrading
+- The paid plan features (unlimited PDFs, no rate limits, etc.) remain active as long as you have sufficient credits
 
 **Service Credits for Errors:**
 - In case of service errors, technical issues, or failures on our part, we may issue service credits at our discretion
@@ -142,15 +197,34 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - **Tailored Plans**: Rate limits as specified in your plan agreement
 - API Gateway throttling may apply to all users during high traffic
 
-### 5.4 Processing Timeouts
+### 5.4 Credit Requirements (Paid Plans)
+- **Sufficient Credits Required**: Paid plan users must have sufficient credit balance (or free credits) to cover the cost per PDF
+- **Credit Check**: System verifies credit balance before processing PDF generation requests
+- **Insufficient Credits**: Requests will be rejected with `403 INSUFFICIENT_CREDITS` error if credit balance is insufficient
+- **Credit Deduction**: Credits are deducted automatically after successful PDF generation
+- **Free Credits**: If your plan includes free credits, they are consumed before purchased credits
+
+### 5.5 Processing Timeouts
 - **Quick Jobs**: Maximum 30-second processing time
 - Jobs exceeding 30 seconds will timeout and fail
 - Use long job endpoint for larger documents
 
-### 5.5 Image Limits
-- **API**: Maximum 100 images per request
+### 5.6 Image Limits
+- **API**: Maximum 100 images per request (subject to page limit - each image = 1 page)
 - **Playground (Web UI)**: Maximum 20 images per request
 - Supported formats: PNG, JPEG only
+- Image count is checked before conversion; requests exceeding page limit are rejected
+
+### 5.7 Conversion Type Restrictions
+- Plans may have restrictions on which conversion types are enabled
+- **Enabled Conversion Types**: Plans may specify which input types are allowed:
+  - `html` - HTML to PDF conversion
+  - `markdown` - Markdown to PDF conversion
+  - `image` - Image to PDF conversion
+- If your plan has `enabled_conversion_types` configured, only those types are allowed
+- If your plan does not specify conversion type restrictions, all types are enabled
+- Requests for disabled conversion types will be rejected with `403 CONVERSION_TYPE_NOT_ENABLED` error
+- Check your plan details to see which conversion types are enabled
 
 ## 6. API Keys and Security
 
@@ -176,7 +250,9 @@ When using Google OAuth, you authorize us to access your Google profile informat
 ### 6.4 Responsibility for API Key Usage
 - You are responsible for all API requests made with your API keys
 - All usage charges apply regardless of whether requests were authorized by you
+- API key IDs are tracked in job records for audit and security purposes
 - Immediately revoke compromised API keys and contact podpdf@gmail.com
+- Revoked API keys remain in our system with revocation timestamp for audit purposes
 
 ## 7. Content and Data Ownership
 
@@ -381,17 +457,56 @@ SLA credit eligibility for tailored plans is determined by the terms specified i
 
 ## 12. Webhooks and Integrations
 
-### 12.1 Webhook Configuration
-- You may configure webhook URLs to receive job completion notifications
+### 12.1 Multiple Webhook System
+- You may configure multiple webhook endpoints (subject to plan-based limits)
+- **Free Tier**: Maximum 1 webhook configuration
+- **Paid Tier Plan 1**: Maximum 5 webhook configurations (default)
+- **Tailored Plans**: Webhook limits as specified in your plan agreement
+- Each webhook can be configured with a descriptive name for identification
+- Webhooks can be activated or deactivated without deletion
+
+### 12.2 Webhook Configuration
 - Webhook URLs must be valid HTTPS endpoints
+- You can subscribe to specific event types for each webhook:
+  - `job.completed` - When a job successfully completes
+  - `job.failed` - When a job fails during processing
+  - `job.timeout` - When a quick job exceeds timeout
+  - `job.queued` - When a long job is queued
+  - `job.processing` - When a long job starts processing
+- Default subscription is `job.completed` if no events specified
 - You are responsible for maintaining webhook endpoint security and availability
 
-### 12.2 Webhook Delivery
-- We will attempt to deliver webhooks with up to 3 retries
-- We are not responsible for failed webhook deliveries due to endpoint unavailability
+### 12.3 Webhook Delivery
+- We will attempt to deliver webhooks with up to 3 retries using exponential backoff (1s, 2s, 4s)
+- Retries occur on network errors, timeouts (10 seconds), HTTP 5xx errors, and HTTP 429 (Too Many Requests)
+- We do not retry on HTTP 2xx (success) or HTTP 4xx client errors (except 429)
+- **At-least-once delivery**: Webhooks may be delivered multiple times in case of retries
+- **Best-effort delivery**: Failed webhooks are retried, but delivery is not guaranteed if all retries fail
 - Webhook failures do not affect job completion status
+- We are not responsible for failed webhook deliveries due to endpoint unavailability
 
-### 12.3 Third-Party Integrations
+### 12.4 Webhook Delivery History
+- All webhook delivery attempts are permanently logged and retained
+- Delivery history includes: delivery ID, webhook ID, job ID, event type, delivery status, HTTP status codes, retry counts, timestamps, duration, payload sizes
+- Delivery history is retained permanently (no TTL) for debugging, auditing, and troubleshooting
+- You can view webhook delivery history through the dashboard
+- Historical delivery records help maintain service quality and enable troubleshooting
+
+### 12.5 Webhook Security and Responsibility
+- You are responsible for securing your webhook endpoints
+- You must handle webhook payloads securely and validate incoming requests
+- Use the `X-Webhook-Delivery-Id` header for idempotency (deduplicate duplicate deliveries)
+- Return `200 OK` quickly; process webhook payloads asynchronously if needed
+- We are not responsible for security breaches or data loss at your webhook endpoints
+- You are responsible for compliance with third-party service terms for webhook integrations
+
+### 12.6 Legacy Webhook Endpoint (Deprecated)
+- The legacy single webhook endpoint (`PUT /accounts/me/webhook`) is deprecated
+- It will be removed on January 1, 2026
+- Please migrate to the new multiple webhooks system before this date
+- See Section 22 of our API documentation for migration details
+
+### 12.7 Third-Party Integrations
 - You are responsible for compliance with third-party service terms
 - We are not liable for issues with third-party services you integrate with
 
@@ -429,7 +544,14 @@ You agree to indemnify, defend, and hold harmless PodPDF, its officers, director
 ### 15.1 Termination by You
 - You may delete your account at any time through the Settings page
 - Account deletion is permanent and cannot be undone
-- Deletion removes your account, job records, and rate limit records
+- Deletion removes:
+  - Your account information
+  - All job records
+  - All API keys (immediately revoked)
+  - All webhook configurations
+  - Rate limit records
+- **Note**: Webhook delivery history and credit transaction records may be retained for audit and accounting purposes
+- Outstanding credit balances are forfeited upon account deletion
 - Outstanding balances must be paid before account deletion
 
 ### 15.2 Termination by Us
@@ -452,10 +574,13 @@ We may suspend or terminate your account at any time, without notice, for:
 Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your information. By using the Service, you agree to our Privacy Policy, which is incorporated into these Terms by reference.
 
 Key privacy points:
-- We collect minimal personal information (email, name, usage data)
+- We collect minimal personal information (email, name, usage data, API key metadata, webhook configurations)
 - We use AWS infrastructure with industry-standard security
 - We comply with GDPR and CCPA requirements
 - Generated PDFs are stored for 1 hour only
+- API keys are securely hashed and stored; full keys shown only once
+- Webhook delivery history is permanently retained for audit and troubleshooting
+- Credit transaction records are retained for accounting and tax compliance
 - You can request data deletion by deleting your account
 
 Please review our Privacy Policy at [link to Privacy Policy] for complete details.
@@ -535,5 +660,5 @@ If you have any questions about these Terms, please contact us:
 
 ---
 
-*Last Updated: December 30, 2025*
+*Last Updated: December 24, 2025*
 

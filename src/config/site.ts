@@ -13,7 +13,7 @@ export const name = import.meta.env.SITE_NAME || 'PodPDF';
 
 /** Site description for SEO and meta tags */
 export const description =
-  import.meta.env.SITE_DESCRIPTION || 'Convert HTML, Markdown, and images to professional PDFs. Use our visual web app or integrate our API. Start with 100 free PDFs. Same speed for all users.';
+  import.meta.env.SITE_DESCRIPTION || 'Convert HTML, Markdown, and images to professional PDFs. Use our visual web app or integrate our API. Start with 100 free PDFs.';
 
 /** Production URL of your site (used for sitemap, RSS, canonical URLs) */
 export const url = import.meta.env.SITE_URL || 'http://localhost:4321';
