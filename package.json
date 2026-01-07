@@ -1,8 +1,8 @@
 {
-  "name": "virex-astro",
+  "name": "podpdf-astro",
   "type": "module",
   "version": "1.4.1",
-  "description": "A production-ready SaaS theme for Astro. Built for those who want to go from zero to launch quickly.",
+  "description": "Quick and Fast PDF Generation",
   "keywords": [
     "astro",
     "theme",
@@ -10,12 +10,12 @@
     "landing-page",
     "tailwindcss"
   ],
-  "author": "Erland <hello@erland.me>",
+  "author": "PodPDF <podpdfapp@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erlandv/virex.git"
+    "url": "https://github.com/podpdf/podpdf.git"
   },
-  "homepage": "https://virex.erland.me",
+  "homepage": "https://podpdf.com",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
