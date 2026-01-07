@@ -229,9 +229,9 @@ function formatPrice(price: number): string {
                       </span>
                     </div>
                   )}
-                  {/* Usage billed monthly note */}
-                  {plan.name !== 'Free Tier' && (
-                    <p class="mt-2 text-xs text-text-muted">Usage billed monthly</p>
+                  {/* Credit-based billing note */}
+                  {plan.name !== 'Free Tier' && plan.name !== 'Enterprise' && (
+                    <p class="mt-2 text-xs text-text-muted">Credit-based billing (purchase credits upfront)</p>
                   )}
                 </div>
               </div>

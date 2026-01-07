@@ -114,7 +114,7 @@ import { siteConfig } from '@/config';
               <li><strong>Rate Limit</strong>: No rate limiting</li>
               <li><strong>Price</strong>: $0.01 per PDF generated</li>
               <li><strong>Features</strong>: Full access, priority support, unlimited API keys</li>
-              <li><strong>Billing</strong>: Monthly billing based on actual usage</li>
+              <li><strong>Billing</strong>: Credit-based billing (purchase credits upfront, deducted after each PDF generation)</li>
             </ul>
 
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.3 Tailored Plans</h3>
@@ -152,11 +152,16 @@ import { siteConfig } from '@/config';
 
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.6 Payment and Billing</h3>
             <ul class="list-disc pl-6 space-y-2">
-              <li>Billing occurs monthly for paid plan users</li>
-              <li>You will be charged based on the number of PDFs generated in each calendar month (for per-PDF pricing plans)</li>
-              <li>Payment is due immediately upon invoice</li>
-              <li>We reserve the right to suspend service for non-payment</li>
+              <li>Paid plans use a credit-based billing system</li>
+              <li>You must purchase credits upfront ($0.01 per PDF)</li>
+              <li>Credits are deducted after each PDF generation</li>
+              <li>You must have sufficient credits to generate PDFs</li>
+              <li>Free credits (if included) are consumed before purchased credits</li>
+              <li>Credits do not expire unless otherwise specified</li>
+              <li>Payment is due immediately upon credit purchase</li>
+              <li>We reserve the right to suspend service for insufficient credits</li>
               <li>All prices are in United States Dollars (USD)</li>
+              <li>Enterprise plans may use invoice billing (NET-30) as specified in custom contracts</li>
             </ul>
 
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">4.7 Refunds and Service Credits</h3>

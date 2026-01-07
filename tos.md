@@ -131,11 +131,11 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - Credit balance is displayed in your account dashboard
 - You can view credit purchase and deduction history
 
-**Monthly Billing Records:**
-- Monthly billing records are created for tracking purposes
-- Records show monthly PDF count and billing amount
+**Internal Accounting Records:**
+- Internal accounting records are created for tracking purposes
+- Records show PDF count and credit usage for accounting and tax compliance
 - Records are retained for accounting and tax compliance
-- Billing records do not affect your credit balance (credits are purchased separately)
+- These records do not affect your credit balance (credits are purchased separately and deducted per PDF)
 
 **Payment Terms:**
 - Payment for credit purchases is due immediately

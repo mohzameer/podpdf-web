@@ -46,7 +46,7 @@ Yes! Our Hobby plan is free forever and includes:
 
 ### How does billing work?
 
-We bill monthly based on usage. You only pay for what you use beyond the free tier limits. See our [pricing page](/pricing) for details.
+Paid plans use a credit-based billing system. Purchase credits upfront ($0.01 per PDF), and they're deducted after each PDF generation. You must have sufficient credits to generate PDFs. See our [pricing page](/pricing) for details.
 
 ### Can I change plans anytime?
 
