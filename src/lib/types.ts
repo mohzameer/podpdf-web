@@ -129,6 +129,7 @@ export interface SiteConfig {
   features: FeatureFlags;
   announcement: AnnouncementConfig;
   content: ContentStrings;
+  companyName: string;
 }
 
 /** Pricing plan configuration for PricingTable component */

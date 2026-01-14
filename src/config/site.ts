@@ -34,6 +34,9 @@ export const social: SocialLinks = {
   discord: '',
 };
 
+/** Company name for legal documents */
+export const companyName = import.meta.env.COMPANY_NAME || 'XADLABS (PVT) LTD';
+
 /** Legal configuration for privacy policy and terms pages */
 export const legal: LegalConfig = {
   privacyEmail: 'podpdfapp@gmail.com',

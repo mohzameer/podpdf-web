@@ -4,7 +4,7 @@
 
 ## 1. Introduction and Acceptance of Terms
 
-Welcome to PodPDF ("Service", "we", "us", or "our"). These Terms of Service ("Terms") govern your access to and use of the PodPDF platform, including our website at https://app.podpdf.com, our API services, and all related services (collectively, the "Service").
+Welcome to PodPDF ("Service", "we", "us", or "our"), operated by XADLABS (PVT) LTD. These Terms of Service ("Terms") govern your access to and use of the PodPDF platform, including our website at https://app.podpdf.com, our API services, and all related services (collectively, the "Service").
 
 **We operate globally using cloud infrastructure.** PodPDF is built on Amazon Web Services (AWS) and serves customers worldwide. **Customers worldwide may use the Service** regardless of their location.
 
@@ -442,8 +442,8 @@ SLA credit eligibility for tailored plans is determined by the terms specified i
 ## 11. Intellectual Property
 
 ### 11.1 PodPDF Platform
-- PodPDF owns all rights to the platform, infrastructure, and codebase
-- The PodPDF name, logo, and branding are our trademarks
+- XADLABS (PVT) LTD owns all rights to the platform, infrastructure, and codebase
+- The PodPDF name, logo, and branding are trademarks of XADLABS (PVT) LTD
 - You may not use our trademarks without written permission
 
 ### 11.2 User Content
@@ -516,7 +516,7 @@ SLA credit eligibility for tailored plans is determined by the terms specified i
 THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
 
 ### 13.2 Limitation of Liability
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, PODPDF SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, XADLABS (PVT) LTD AND PODPDF SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:
 - Your use or inability to use the Service
 - Any unauthorized access to or use of our servers or your data
 - Any interruption or cessation of the Service
@@ -532,7 +532,7 @@ Some jurisdictions do not allow the exclusion or limitation of certain warrantie
 
 ## 14. Indemnification
 
-You agree to indemnify, defend, and hold harmless PodPDF, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with:
+You agree to indemnify, defend, and hold harmless XADLABS (PVT) LTD, PodPDF, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with:
 - Your access to or use of the Service
 - Your violation of these Terms
 - Your violation of any rights of another party
@@ -626,7 +626,7 @@ You agree to resolve disputes with us on an individual basis only. You waive any
 ## 19. Miscellaneous Provisions
 
 ### 19.1 Entire Agreement
-These Terms, together with our Privacy Policy, constitute the entire agreement between you and PodPDF regarding the Service.
+These Terms, together with our Privacy Policy, constitute the entire agreement between you and XADLABS (PVT) LTD regarding the Service.
 
 ### 19.2 Severability
 If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.

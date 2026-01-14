@@ -6,7 +6,7 @@
  * Legal terms and conditions for using PodPDF service.
  */
 import MarketingLayout from '@/layouts/MarketingLayout.astro';
-import { siteConfig } from '@/config';
+import { siteConfig, companyName } from '@/config';
 ---
 
 <MarketingLayout
@@ -27,7 +27,7 @@ import { siteConfig } from '@/config';
           <section>
             <h2 class="text-2xl font-bold text-text mt-8 mb-4">1. Introduction and Acceptance of Terms</h2>
             <p>
-              Welcome to PodPDF ("Service", "we", "us", or "our"). These Terms of Service ("Terms") govern your access to and use of the PodPDF platform, including our website at https://app.podpdf.com, our API services, and all related services (collectively, the "Service").
+              Welcome to PodPDF ("Service", "we", "us", or "our"), operated by {companyName}. These Terms of Service ("Terms") govern your access to and use of the PodPDF platform, including our website at https://app.podpdf.com, our API services, and all related services (collectively, the "Service").
             </p>
             <p>
               <strong>We operate globally using cloud infrastructure.</strong> PodPDF is built on Amazon Web Services (AWS) and serves customers worldwide. <strong>Customers worldwide may use the Service</strong> regardless of their location.
@@ -469,8 +469,8 @@ import { siteConfig } from '@/config';
             
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">11.1 PodPDF Platform</h3>
             <ul class="list-disc pl-6 space-y-2">
-              <li>PodPDF owns all rights to the platform, infrastructure, and codebase</li>
-              <li>The PodPDF name, logo, and branding are our trademarks</li>
+              <li>{companyName} owns all rights to the platform, infrastructure, and codebase</li>
+              <li>The PodPDF name, logo, and branding are trademarks of {companyName}</li>
               <li>You may not use our trademarks without written permission</li>
             </ul>
 
@@ -521,7 +521,7 @@ import { siteConfig } from '@/config';
             </p>
 
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">13.2 Limitation of Liability</h3>
-            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, PODPDF SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, {companyName.toUpperCase()} AND PODPDF SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
             <ul class="list-disc pl-6 space-y-2">
               <li>Your use or inability to use the Service</li>
               <li>Any unauthorized access to or use of our servers or your data</li>
@@ -540,7 +540,7 @@ import { siteConfig } from '@/config';
 
           <section>
             <h2 class="text-2xl font-bold text-text mt-8 mb-4">14. Indemnification</h2>
-            <p>You agree to indemnify, defend, and hold harmless PodPDF, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with:</p>
+            <p>You agree to indemnify, defend, and hold harmless {companyName}, PodPDF, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with:</p>
             <ul class="list-disc pl-6 space-y-2">
               <li>Your access to or use of the Service</li>
               <li>Your violation of these Terms</li>
@@ -648,7 +648,7 @@ import { siteConfig } from '@/config';
             <h2 class="text-2xl font-bold text-text mt-8 mb-4">19. Miscellaneous Provisions</h2>
             
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.1 Entire Agreement</h3>
-            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and PodPDF regarding the Service.</p>
+            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and {companyName} regarding the Service.</p>
 
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">19.2 Severability</h3>
             <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
