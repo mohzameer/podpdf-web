@@ -1547,7 +1547,7 @@ async function getCachedOrGenerate(html, options) {
 
 - **Documentation**: https://podpdf.com/docs
 - **Dashboard**: https://app.podpdf.com
-- **Email Support**: podpdf@gmail.com
+- **Email Support**: podpdfapp@gmail.com
 - **Status Page**: https://status.podpdf.com
 - **Global Service**: Available to customers in all countries
 
@@ -1692,7 +1692,7 @@ Start generating professional PDFs today!
 
 ### Need Help?
 
-Contact us at **podpdf@gmail.com** or visit our [Help Center](https://podpdf.com/help)
+Contact us at **podpdfapp@gmail.com** or visit our [Help Center](https://podpdf.com/help)
 
 **Customers worldwide may use the Service** - we serve users in all countries with our global cloud infrastructure.
 

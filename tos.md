@@ -48,7 +48,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 ### 3.3 Account Security
 - You are responsible for maintaining the confidentiality of your account credentials
 - You are responsible for all activities that occur under your account
-- You must notify us immediately at podpdf@gmail.com of any unauthorized access
+- You must notify us immediately at podpdfapp@gmail.com of any unauthorized access
 - We are not liable for any loss or damage from your failure to maintain account security
 
 ### 3.4 Account Information
@@ -81,7 +81,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 ### 4.3 Tailored Plans
 - We may offer tailored plans with custom pricing, quotas, and features for specific customers
 - Tailored plans are subject to individual agreements and may differ from standard plans
-- Contact us at podpdf@gmail.com for information about tailored plan options
+- Contact us at podpdfapp@gmail.com for information about tailored plan options
 
 ### 4.4 Free Credits
 - We may provide users with free credits at our sole discretion
@@ -149,7 +149,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 **European Users (14-Day Refund Policy):**
 - Users located in European countries have the right to request a refund for unused credits within 14 days of purchase
 - **Credits already consumed are non-refundable** - refunds apply only to unused credit balance
-- To request a refund, contact us at podpdf@gmail.com within 14 days of your credit purchase
+- To request a refund, contact us at podpdfapp@gmail.com within 14 days of your credit purchase
 - Refunds will be processed within 30 business days of approval
 - Refunded credits will be removed from your account balance
 
@@ -157,7 +157,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - **No refunds for consumed credits** - credits already used for PDF generation are non-refundable
 - Unused credits may be refundable at our discretion, subject to applicable law
 - All credit purchases are generally non-refundable except as required by applicable law
-- Contact us at podpdf@gmail.com to discuss refund requests
+- Contact us at podpdfapp@gmail.com to discuss refund requests
 
 **Credit Balance:**
 - Unused credits remain in your account until consumed
@@ -175,7 +175,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - In case of service errors, technical issues, or failures on our part, we may issue service credits at our discretion
 - Service credits are provided as free PDF generation credits and cannot be redeemed for cash
 - Service credits are subject to the terms specified at the time of issuance
-- Contact us at podpdf@gmail.com to report errors and request service credits
+- Contact us at podpdfapp@gmail.com to report errors and request service credits
 
 ## 5. Usage Limits and Technical Restrictions
 
@@ -251,7 +251,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - You are responsible for all API requests made with your API keys
 - All usage charges apply regardless of whether requests were authorized by you
 - API key IDs are tracked in job records for audit and security purposes
-- Immediately revoke compromised API keys and contact podpdf@gmail.com
+- Immediately revoke compromised API keys and contact podpdfapp@gmail.com
 - Revoked API keys remain in our system with revocation timestamp for audit purposes
 
 ## 7. Content and Data Ownership
@@ -380,7 +380,7 @@ If you generated 1,000 PDFs in a month where uptime was 98.5% (below 99.0% but a
 - Each credited PDF is valued at $0.01 (the standard per-PDF rate for Paid Tier Plan 1)
 
 **How to Request Credits:**
-1. Email podpdf@gmail.com within 30 days of the incident
+1. Email podpdfapp@gmail.com within 30 days of the incident
 2. Include:
    - Your account email
    - Date and time of downtime experienced (with timezone)
@@ -428,7 +428,7 @@ SLA credit eligibility for tailored plans is determined by the terms specified i
 - Maintenance typically scheduled during weekends or off-peak hours (UTC)
 
 ### 10.5 Support
-- **Email Support**: podpdf@gmail.com
+- **Email Support**: podpdfapp@gmail.com
 - **Free Tier**: Support provided on a best-effort basis, no guaranteed response times
 - **Paid Tier Plan 1**: Priority support with target response times:
   - Critical issues (service down): 4 business hours
@@ -618,7 +618,7 @@ Any disputes arising from or relating to these Terms or the Service shall be sub
 **Note:** While Sri Lanka law governs these Terms, we comply with applicable international data protection regulations (GDPR, CCPA) and industry standards wherever our customers are located.
 
 ### 18.3 Informal Resolution
-Before filing a legal claim, you agree to contact us at podpdf@gmail.com to attempt to resolve the dispute informally for at least 30 days.
+Before filing a legal claim, you agree to contact us at podpdfapp@gmail.com to attempt to resolve the dispute informally for at least 30 days.
 
 ### 18.4 Waiver of Class Actions
 You agree to resolve disputes with us on an individual basis only. You waive any right to bring claims as part of a class action, collective action, or representative proceeding.
@@ -650,7 +650,7 @@ You may not use or export the Service in violation of export laws and regulation
 
 If you have any questions about these Terms, please contact us:
 
-**Email**: podpdf@gmail.com
+**Email**: podpdfapp@gmail.com
 
 **Website**: https://app.podpdf.com
 
