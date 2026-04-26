@@ -146,7 +146,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 
 **Credit Purchase Refunds:**
 
-To request a refund, contact us at podpdf@gmail.com.
+We offer a 14-day refund policy. If you are not satisfied, you may request a refund within 14 days of your purchase. To request a refund, contact us at podpdf@gmail.com.
 
 **Credit Balance:**
 - Unused credits remain in your account until consumed
