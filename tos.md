@@ -160,11 +160,6 @@ To request a refund, contact us at podpdf@gmail.com.
 - You cannot revert to the free tier plan after upgrading
 - The paid plan features (unlimited PDFs, no rate limits, etc.) remain active as long as you have sufficient credits
 
-**Service Credits for Errors:**
-- In case of service errors, technical issues, or failures on our part, we may issue service credits at our discretion
-- Service credits are provided as free PDF generation credits and cannot be redeemed for cash
-- Service credits are subject to the terms specified at the time of issuance
-- Contact us at podpdf@gmail.com to report errors and request service credits
 
 ## 5. Usage Limits and Technical Restrictions
 
