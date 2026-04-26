@@ -337,7 +337,7 @@ If you are a California resident, you have the following rights:
 
 ### 8.3 Exercising Your Rights
 To exercise any of these rights:
-- **Email us**: podpdfapp@gmail.com
+- **Email us**: podpdf@gmail.com
 - **Delete Account**: Use the account deletion feature in Settings
 - **Update Information**: Update your information in account Settings
 
@@ -406,7 +406,7 @@ We do not knowingly collect personal information from children under 13. If you 
 If we learn we have collected personal information from a child under 13:
 - We will delete that information as quickly as possible
 - We will terminate the account
-- Parents/guardians should contact us at podpdfapp@gmail.com if they believe we have collected information from a child under 13
+- Parents/guardians should contact us at podpdf@gmail.com if they believe we have collected information from a child under 13
 
 ### 10.3 Jurisdictional Age Requirements
 Some jurisdictions have higher age requirements (e.g., 16 in some EU countries). Users must comply with age requirements in their jurisdiction.
@@ -515,20 +515,20 @@ For material changes that significantly affect your rights:
 
 If you have questions, concerns, or requests regarding this Privacy Policy or our data practices:
 
-**Email**: podpdfapp@gmail.com
+**Email**: podpdf@gmail.com
 
 **Website**: https://app.podpdf.com
 
 **Response Time**: We aim to respond to privacy inquiries within 30 days.
 
 ### 14.1 Data Protection Officer
-For GDPR-related inquiries, you may contact our Data Protection Officer at podpdfapp@gmail.com.
+For GDPR-related inquiries, you may contact our Data Protection Officer at podpdf@gmail.com.
 
 ### 14.2 Supervisory Authority
 If you are in the European Economic Area, you have the right to lodge a complaint with your local data protection authority if you believe our processing of your personal information violates data protection laws.
 
 ### 14.3 Company Information
-PodPDF is operated by **XadLabs (PVT) Ltd**, registered in Sri Lanka.
+PodPDF is operated by **XAD LABS (PVT) LTD**, registered in Sri Lanka.
 
 ## 15. Compliance and Certifications
 
@@ -579,7 +579,7 @@ California residents have additional rights under CCPA as outlined in Section 8.
 If you are accessing the Service from other jurisdictions with data protection laws:
 - We will comply with applicable local laws
 - We respect data protection rights in all jurisdictions
-- Contact us at podpdfapp@gmail.com with jurisdiction-specific questions
+- Contact us at podpdf@gmail.com with jurisdiction-specific questions
 - Our use of AWS infrastructure ensures compliance with international standards
 
 ---
@@ -604,5 +604,5 @@ If you are accessing the Service from other jurisdictions with data protection l
 
 ---
 
-*Last Updated: December 24, 2025*
+*Last Updated: April 26, 2026*
 

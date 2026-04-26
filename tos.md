@@ -4,7 +4,7 @@
 
 ## 1. Introduction and Acceptance of Terms
 
-Welcome to PodPDF ("Service", "we", "us", or "our"), operated by XADLABS (PVT) LTD. These Terms of Service ("Terms") govern your access to and use of the PodPDF platform, including our website at https://app.podpdf.com, our API services, and all related services (collectively, the "Service").
+Welcome to PodPDF ("Service", "we", "us", or "our"). PodPDF is operated by **XAD LABS (PVT) LTD**, a company registered in Sri Lanka. These Terms of Service ("Terms") govern your access to and use of the PodPDF platform, including our website at https://app.podpdf.com, our API services, and all related services (collectively, the "Service").
 
 **We operate globally using cloud infrastructure.** PodPDF is built on Amazon Web Services (AWS) and serves customers worldwide. **Customers worldwide may use the Service** regardless of their location.
 
@@ -48,7 +48,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 ### 3.3 Account Security
 - You are responsible for maintaining the confidentiality of your account credentials
 - You are responsible for all activities that occur under your account
-- You must notify us immediately at podpdfapp@gmail.com of any unauthorized access
+- You must notify us immediately at podpdf@gmail.com of any unauthorized access
 - We are not liable for any loss or damage from your failure to maintain account security
 
 ### 3.4 Account Information
@@ -81,7 +81,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 ### 4.3 Tailored Plans
 - We may offer tailored plans with custom pricing, quotas, and features for specific customers
 - Tailored plans are subject to individual agreements and may differ from standard plans
-- Contact us at podpdfapp@gmail.com for information about tailored plan options
+- Contact us at podpdf@gmail.com for information about tailored plan options
 
 ### 4.4 Free Credits
 - We may provide users with free credits at our sole discretion
@@ -131,11 +131,11 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - Credit balance is displayed in your account dashboard
 - You can view credit purchase and deduction history
 
-**Internal Accounting Records:**
-- Internal accounting records are created for tracking purposes
-- Records show PDF count and credit usage for accounting and tax compliance
+**Monthly Billing Records:**
+- Monthly billing records are created for tracking purposes
+- Records show monthly PDF count and billing amount
 - Records are retained for accounting and tax compliance
-- These records do not affect your credit balance (credits are purchased separately and deducted per PDF)
+- Billing records do not affect your credit balance (credits are purchased separately)
 
 **Payment Terms:**
 - Payment for credit purchases is due immediately
@@ -146,18 +146,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 
 **Credit Purchase Refunds:**
 
-**European Users (14-Day Refund Policy):**
-- Users located in European countries have the right to request a refund for unused credits within 14 days of purchase
-- **Credits already consumed are non-refundable** - refunds apply only to unused credit balance
-- To request a refund, contact us at podpdfapp@gmail.com within 14 days of your credit purchase
-- Refunds will be processed within 30 business days of approval
-- Refunded credits will be removed from your account balance
-
-**Users from Other Countries:**
-- **No refunds for consumed credits** - credits already used for PDF generation are non-refundable
-- Unused credits may be refundable at our discretion, subject to applicable law
-- All credit purchases are generally non-refundable except as required by applicable law
-- Contact us at podpdfapp@gmail.com to discuss refund requests
+To request a refund, contact us at podpdf@gmail.com.
 
 **Credit Balance:**
 - Unused credits remain in your account until consumed
@@ -175,7 +164,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - In case of service errors, technical issues, or failures on our part, we may issue service credits at our discretion
 - Service credits are provided as free PDF generation credits and cannot be redeemed for cash
 - Service credits are subject to the terms specified at the time of issuance
-- Contact us at podpdfapp@gmail.com to report errors and request service credits
+- Contact us at podpdf@gmail.com to report errors and request service credits
 
 ## 5. Usage Limits and Technical Restrictions
 
@@ -251,7 +240,7 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - You are responsible for all API requests made with your API keys
 - All usage charges apply regardless of whether requests were authorized by you
 - API key IDs are tracked in job records for audit and security purposes
-- Immediately revoke compromised API keys and contact podpdfapp@gmail.com
+- Immediately revoke compromised API keys and contact podpdf@gmail.com
 - Revoked API keys remain in our system with revocation timestamp for audit purposes
 
 ## 7. Content and Data Ownership
@@ -380,7 +369,7 @@ If you generated 1,000 PDFs in a month where uptime was 98.5% (below 99.0% but a
 - Each credited PDF is valued at $0.01 (the standard per-PDF rate for Paid Tier Plan 1)
 
 **How to Request Credits:**
-1. Email podpdfapp@gmail.com within 30 days of the incident
+1. Email podpdf@gmail.com within 30 days of the incident
 2. Include:
    - Your account email
    - Date and time of downtime experienced (with timezone)
@@ -428,7 +417,7 @@ SLA credit eligibility for tailored plans is determined by the terms specified i
 - Maintenance typically scheduled during weekends or off-peak hours (UTC)
 
 ### 10.5 Support
-- **Email Support**: podpdfapp@gmail.com
+- **Email Support**: podpdf@gmail.com
 - **Free Tier**: Support provided on a best-effort basis, no guaranteed response times
 - **Paid Tier Plan 1**: Priority support with target response times:
   - Critical issues (service down): 4 business hours
@@ -442,8 +431,8 @@ SLA credit eligibility for tailored plans is determined by the terms specified i
 ## 11. Intellectual Property
 
 ### 11.1 PodPDF Platform
-- XADLABS (PVT) LTD owns all rights to the platform, infrastructure, and codebase
-- The PodPDF name, logo, and branding are trademarks of XADLABS (PVT) LTD
+- PodPDF owns all rights to the platform, infrastructure, and codebase
+- The PodPDF name, logo, and branding are our trademarks
 - You may not use our trademarks without written permission
 
 ### 11.2 User Content
@@ -516,7 +505,7 @@ SLA credit eligibility for tailored plans is determined by the terms specified i
 THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
 
 ### 13.2 Limitation of Liability
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, XADLABS (PVT) LTD AND PODPDF SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, PODPDF SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:
 - Your use or inability to use the Service
 - Any unauthorized access to or use of our servers or your data
 - Any interruption or cessation of the Service
@@ -532,7 +521,7 @@ Some jurisdictions do not allow the exclusion or limitation of certain warrantie
 
 ## 14. Indemnification
 
-You agree to indemnify, defend, and hold harmless XADLABS (PVT) LTD, PodPDF, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with:
+You agree to indemnify, defend, and hold harmless PodPDF, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorney's fees, arising out of or in any way connected with:
 - Your access to or use of the Service
 - Your violation of these Terms
 - Your violation of any rights of another party
@@ -618,7 +607,7 @@ Any disputes arising from or relating to these Terms or the Service shall be sub
 **Note:** While Sri Lanka law governs these Terms, we comply with applicable international data protection regulations (GDPR, CCPA) and industry standards wherever our customers are located.
 
 ### 18.3 Informal Resolution
-Before filing a legal claim, you agree to contact us at podpdfapp@gmail.com to attempt to resolve the dispute informally for at least 30 days.
+Before filing a legal claim, you agree to contact us at podpdf@gmail.com to attempt to resolve the dispute informally for at least 30 days.
 
 ### 18.4 Waiver of Class Actions
 You agree to resolve disputes with us on an individual basis only. You waive any right to bring claims as part of a class action, collective action, or representative proceeding.
@@ -626,7 +615,7 @@ You agree to resolve disputes with us on an individual basis only. You waive any
 ## 19. Miscellaneous Provisions
 
 ### 19.1 Entire Agreement
-These Terms, together with our Privacy Policy, constitute the entire agreement between you and XADLABS (PVT) LTD regarding the Service.
+These Terms, together with our Privacy Policy, constitute the entire agreement between you and PodPDF regarding the Service.
 
 ### 19.2 Severability
 If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.
@@ -650,7 +639,7 @@ You may not use or export the Service in violation of export laws and regulation
 
 If you have any questions about these Terms, please contact us:
 
-**Email**: podpdfapp@gmail.com
+**Email**: podpdf@gmail.com
 
 **Website**: https://app.podpdf.com
 
@@ -660,5 +649,5 @@ If you have any questions about these Terms, please contact us:
 
 ---
 
-*Last Updated: December 24, 2025*
+*Last Updated: April 26, 2026*
 
