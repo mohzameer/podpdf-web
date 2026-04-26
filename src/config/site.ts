@@ -35,7 +35,7 @@ export const social: SocialLinks = {
 };
 
 /** Company name for legal documents */
-export const companyName = import.meta.env.COMPANY_NAME || 'XADLABS (PVT) LTD';
+export const companyName = import.meta.env.COMPANY_NAME || 'XAD LABS (PVT) LTD';
 
 /** Legal configuration for privacy policy and terms pages */
 export const legal: LegalConfig = {
