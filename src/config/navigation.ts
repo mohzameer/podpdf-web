@@ -19,6 +19,7 @@ export const navigation: Navigation = {
    */
   header: {
     main: [
+      { label: 'Blog', href: '/blog' },
       { label: 'Pricing', href: '/pricing' },
       { label: 'API Docs', href: 'https://apidocs.podpdf.com' },
       { label: 'Help', href: '/help' },
@@ -43,6 +44,7 @@ export const navigation: Navigation = {
       { label: 'Dashboard', href: 'https://app.podpdf.com' },
     ],
     resources: [
+      { label: 'Blog', href: '/blog' },
       { label: 'Documentation', href: 'https://apidocs.podpdf.com' },
       { label: 'Help Center', href: '/help' },
       { label: 'Changelog', href: '/changelog' },
