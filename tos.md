@@ -78,10 +78,12 @@ When using Google OAuth, you authorize us to access your Google profile informat
 - **Free Credits**: Plan may include free credits that are consumed before purchased credits
 - **Upgrade Method**: Free tier users are automatically upgraded to this plan when they purchase credits for the first time
 
-### 4.3 Tailored Plans
-- We may offer tailored plans with custom pricing, quotas, and features for specific customers
-- Tailored plans are subject to individual agreements and may differ from standard plans
-- Contact us at podpdf@gmail.com for information about tailored plan options
+### 4.3 Enterprise / Tailored Plans
+- Enterprise plans are billed at the same rate of **$0.01 per PDF** as the standard paid plan
+- **Monthly invoice billing**: Enterprise customers are invoiced monthly (NET-30) based on actual usage — no upfront credit purchase required
+- **No service interruption**: PDF generation continues uninterrupted regardless of billing cycle; invoices are settled after the fact
+- Tailored plans may include custom quotas, webhook limits, and support levels as agreed
+- Contact us at podpdf@gmail.com for enterprise plan setup
 
 ### 4.4 Free Credits
 - We may provide users with free credits at our sole discretion
