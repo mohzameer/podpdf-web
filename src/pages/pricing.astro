@@ -7,7 +7,7 @@ import FAQSection from '@sections/content/FAQSection.astro';
 import CTA from '@sections/marketing/CTA.astro';
 import { siteConfig } from '@/config';
 
-const planNames = ['Free Tier', 'Pay As You Go', 'Enterprise'];
+const planNames = ['Free Tier', 'Pay As You Go', 'Custom'];
 
 const plans = [
   {
@@ -51,22 +51,23 @@ const plans = [
     cta: { label: 'Get Started', href: 'https://app.podpdf.com/signup' },
   },
   {
-    name: 'Enterprise',
+    name: 'Custom',
     monthlyPrice: null,
-    customPrice: '$0.01 per PDF',
-    description: 'Same pricing, monthly invoice billing with no service interruption',
+    customPrice: 'Let\'s Talk',
+    description: 'Tailored for startups scaling up to enterprise needs',
     features: [
-      '$0.01 per PDF — same rate',
+      'Volume discounts on high PDF usage',
       'Monthly invoice billing (NET-30)',
-      'No service interruption',
-      'Web app + API access',
-      'Dedicated support',
-      '99.9% SLA',
-      'Custom contracts',
+      'Dedicated account manager',
+      'Custom contracts & SLA',
+      'Priority 24/7 support',
+      'Custom integrations & onboarding',
       'Up to 50 webhook configurations',
+      'Unlimited API keys',
+      'White-label options available',
     ],
     highlighted: false,
-    cta: { label: 'Contact Sales', href: 'https://app.podpdf.com/signup' },
+    cta: { label: 'Contact Sales', href: 'mailto:podpdfapp@gmail.com' },
   },
 ];
 
@@ -117,8 +118,8 @@ const comparisonCategories = [
   {
     name: 'Usage Limits',
     features: [
-      { name: 'PDF Quota', values: ['100 (lifetime)', 'Unlimited (credit-based)', 'Unlimited'] },
-      { name: 'Billing Model', values: ['Free', 'Credit-based ($0.01/PDF)', 'Credit-based ($0.008/PDF)'] },
+      { name: 'PDF Quota', values: ['100 (lifetime)', 'Unlimited (credit-based)', 'Unlimited (volume discounts)'] },
+      { name: 'Billing Model', values: ['Free', 'Credit-based ($0.01/PDF)', 'Custom (monthly invoice)'] },
       { name: 'Rate Limit', values: ['20 req/min', 'Unlimited', 'Unlimited'] },
       { name: 'API Keys', values: ['5', 'Unlimited', 'Unlimited'] },
     ],
