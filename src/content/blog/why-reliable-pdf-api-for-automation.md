@@ -51,7 +51,7 @@ The PDF service returns a 200 status but the PDF is empty, corrupt, or contains 
 
 ### Predictable latency
 
-For automation workflows, latency needs to be consistent — not fast on average. A service that generates PDFs in 2 seconds 95% of the time but takes 60 seconds 5% of the time will trigger timeouts in most automation platforms. Look for SLA guarantees and latency percentile data, not just average response times.
+For automation workflows, latency needs to be consistent — not fast on average. A service that generates PDFs in 2 seconds 95% of the time but takes 60 seconds 5% of the time will trigger timeouts in most automation platforms. Look for uptime history and latency percentile data, not just average response times.
 
 ### Explicit error responses
 
@@ -72,9 +72,9 @@ Free tiers with rate limits are fine for testing. Production automation needs ei
 
 If your automation workflows run in multiple regions or serve global customers, a PDF API with globally distributed infrastructure will have lower latency for all users and better redundancy.
 
-### An SLA you can depend on
+### Reliability you can depend on
 
-99.9% uptime means roughly 9 hours of downtime per year. For critical automation — invoice generation, compliance documents, contract delivery — that may still be too much. Understand the SLA, what it covers, and what the remediation is when it's breached.
+For critical automation — invoice generation, compliance documents, contract delivery — service reliability matters. Understand the provider's infrastructure, incident history, and how they communicate outages.
 
 ## How PodPDF Is Built for Automation
 
@@ -87,8 +87,6 @@ PodPDF was designed with automation workflows in mind:
 **Webhook notifications** — Subscribe to `job.completed`, `job.failed`, and `job.timeout` events. Webhooks are signed and delivered with retry logic. Free plans include 1 webhook, paid plans include 5 (Enterprise up to 50).
 
 **No rate limits on paid plans** — On Pay As You Go and Enterprise, there are no rate limits. Run as many concurrent conversions as your workflow requires.
-
-**99.9% SLA on paid plans** — Covered by a formal uptime commitment.
 
 **Global AWS infrastructure** — Low latency regardless of where your automation workflows run.
 
@@ -129,6 +127,6 @@ When the PDF step uses a reliable API, the rest of the workflow can be confident
 
 ## The Bottom Line
 
-Unreliable PDF generation doesn't fail loudly — it fails quietly, with wrong documents reaching customers or workflows stopping mid-execution. For any automation that involves PDFs, invest in an API with a real SLA, structured error handling, and infrastructure designed for production loads.
+Unreliable PDF generation doesn't fail loudly — it fails quietly, with wrong documents reaching customers or workflows stopping mid-execution. For any automation that involves PDFs, invest in an API with structured error handling and infrastructure designed for production loads.
 
 [Start with 100 free PDFs on PodPDF](https://app.podpdf.com/signup) and test your workflow before going to production.

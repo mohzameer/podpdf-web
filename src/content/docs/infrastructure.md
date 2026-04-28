@@ -17,7 +17,7 @@ Enterprise customers can deploy on dedicated infrastructure for maximum performa
 | Database | Multi-tenant | Single-tenant |
 | Network | Public internet | Private VPC options |
 | Compliance | SOC 2 | SOC 2 + custom audits |
-| Support | Standard SLA | Custom SLA |
+| Support | Standard | Custom |
 
 ## Dedicated Build Infrastructure
 
@@ -292,15 +292,13 @@ export default {
 };
 ```
 
-### SLA Guarantees
+### Support Response Targets
 
-| Tier | Uptime SLA | Support Response |
-|------|------------|------------------|
-| Standard | 99.9% | 24 hours |
-| Enterprise | 99.95% | 4 hours |
-| Enterprise+ | 99.99% | 1 hour |
-
-Custom SLAs available for mission-critical workloads.
+| Tier | Support Response |
+|------|------------------|
+| Standard | 24 hours |
+| Enterprise | 4 hours |
+| Enterprise+ | 1 hour |
 
 ## Monitoring and Observability
 

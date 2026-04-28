@@ -85,7 +85,6 @@ PodPDF is a cloud API that converts HTML and Markdown to PDF using a modern head
 - $0.01 per PDF — cheaper than running your own Chrome fleet at any real volume
 - 100 free PDFs to get started, no credit card required
 - Simple REST API with SDKs and webhook support
-- 99.9% SLA on paid plans
 
 **Cons:**
 - Requires an internet connection and API key (not fully air-gapped)
@@ -102,7 +101,7 @@ PodPDF is a cloud API that converts HTML and Markdown to PDF using a modern head
 | Scaling effort | High | High | Medium | Medium | None |
 | Cost at scale | Infrastructure | Infrastructure | Infrastructure | Infrastructure | $0.01/PDF |
 | Language support | Any | Node.js | Node.js | Python | Any (REST) |
-| Reliability SLA | You | You | You | You | 99.9% |
+| Reliability | Self-managed | Self-managed | Self-managed | Self-managed | Managed |
 
 ## Which Should You Choose?
 

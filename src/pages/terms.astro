@@ -352,84 +352,30 @@ import { siteConfig, companyName } from '@/config';
           <section>
             <h2 class="text-2xl font-bold text-text mt-8 mb-4">10. Service Availability and Support</h2>
             
-            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.1 Service Level Agreement (SLA)</h3>
-            <p><strong>Uptime Commitment:</strong></p>
-            <p>We commit to maintaining <strong>99.9% uptime</strong> for the PodPDF Service, calculated on a monthly basis.</p>
-            
-            <p class="mt-4"><strong>SLA Coverage:</strong></p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li><strong>Applies to</strong>: Paid Tier Plan 1 and eligible tailored plans</li>
-              <li><strong>Does not apply to</strong>: Free Tier users (best-effort service)</li>
-              <li><strong>Tailored Plans</strong>: SLA eligibility and terms as specified in your plan agreement</li>
-              <li><strong>Measurement Period</strong>: Calendar month</li>
-            </ul>
-
-            <p class="mt-4"><strong>What Counts as Downtime:</strong></p>
-            <p>Downtime is measured when the Service is unavailable and you cannot:</p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li>Access the dashboard at https://app.podpdf.com</li>
-              <li>Successfully authenticate to your account</li>
-              <li>Generate PDFs via API with valid requests</li>
-              <li>Access job history and account information</li>
-            </ul>
-
-            <p class="mt-4"><strong>What Does NOT Count as Downtime:</strong></p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li><strong>Scheduled Maintenance</strong>: Announced at least 48 hours in advance</li>
-              <li><strong>Emergency Maintenance</strong>: Critical security or infrastructure updates</li>
-              <li><strong>Your Network/Systems</strong>: Issues with your internet connection, systems, or infrastructure</li>
-              <li><strong>Third-Party Services</strong>: AWS service outages, Google OAuth outages, or other third-party failures beyond our control</li>
-              <li><strong>Force Majeure</strong>: Natural disasters, acts of war, terrorism, or other events beyond our reasonable control</li>
-              <li><strong>Your Violations</strong>: Downtime caused by your violation of these Terms</li>
-              <li><strong>Beta Features</strong>: Features marked as beta, experimental, or preview</li>
-              <li><strong>API Client Errors</strong>: Errors caused by invalid requests (4xx HTTP status codes)</li>
-            </ul>
-
-            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.2 SLA Credits and Remedies</h3>
-            <p>If we fail to meet the 99.9% uptime commitment, eligible Paid Tier Plan 1 users and users on tailored plans with SLA guarantees may request SLA credits in the form of <strong>free PDF generation credits</strong>.</p>
-            
-            <p class="mt-4"><strong>Credit Amounts (Based on Monthly Usage):</strong></p>
-            <ul class="list-disc pl-6 space-y-2">
-              <li>&lt; 99.9% but ≥ 99.0%: 10% of PDFs generated</li>
-              <li>&lt; 99.0% but ≥ 95.0%: 25% of PDFs generated</li>
-              <li>&lt; 95.0%: 50% of PDFs generated</li>
-            </ul>
-
-            <p class="mt-4"><strong>How to Request Credits:</strong></p>
-            <ol class="list-decimal pl-6 space-y-2">
-              <li>Email <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a> within 30 days of the incident</li>
-              <li>Include: Your account email, date and time of downtime, description of the issue, and evidence</li>
-              <li>We will investigate and respond within 15 business days</li>
-              <li>If approved, free PDF credits will be added to your account within 5 business days</li>
-            </ol>
-
-            <p class="mt-4"><strong>Free Tier Users:</strong></p>
-            <p>Free Tier users are not eligible for SLA credits. Service is provided on a best-effort basis without uptime guarantees.</p>
-
-            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.3 Service Availability</h3>
-            <ul class="list-disc pl-6 space-y-2">
-              <li>We strive to exceed the 99.9% uptime commitment</li>
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.1 Service Availability</h3>
+            <p>We strive to maintain high availability of the PodPDF Service but do not make formal uptime commitments or service level guarantees. The Service is provided on a best-effort basis for all users.</p>
+            <ul class="list-disc pl-6 mt-4 space-y-2">
               <li>We continuously monitor service health and performance</li>
               <li>We use AWS infrastructure for high availability and redundancy</li>
               <li>We may perform maintenance that temporarily affects availability</li>
             </ul>
 
-            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.4 Maintenance and Updates</h3>
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.2 Maintenance and Updates</h3>
             <p><strong>Scheduled Maintenance:</strong></p>
             <ul class="list-disc pl-6 space-y-2">
               <li>We will provide at least 48 hours advance notice via email</li>
-              <li>Scheduled maintenance is excluded from downtime calculations</li>
+              <li>Scheduled maintenance windows will be announced in advance</li>
               <li>We will schedule maintenance during low-traffic periods when possible</li>
             </ul>
 
             <p class="mt-4"><strong>Emergency Maintenance:</strong></p>
             <ul class="list-disc pl-6 space-y-2">
               <li>May be performed without advance notice for critical security or infrastructure issues</li>
-              <li>Emergency maintenance is excluded from downtime calculations</li>
+              <li>We will minimize duration of emergency maintenance</li>
               <li>We will notify you as soon as reasonably possible during or after emergency maintenance</li>
             </ul>
 
-            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.5 Support</h3>
+            <h3 class="text-xl font-semibold text-text mt-6 mb-3">10.3 Support</h3>
             <ul class="list-disc pl-6 space-y-2">
               <li><strong>Email Support</strong>: <a href="mailto:podpdfapp@gmail.com" class="text-primary hover:text-primary-dark">podpdfapp@gmail.com</a></li>
               <li><strong>Free Tier</strong>: Support provided on a best-effort basis, no guaranteed response times</li>
