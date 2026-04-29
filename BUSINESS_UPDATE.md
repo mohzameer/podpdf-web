@@ -185,6 +185,7 @@ PodPDF now offers TWO ways to generate professional PDFs:
 - **Enabled Conversion Types**: Plans may specify which input types are allowed:
   - `html` - HTML to PDF conversion
   - `markdown` - Markdown to PDF conversion
+  - `url` - URL to PDF conversion
   - `image` - Image to PDF conversion
 - If your plan has `enabled_conversion_types` configured, only those types are allowed
 - If your plan does not specify restrictions, all types are enabled (backward compatible)
@@ -215,7 +216,7 @@ A: "Free tier has 20 API requests/minute. The web app has no rate limits. Paid p
 A: "Not at all! Use our visual web application with drag-and-drop—no coding required. Developers can use our API for automation."
 
 **Q: What input formats do you support?**
-A: "Both the web app and API support HTML, Markdown, and images. Note that some plans may have restrictions on which conversion types are enabled—check your plan details."
+A: "Both the web app and API support HTML, Markdown, images, and public URLs. Note that some plans may have restrictions on which conversion types are enabled—check your plan details."
 
 **Q: What happens if I run out of credits?**
 A: "If you have insufficient credits, PDF generation requests will be rejected with an INSUFFICIENT_CREDITS error. Purchase more credits through your dashboard to continue."
@@ -239,7 +240,7 @@ A: "If you have insufficient credits, PDF generation requests will be rejected w
 
 ### Site Description
 **Updated to:**
-"Convert HTML, Markdown, and images to professional PDFs. Use our visual web app or integrate our API. Start with 100 free PDFs."
+"Convert HTML, Markdown, images, and public URLs to professional PDFs. Use our visual web app or integrate our API. Start with 100 free PDFs."
 
 ---
 
@@ -317,6 +318,7 @@ A: "If you have insufficient credits, PDF generation requests will be rejected w
 
 **For Non-Technical Users:**
 - Quick document conversion (one-off needs)
+- URL to PDF - paste any public HTTPS URL and download as PDF in one click
 - Manual invoice creation
 - Document formatting and styling
 - Photo album creation
@@ -570,6 +572,36 @@ Many customers will use BOTH:
 - At-least-once delivery guarantee
 - All delivery attempts permanently logged
 
+## 📦 Quick Job `store` Flag
+
+### New `store` Parameter on `/quickjob`
+
+The `/quickjob` endpoint now accepts an optional `store` boolean that controls whether the PDF is returned as a binary stream or uploaded to S3 and returned as a JSON link.
+
+**`store: false` (default)**
+- Returns the PDF directly as a binary response body
+- Response headers: `X-PDF-Pages`, `X-Job-Id`, `X-PDF-Truncated`
+
+**`store: true`**
+- Uploads the PDF to S3 and returns a JSON body instead of the binary
+- JSON response:
+  ```json
+  {
+    "job_id": "9f0a4b78-2c0c-4d14-9b8b-123456789abc",
+    "pages": 42,
+    "truncated": false,
+    "download_url": "https://...",
+    "download_url_expires_at": "2025-12-21T11:30:00.000Z"
+  }
+  ```
+- `download_url` expires after **1 hour**; after expiry the object is inaccessible and deleted within 24 hours
+- If the S3 upload fails, `download_url` and `download_url_expires_at` are `null`
+
+**Also applies to job history endpoints:**
+- `GET /jobs` and `GET /jobs/{job_id}` return `s3_url` / `s3_url_expires_at` for completed jobs; these fields are `null` if the job hasn't completed or the S3 upload failed (same 1-hour expiry)
+
+---
+
 ## ⚠️ Error Handling Updates
 
 ### New Error Codes
@@ -580,6 +612,15 @@ Many customers will use BOTH:
 
 **Conversion Type Errors:**
 - `CONVERSION_TYPE_NOT_ENABLED` - Requested conversion type not enabled for plan
+
+**URL Fetch Errors:**
+- `MISSING_URL` - `url` field absent or empty
+- `INVALID_URL` - Not HTTPS, invalid format, or private IP
+- `INPUT_SIZE_EXCEEDED` - Remote response body > 5 MB
+- `URL_FETCH_FAILED` - DNS / connection error reaching the URL
+- `URL_FETCH_TIMEOUT` - Remote server did not respond in time
+- `URL_FETCH_HTTP_ERROR` - Remote server returned a non-2xx status
+- `URL_CONTENT_TYPE_NOT_SUPPORTED` - Remote content is not HTML, Markdown, or PNG/JPEG
 
 **Webhook Errors:**
 - `WEBHOOK_LIMIT_EXCEEDED` - Maximum webhooks reached for plan

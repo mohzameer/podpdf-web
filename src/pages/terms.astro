@@ -286,18 +286,17 @@ import { siteConfig, companyName } from '@/config';
             
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.1 Temporary PDF Storage</h3>
             <ul class="list-disc pl-6 space-y-2">
-              <li><strong>Generated PDFs are stored temporarily for 1 hour only</strong></li>
-              <li>After 1 hour, PDFs are automatically deleted from our servers</li>
-              <li><strong>Quick Jobs</strong>: PDF is returned directly in HTTP response; not stored persistently</li>
-              <li><strong>Long Jobs</strong>: PDF is stored in S3 with a pre-signed URL valid for 1 hour</li>
-              <li><strong>Your Responsibility</strong>: Download PDFs immediately if you need to keep them</li>
+              <li><strong>Quick Jobs</strong>: PDF is returned directly in the HTTP response; not stored persistently</li>
+              <li><strong>Long Jobs</strong>: PDF is stored in Amazon S3 for up to <strong>24 hours</strong>, then automatically deleted from our servers</li>
+              <li><strong>Download link expiry</strong>: The pre-signed S3 URL provided to access your PDF is valid for <strong>1 hour only</strong>. After 1 hour the link is deactivated and can no longer be used to download the file, even though the file itself may still exist in storage</li>
+              <li><strong>Your Responsibility</strong>: Download your PDF within 1 hour of receiving the link. If your link expires, the file cannot be retrieved via that URL even if it has not yet been deleted</li>
             </ul>
 
             <h3 class="text-xl font-semibold text-text mt-6 mb-3">8.2 No Long-Term Storage</h3>
             <ul class="list-disc pl-6 space-y-2">
               <li>We do not provide long-term PDF storage</li>
-              <li>We are not responsible for PDFs not downloaded within the 1-hour window</li>
-              <li>Expired PDFs cannot be recovered</li>
+              <li>We are not responsible for PDFs not downloaded within the 1-hour link validity window</li>
+              <li>Files are permanently deleted after 24 hours and cannot be recovered</li>
               <li>You must regenerate PDFs if you need them again</li>
             </ul>
 
@@ -519,7 +518,7 @@ import { siteConfig, companyName } from '@/config';
               <li>We collect minimal personal information (email, name, usage data)</li>
               <li>We use AWS infrastructure with industry-standard security</li>
               <li>We comply with GDPR and CCPA requirements</li>
-              <li>Generated PDFs are stored for 1 hour only</li>
+              <li>Generated PDFs are stored for up to 24 hours; the download link expires after 1 hour</li>
               <li>You can request data deletion by deleting your account</li>
             </ul>
             

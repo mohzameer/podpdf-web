@@ -2,7 +2,7 @@
 
 ## Transform Your Content into Professional PDFs
 
-PodPDF is a powerful PDF generation platform that converts HTML, Markdown, and images into high-quality PDFs in seconds. Use our intuitive web application for instant conversions, or integrate our API into your applications for automated PDF generation.
+PodPDF is a powerful PDF generation platform that converts HTML, Markdown, images, and public URLs into high-quality PDFs in seconds. Use our intuitive web application for instant conversions, or integrate our API into your applications for automated PDF generation.
 
 **We operate globally using cloud infrastructure.** Built on Amazon Web Services (AWS) with worldwide availability, PodPDF serves customers in all countries with industry-leading reliability and scale.
 
@@ -18,6 +18,7 @@ Perfect for business users, designers, and anyone who needs to convert documents
 **Features:**
 - ✅ Visual drag-and-drop interface
 - ✅ Upload HTML, Markdown, or image files
+- ✅ Convert any public URL to PDF
 - ✅ Real-time preview
 - ✅ Instant download
 - ✅ No programming knowledge needed
@@ -63,7 +64,7 @@ Perfect for developers who need to integrate PDF generation into applications, a
 - **🌍 Global Availability** - We operate globally using cloud infrastructure, serving customers worldwide
 - **📈 99.9% Uptime SLA** - Guaranteed availability for paid plans with SLA credits
 - **🖥️ Two Ways to Use** - Interactive web application for manual conversions OR powerful API for automation
-- **🎨 Flexible Input** - Support for HTML, Markdown, and images (PNG/JPEG)
+- **🎨 Flexible Input** - Support for HTML, Markdown, images (PNG/JPEG), and public URLs
 - **🎯 Precise Control** - Customize page size, margins, orientation, scaling, and more
 - **💰 Cost-Effective** - Start free with 100 PDFs, then pay only $0.01 per PDF with credit-based billing
 - **🔒 Secure** - Built on AWS with Cognito authentication and API key support
@@ -74,7 +75,8 @@ Perfect for developers who need to integrate PDF generation into applications, a
 ### Common Use Cases
 
 **For Non-Technical Users (Web Application):**
-- **Quick Document Conversion** - Convert HTML, Markdown files, or images to PDF instantly
+- **Quick Document Conversion** - Convert HTML, Markdown files, images, or any public URL to PDF instantly
+- **URL to PDF** - Paste any HTTPS URL and download it as a PDF in one click
 - **Manual Invoice Creation** - Create one-off invoices and receipts using the visual editor
 - **Document Formatting** - Style and format documents before converting to PDF
 - **Photo Albums** - Upload and arrange photos into beautiful PDF albums
@@ -83,7 +85,8 @@ Perfect for developers who need to integrate PDF generation into applications, a
 **For Developers (API Integration):**
 - **Automated Invoice Generation** - Generate invoices programmatically from your app
 - **Report Creation** - Automatically convert analytics data and reports into PDFs
-- **Bulk Processing** - Convert large batches of documents to PDF
+- **URL Archiving** - Snapshot live web pages or hosted HTML reports as PDFs on a schedule
+- **Bulk Processing** - Convert large batches of documents or URLs to PDF
 - **Receipt & Ticket Generation** - Create printable tickets and receipts on demand
 - **Marketing Automation** - Generate personalized PDFs from templates at scale
 - **Workflow Integration** - Add PDF generation to your existing business processes
@@ -129,6 +132,7 @@ For production applications and high-volume needs
 | **Uptime SLA** | Best-effort | 99.9% guaranteed |
 | **HTML to PDF** | ✅ (if enabled) | ✅ (if enabled) |
 | **Markdown to PDF** | ✅ (if enabled) | ✅ (if enabled) |
+| **URL to PDF** | ✅ (if enabled) | ✅ (if enabled) |
 | **Images to PDF** | ✅ (if enabled) | ✅ (if enabled) |
 | **Conversion Types** | Plan-dependent | Plan-dependent |
 | **Custom Styling** | ✅ | ✅ |
@@ -197,7 +201,39 @@ Transform Markdown documents into professional PDFs.
 - README files
 - Meeting notes and reports
 
-#### 3. Images to PDF
+#### 3. URL to PDF
+Convert any publicly accessible HTTPS URL into a PDF. The server fetches the URL, auto-detects its content type, and runs the matching conversion pipeline.
+
+**Supported remote content types:**
+
+| Remote `Content-Type` | Treated as | Rendered by |
+|-----------------------|------------|-------------|
+| `text/html`, `application/xhtml+xml` | HTML | Puppeteer |
+| `text/markdown`, `text/x-markdown` | Markdown | Marked → Puppeteer |
+| `image/png`, `image/jpeg` | Image | pdf-lib |
+
+If the `Content-Type` is generic (e.g. `text/plain`), the file extension in the URL is used as a fallback (`.html`, `.htm`, `.md`, `.markdown`, `.png`, `.jpg`, `.jpeg`).
+
+**Features:**
+- No need to copy-paste HTML — just provide the URL
+- Full CSS and JavaScript rendering via headless Chrome
+- Supports hosted HTML reports, Markdown files, and images
+- Same PDF options as HTML/Markdown (page size, margins, orientation, scale)
+
+**Constraints:**
+- URL must use `https://` (HTTP is rejected)
+- Must be publicly accessible — private/internal IPs and reserved hostnames are blocked
+- Remote server must respond within 10 seconds
+- Response body must be ≤ 5 MB
+- Maximum 5 redirects; all redirect targets must also use HTTPS
+
+**Example Use Cases:**
+- Archiving live web pages or dashboards
+- Converting hosted HTML invoice templates
+- Snapshotting public reports on a schedule
+- Converting remotely hosted Markdown documentation
+
+#### 4. Images to PDF
 Combine multiple images into organized PDF documents.
 
 **Features:**
@@ -220,6 +256,7 @@ Combine multiple images into organized PDF documents.
 - **Enabled Conversion Types**: Plans may specify which input types are allowed:
   - `html` - HTML to PDF conversion
   - `markdown` - Markdown to PDF conversion
+  - `url` - URL to PDF conversion
   - `image` - Image to PDF conversion
 - If your plan has `enabled_conversion_types` configured, only those types are allowed
 - If your plan does not specify restrictions, all types are enabled (backward compatible)
@@ -267,6 +304,7 @@ Combine multiple images into organized PDF documents.
 3. Choose your input method:
    - **HTML** - Write or paste HTML code directly
    - **Markdown** - Write or paste Markdown content
+   - **URL** - Paste any public HTTPS URL (HTML page, Markdown file, or image)
    - **File Upload** - Upload .html or .md files
    - **Images** - Upload and arrange multiple images
 4. Configure PDF options (page size, margins, orientation)
@@ -331,6 +369,29 @@ curl -X POST https://api.podpdf.com/quickjob \
   --output report.pdf
 ```
 
+#### Quick Example: URL to PDF
+
+```bash
+curl -X POST https://api.podpdf.com/quickjob \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "input_type": "url",
+    "url": "https://example.com/report.html",
+    "options": {
+      "format": "A4",
+      "margin": {
+        "top": "20mm",
+        "right": "20mm",
+        "bottom": "20mm",
+        "left": "20mm"
+      },
+      "printBackground": true
+    }
+  }' \
+  --output report.pdf
+```
+
 #### Quick Example: Images to PDF
 
 ```bash
@@ -377,45 +438,95 @@ Authorization: Bearer YOUR_JWT_TOKEN
 #### 1. POST /quickjob
 **Synchronous PDF generation** - Returns PDF immediately (completes in <30 seconds)
 
-**Request:**
+**Request (HTML/Markdown):**
 ```json
 {
-  "input_type": "html|markdown|image",
+  "input_type": "html|markdown",
   "html": "string (required if input_type=html)",
   "markdown": "string (required if input_type=markdown)",
   "options": {
     "format": "A4|Letter|Legal|Tabloid|A3|A5",
-    "margin": {
-      "top": "20mm",
-      "right": "20mm",
-      "bottom": "20mm",
-      "left": "20mm"
-    },
+    "margin": { "top": "20mm", "right": "20mm", "bottom": "20mm", "left": "20mm" },
     "printBackground": true,
     "scale": 1.0,
     "landscape": false
-  }
+  },
+  "store": false
 }
 ```
 
-**Response:**
-- Binary PDF file
-- Headers include: `X-PDF-Pages`, `X-Job-Id`, `X-PDF-Truncated`
+**Request (URL):**
+```json
+{
+  "input_type": "url",
+  "url": "https://example.com/report.html",
+  "options": {
+    "format": "A4|Letter|Legal|Tabloid|A3|A5",
+    "margin": { "top": "20mm", "right": "20mm", "bottom": "20mm", "left": "20mm" },
+    "printBackground": true,
+    "scale": 1.0,
+    "landscape": false
+  },
+  "store": false
+}
+```
+
+**Request (Images — multipart/form-data):**
+```
+input_type=image
+images=<file>  (repeat for multiple images)
+options={"format":"A4","fit":"contain","margin":{...}}
+store=true
+```
+
+**`store` flag:**
+- `store: false` *(default)* — Returns the PDF as a binary response.
+  - Headers: `X-PDF-Pages`, `X-Job-Id`, `X-PDF-Truncated`
+  - Body: Binary PDF content
+- `store: true` — Uploads the PDF to S3 and returns a JSON response with a temporary download link instead of the binary.
+  - Body:
+    ```json
+    {
+      "job_id": "9f0a4b78-2c0c-4d14-9b8b-123456789abc",
+      "pages": 42,
+      "truncated": false,
+      "download_url": "https://...",
+      "download_url_expires_at": "2025-12-21T11:30:00.000Z"
+    }
+    ```
+  - The download link expires after **1 hour**. After expiry the object is inaccessible and deleted within 24 hours. If the S3 upload fails, `download_url` and `download_url_expires_at` will be `null`.
 
 **Limits:**
-- Content size: ≤ 5 MB
+- HTML/Markdown/URL content size: ≤ 5 MB
+- URL response body: ≤ 5 MB; remote server timeout: 10 seconds
 - Image size: ≤ 5 MB per image, 10 MB total
 - Image dimensions: ≤ 10,000 x 10,000 pixels
 - Page limit: 100 pages (production environment)
 
+**URL-specific error codes:**
+
+| Code | HTTP | Meaning |
+|------|------|---------|
+| `MISSING_URL` | 400 | `url` field absent or empty |
+| `INVALID_URL` | 400 | Not HTTPS, invalid format, or private IP |
+| `INPUT_SIZE_EXCEEDED` | 400 | Remote response body > 5 MB |
+| `URL_FETCH_FAILED` | 422 | DNS / connection error reaching the URL |
+| `URL_FETCH_TIMEOUT` | 422 | Remote server did not respond in time |
+| `URL_FETCH_HTTP_ERROR` | 422 | Remote server returned a non-2xx status |
+| `URL_CONTENT_TYPE_NOT_SUPPORTED` | 422 | Remote content is not HTML, Markdown, or PNG/JPEG |
+
 #### 2. POST /longjob
 **Asynchronous PDF generation** - For larger documents (>30 seconds)
+
+> **Note:** Image uploads (`multipart/form-data`) are **not supported** in `/longjob`. Use `/quickjob` for image-to-PDF conversion.
 
 **Request:**
 ```json
 {
-  "input_type": "html|markdown|image",
-  "html": "string",
+  "input_type": "html|markdown|url",
+  "html": "string (if input_type=html)",
+  "markdown": "string (if input_type=markdown)",
+  "url": "https://example.com/report.html (if input_type=url)",
   "options": { ... },
   "webhook_url": "https://your-domain.com/webhook (optional)"
 }
@@ -455,12 +566,25 @@ When job completes, receives POST with:
 **Response:**
 ```json
 {
-  "jobs": [...],
+  "jobs": [
+    {
+      "job_id": "uuid",
+      "status": "completed",
+      "job_type": "quick|long",
+      "mode": "html|markdown|url|image",
+      "pages": 42,
+      "s3_url": "https://...",
+      "s3_url_expires_at": "2024-01-15T11:30:00Z",
+      "created_at": "2024-01-15T10:30:00Z",
+      "completed_at": "2024-01-15T10:30:45Z"
+    }
+  ],
   "count": 150,
-  "limit": 20,
-  "offset": 0
+  "next_token": "..."
 }
 ```
+
+> **Note:** `s3_url` and `s3_url_expires_at` are included for completed quick and long jobs. Expires after **1 hour**.
 
 #### 4. GET /jobs/{job_id}
 **Get job details** - Retrieve specific job information
@@ -473,7 +597,7 @@ When job completes, receives POST with:
     "user_id": "uuid",
     "status": "completed",
     "job_type": "quick|long",
-    "input_type": "html|markdown|image",
+    "input_type": "html|markdown|url|image",
     "pages": 42,
     "s3_url": "https://...",
     "s3_url_expires_at": "2024-01-15T11:30:00Z",
@@ -481,6 +605,11 @@ When job completes, receives POST with:
     "completed_at": "2024-01-15T10:30:45Z"
   }
 }
+```
+
+> **Note:** `s3_url` and `s3_url_expires_at` are present on completed quick and long jobs. The signed URL expires after **1 hour** — after expiry the object is inaccessible and deleted within 24 hours. `null` if the job has not completed or the S3 upload failed.
+
+```json
 ```
 
 #### 5. GET /accounts/me
@@ -521,7 +650,7 @@ When job completes, receives POST with:
       "monthly_quota": 100,
       "price_per_pdf": 0,
       "rate_limit_per_minute": 20,
-      "enabled_conversion_types": ["html", "markdown", "image"],
+      "enabled_conversion_types": ["html", "markdown", "url", "image"],
       "max_webhooks": 1
     },
     {
@@ -531,7 +660,7 @@ When job completes, receives POST with:
       "monthly_quota": null,
       "price_per_pdf": 0.01,
       "rate_limit_per_minute": null,
-      "enabled_conversion_types": ["html", "markdown", "image"],
+      "enabled_conversion_types": ["html", "markdown", "url", "image"],
       "max_webhooks": 5
     }
   ]
@@ -655,6 +784,45 @@ async function generatePDF() {
 }
 
 generatePDF();
+```
+
+### URL to PDF (JavaScript)
+
+```javascript
+const fetch = require('node-fetch');
+const fs = require('fs');
+
+async function urlToPDF(url) {
+  const response = await fetch('https://api.podpdf.com/quickjob', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.PODPDF_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      input_type: 'url',
+      url,
+      options: {
+        format: 'A4',
+        margin: { top: '20mm', right: '20mm', bottom: '20mm', left: '20mm' },
+        printBackground: true,
+      },
+    }),
+  });
+
+  if (response.ok) {
+    const buffer = await response.buffer();
+    fs.writeFileSync('output.pdf', buffer);
+    console.log('PDF generated!');
+    console.log('Pages:', response.headers.get('X-PDF-Pages'));
+    console.log('Job ID:', response.headers.get('X-Job-Id'));
+  } else {
+    const error = await response.json();
+    console.error('Error:', error);
+  }
+}
+
+urlToPDF('https://example.com/report.html');
 ```
 
 ### Python
@@ -1547,7 +1715,7 @@ async function getCachedOrGenerate(html, options) {
 
 - **Documentation**: https://podpdf.com/docs
 - **Dashboard**: https://app.podpdf.com
-- **Email Support**: podpdfapp@gmail.com
+- **Email Support**: podpdf@gmail.com
 - **Status Page**: https://status.podpdf.com
 - **Global Service**: Available to customers in all countries
 
@@ -1581,7 +1749,7 @@ async function getCachedOrGenerate(html, options) {
 | **Total Upload** | 10 MB | 10 MB |
 | **Image Dimensions** | 10,000 x 10,000 px | 10,000 x 10,000 px |
 | **Page Limit** | 100 pages | 100 pages |
-| **Job History** | Permanent | Permanent |
+| **Job History** | 90 days | 365 days |
 | **API Keys** | Unlimited | Unlimited |
 | **Webhooks** | 1 webhook | 5 webhooks (default) |
 | **Webhook Events** | Event subscriptions | Event subscriptions |
@@ -1692,7 +1860,7 @@ Start generating professional PDFs today!
 
 ### Need Help?
 
-Contact us at **podpdfapp@gmail.com** or visit our [Help Center](https://podpdf.com/help)
+Contact us at **podpdf@gmail.com** or visit our [Help Center](https://podpdf.com/help)
 
 **Customers worldwide may use the Service** - we serve users in all countries with our global cloud infrastructure.
 
