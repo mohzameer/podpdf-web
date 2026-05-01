@@ -54,6 +54,8 @@
  * ```
  */
 
+import { Icon } from 'astro-icon/components';
+
 interface Props {
   /** Main headline text displayed prominently */
   title: string;
@@ -63,6 +65,8 @@ interface Props {
   primaryCTA: { label: string; href: string };
   /** Optional secondary call-to-action button */
   secondaryCTA?: { label: string; href: string };
+  /** Optional contact email — renders a "Talk to us" mailto button with an inline copy-to-clipboard control */
+  contactEmail?: string;
   /** Background type */
   backgroundType?: 'solid' | 'gradient' | 'image' | 'video';
   /** Solid background style (when backgroundType is 'solid') */
@@ -92,6 +96,7 @@ const {
   subtitle,
   primaryCTA,
   secondaryCTA,
+  contactEmail,
   backgroundType = 'solid',
   background = 'default',
   gradient = 'from-primary/10 via-background to-background',
@@ -223,6 +228,45 @@ const buttonAlignClass = align === 'left' ? 'justify-start' : 'justify-center';
             </a>
           )
         }
+        {
+          contactEmail && (
+            <div
+              class:list={[
+                'talk-to-us inline-flex items-stretch rounded-md border overflow-visible w-full sm:w-auto',
+                needsLightText ? 'border-white/30' : 'border-border',
+              ]}
+            >
+              <a
+                href={`mailto:${contactEmail}`}
+                class:list={[
+                  'flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 font-medium transition-colors',
+                  needsLightText ? 'text-white hover:bg-white/10' : 'text-text hover:bg-surface',
+                ]}
+              >
+                <Icon name="lucide:mail" class="w-5 h-5" />
+                Talk to us
+              </a>
+              <button
+                type="button"
+                data-copy-email={contactEmail}
+                aria-label={`Copy ${contactEmail} to clipboard`}
+                class:list={[
+                  'relative inline-flex items-center justify-center px-3 border-l transition-colors',
+                  needsLightText
+                    ? 'border-white/30 text-white hover:bg-white/10'
+                    : 'border-border text-text hover:bg-surface',
+                ]}
+              >
+                <Icon name="lucide:copy" class="w-4 h-4" />
+                <span
+                  class="copy-toast absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap text-xs font-medium px-2 py-1 rounded bg-text text-background opacity-0 pointer-events-none"
+                >
+                  Email copied!
+                </span>
+              </button>
+            </div>
+          )
+        }
       </div>
     </div>
 
@@ -257,3 +301,72 @@ const buttonAlignClass = align === 'left' ? 'justify-start' : 'justify-center';
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes copy-toast-smoke {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0) scale(0.85);
+      filter: blur(0);
+    }
+    15% {
+      opacity: 1;
+      transform: translate(-50%, -6px) scale(1);
+      filter: blur(0);
+    }
+    60% {
+      opacity: 0.9;
+      transform: translate(-50%, -22px) scale(1.05);
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -44px) scale(1.15);
+      filter: blur(6px);
+    }
+  }
+
+  .copy-toast.is-visible {
+    animation: copy-toast-smoke 1.4s ease-out forwards;
+  }
+</style>
+
+<script>
+  function fallbackCopy(text: string) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+    } finally {
+      document.body.removeChild(ta);
+    }
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-email]').forEach((btn) => {
+    btn.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const email = btn.dataset.copyEmail;
+      if (!email) return;
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          fallbackCopy(email);
+        }
+      } catch {
+        fallbackCopy(email);
+      }
+      const toast = btn.querySelector<HTMLElement>('.copy-toast');
+      if (!toast) return;
+      toast.classList.remove('is-visible');
+      // Force reflow so the animation restarts on rapid clicks.
+      void toast.offsetWidth;
+      toast.classList.add('is-visible');
+    });
+  });
+</script>
