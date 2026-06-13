@@ -7,26 +7,9 @@ import FAQSection from '@sections/content/FAQSection.astro';
 import CTA from '@sections/marketing/CTA.astro';
 import { siteConfig } from '@/config';
 
-const planNames = ['Free Tier', 'Pay As You Go', 'Custom'];
+const planNames = ['Pay As You Go', 'Custom'];
 
 const plans = [
-  {
-    name: 'Free Tier',
-    monthlyPrice: 0,
-    description: 'Perfect for testing and small projects',
-    features: [
-      '100 PDFs (lifetime quota, one-time, non-renewable, cumulative)',
-      'Web app + API access',
-      '20 requests per minute',
-      '$0/PDF',
-      'HTML, Markdown & Images (subject to conversion type restrictions)',
-      'Dashboard & job history (permanent retention)',
-      '1 Webhook (maximum webhook configuration)',
-      'Upgrade Path (purchase credits to automatically upgrade to paid plan)',
-    ],
-    highlighted: false,
-    cta: { label: 'Start Free', href: 'https://app.podpdf.com/signup' },
-  },
   {
     name: 'Pay As You Go',
     monthlyPrice: null,
@@ -37,13 +20,12 @@ const plans = [
       'Web app + Full API access',
       'No rate limits',
       '$0.01 per PDF (credit-based billing, purchase credits upfront)',
-      'Credit System (credits deducted after each PDF generation)',
-      'Automatic Upgrade (free tier users automatically upgraded when purchasing credits)',
-      'HTML, Markdown & Images (subject to conversion type restrictions)',
+      'Credits never expire',
+      'HTML, Markdown & Images',
       'Priority support',
       'Permanent job history retention',
-      '5 Webhooks (multiple webhook configurations with event subscriptions)',
-      'Webhook Delivery History (permanent retention of delivery records)',
+      '5 Webhooks',
+      'Webhook Delivery History',
       'Unlimited API keys',
     ],
     highlighted: true,
@@ -52,7 +34,7 @@ const plans = [
   {
     name: 'Custom',
     monthlyPrice: null,
-    customPrice: 'Let\'s Talk',
+    customPrice: "Let's Talk",
     description: 'Tailored for startups scaling up to enterprise needs',
     features: [
       'Volume discounts on high PDF usage',
@@ -74,27 +56,22 @@ const faqs = [
   {
     question: 'Can I use both the web app and API?',
     answer:
-      "Yes! Both methods are included in all plans and count toward the same quota. Use the web app for manual conversions and the API for automation—whatever works best for your workflow.",
-  },
-  {
-    question: 'How does the free tier work?',
-    answer:
-      "You get 100 PDFs for free (lifetime quota, one-time, non-renewable)—use them via the web app, API, or both. Once exhausted, purchase credits to continue and automatically upgrade to the paid plan.",
+      "Yes! Both methods are included and count toward the same credit balance. Use the web app for manual conversions and the API for automation—whatever works best for your workflow.",
   },
   {
     question: 'How does credit-based billing work?',
     answer:
-      "Paid plans use a credit system. Purchase credits upfront ($0.01 per PDF), and they're deducted after each PDF generation. You must have sufficient credits to generate PDFs. Free credits are consumed before purchased credits.",
+      "Purchase credits upfront ($0.01 per PDF), and they're deducted after each PDF generation. You must have sufficient credits to generate PDFs. Credits never expire.",
   },
   {
-    question: 'Can I revert to the free tier after upgrading?',
+    question: 'Is there a free trial?',
     answer:
-      "No, plan upgrade is permanent. Once you purchase credits and upgrade to the paid plan, you cannot revert to the free tier.",
+      "PodPDF is a paid-only service. All accounts require a credit purchase to get started. There is no free tier.",
   },
   {
     question: 'Are there any rate limits?',
     answer:
-      'Free tier has 20 API requests/minute. The web app has no rate limits. Paid plans have unlimited API requests.',
+      'The Pay As You Go plan has no API rate limits. The web app has no rate limits either.',
   },
   {
     question: 'Do I need coding skills?',
@@ -104,12 +81,17 @@ const faqs = [
   {
     question: 'What input formats do you support?',
     answer:
-      "Both the web app and API support HTML, Markdown, and images. Note that some plans may have restrictions on which conversion types are enabled—check your plan details.",
+      "Both the web app and API support HTML, Markdown, and images.",
   },
   {
     question: 'What happens if I run out of credits?',
     answer:
       "If you have insufficient credits, PDF generation requests will be rejected with an INSUFFICIENT_CREDITS error. Purchase more credits through your dashboard to continue.",
+  },
+  {
+    question: 'Do credits expire?',
+    answer:
+      "No. Credits remain in your account until you use them — there is no expiry date.",
   },
 ];
 
@@ -117,38 +99,38 @@ const comparisonCategories = [
   {
     name: 'Usage Limits',
     features: [
-      { name: 'PDF Quota', values: ['100 (lifetime)', 'Unlimited (credit-based)', 'Unlimited (volume discounts)'] },
-      { name: 'Billing Model', values: ['Free', 'Credit-based ($0.01/PDF)', 'Custom (monthly invoice)'] },
-      { name: 'Rate Limit', values: ['20 req/min', 'Unlimited', 'Unlimited'] },
-      { name: 'API Keys', values: ['5', 'Unlimited', 'Unlimited'] },
+      { name: 'PDF Quota', values: ['Unlimited (credit-based)', 'Unlimited (volume discounts)'] },
+      { name: 'Billing Model', values: ['Credit-based ($0.01/PDF)', 'Custom (monthly invoice)'] },
+      { name: 'Rate Limit', values: ['Unlimited', 'Unlimited'] },
+      { name: 'API Keys', values: ['Unlimited', 'Unlimited'] },
+      { name: 'Credits Expire', values: ['Never', 'Never'] },
     ],
   },
   {
     name: 'Input Formats',
     features: [
-      { name: 'HTML to PDF', values: [true, true, true] },
-      { name: 'Markdown to PDF', values: [true, true, true] },
-      { name: 'Images to PDF', values: [true, true, true] },
-      { name: 'Conversion Type Restrictions', values: ['Plan-dependent', 'Plan-dependent', 'Plan-dependent'] },
-      { name: 'Content Size Limit', values: ['5 MB', '5 MB', '5 MB'] },
-      { name: 'Page Limit', values: ['100', '100', '100+'] },
+      { name: 'HTML to PDF', values: [true, true] },
+      { name: 'Markdown to PDF', values: [true, true] },
+      { name: 'Images to PDF', values: [true, true] },
+      { name: 'Content Size Limit', values: ['5 MB', '5 MB'] },
+      { name: 'Page Limit', values: ['100', '100+'] },
     ],
   },
   {
     name: 'Features',
     features: [
-      { name: 'Dashboard Access', values: [true, true, true] },
-      { name: 'Job History', values: ['Permanent', 'Permanent', 'Permanent'] },
-      { name: 'Webhooks', values: ['1 webhook', '5 webhooks', 'Up to 50 webhooks'] },
-      { name: 'Webhook Events', values: ['Event subscriptions', 'Event subscriptions', 'Event subscriptions'] },
-      { name: 'Webhook History', values: [true, true, true] },
+      { name: 'Dashboard Access', values: [true, true] },
+      { name: 'Job History', values: ['Permanent', 'Permanent'] },
+      { name: 'Webhooks', values: ['5 webhooks', 'Up to 50 webhooks'] },
+      { name: 'Webhook Events', values: ['Event subscriptions', 'Event subscriptions'] },
+      { name: 'Webhook History', values: [true, true] },
     ],
   },
   {
     name: 'Support',
     features: [
-      { name: 'Documentation', values: [true, true, true] },
-      { name: 'Email Support', values: ['Best-effort', 'Priority Email', 'Dedicated'] },
+      { name: 'Documentation', values: [true, true] },
+      { name: 'Email Support', values: ['Priority Email', 'Dedicated'] },
     ],
   },
 ];
@@ -156,11 +138,11 @@ const comparisonCategories = [
 
 <MarketingLayout
   title={`Pricing - ${siteConfig.name}`}
-  description="Use our web app or API. Start with 100 free PDFs, then pay only $0.01 per PDF. Same speed for all users. No monthly fees, no hidden costs."
+  description="Simple, credit-based pricing. Pay only $0.01 per PDF — no subscriptions, no monthly minimums, no hidden costs. Credits never expire."
 >
   <PricingTable
     title="Simple, transparent pricing"
-    subtitle="Use the web app or API—both count toward the same quota. Start with 100 free PDFs, then pay only $0.01 per PDF."
+    subtitle="Use the web app or API — both count toward the same balance. Pay only $0.01 per PDF. No subscriptions, no monthly minimums. Credits never expire."
     plans={plans}
     annualDiscount={0}
     defaultPeriod="monthly"
@@ -168,9 +150,9 @@ const comparisonCategories = [
 
   <TrustBadges
     guarantee={{
-      title: 'Start free, scale confidently',
+      title: 'Pay only for what you use',
       description:
-        'No credit card required to start. Pay only for what you use. Cancel anytime with no penalties.',
+        'Purchase credits upfront at $0.01 per PDF. Credits never expire. No monthly fees, no surprise charges.',
     }}
   />
 
@@ -179,7 +161,7 @@ const comparisonCategories = [
     subtitle="See exactly what's included in each plan."
     plans={planNames}
     categories={comparisonCategories}
-    highlightedPlan={1}
+    highlightedPlan={0}
     background="default"
   />
 

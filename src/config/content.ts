@@ -11,19 +11,19 @@ import type { AnnouncementConfig, ContentStrings } from '../lib/types';
 /** Announcement bar configuration */
 export const announcement: AnnouncementConfig = {
   /** Show/hide the announcement bar */
-  enabled: false,
+  enabled: true,
 
   /** Unique ID - change this to reset dismissal for new announcements */
-  id: 'launch-2025',
+  id: 'paid-only-2026',
 
   /** Announcement text */
-  text: '🚀 Virex 2.0 is here!',
+  text: 'PodPDF is now a paid service. Purchase credits to get started.',
 
   /** Optional link URL */
-  href: '/changelog',
+  href: '/pricing',
 
   /** Optional link text */
-  linkText: "See what's new",
+  linkText: 'View pricing',
 
   /** Visual style: 'primary' | 'secondary' | 'gradient' */
   variant: 'primary',

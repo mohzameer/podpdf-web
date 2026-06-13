@@ -22,6 +22,22 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
   {
+    version: '2.0.0',
+    date: 'June 13, 2026',
+    title: 'Paid-Only Model',
+    type: 'major',
+    changes: [
+      {
+        category: 'New',
+        items: [
+          'PodPDF is now a paid-only service — all accounts require a credit purchase to generate PDFs',
+          'Credits never expire — purchase once, use whenever you need',
+          'Existing accounts moved to pending state; reactivate by purchasing credits from the dashboard',
+        ],
+      },
+    ],
+  },
+  {
     version: '1.0.0',
     date: 'December 30, 2024',
     title: 'Initial Release',

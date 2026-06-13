@@ -80,13 +80,6 @@ const features = [
 
 const pricingPlans = [
   {
-    name: 'Free Tier',
-    monthlyPrice: 0,
-    description: 'Perfect for testing and small projects',
-    features: ['100 PDFs (lifetime quota)', 'Web app + API access', '20 requests/minute', '$0/PDF', 'HTML, Markdown & Images', 'Dashboard & job history', '1 Webhook'],
-    cta: { label: 'Start Free', href: 'https://app.podpdf.com/signup' },
-  },
-  {
     name: 'Pay As You Go',
     monthlyPrice: null,
     customPrice: '$0.01/PDF',
@@ -96,6 +89,7 @@ const pricingPlans = [
       'Web app + Full API access',
       'No rate limits',
       '$0.01 per PDF',
+      'Credits never expire',
       'Priority support',
       '5 Webhooks',
     ],
@@ -105,10 +99,10 @@ const pricingPlans = [
   {
     name: 'Custom',
     monthlyPrice: null,
-    customPrice: '$0.01 per PDF',
-    description: 'Same pricing, monthly invoice billing with no service interruption',
-    features: ['$0.01 per PDF — same rate', 'Monthly invoice billing (NET-30)', 'No service interruption', 'Web app + API access', 'Dedicated support', 'Custom contracts', 'Up to 50 webhooks'],
-    cta: { label: 'Contact Sales', href: 'https://app.podpdf.com/signup' },
+    customPrice: "Let's Talk",
+    description: 'Volume discounts and monthly invoice billing',
+    features: ['$0.01 per PDF — same rate', 'Monthly invoice billing (NET-30)', 'Dedicated account manager', 'Custom contracts', 'Up to 50 webhooks'],
+    cta: { label: 'Contact Sales', href: 'mailto:podpdfapp@gmail.com' },
   },
 ];
 ---
@@ -119,8 +113,8 @@ const pricingPlans = [
 >
   <Hero
     title="The PDF Generation API Built for Automation"
-    subtitle="Integrate PodPDF into your application and generate professional PDFs from HTML, Markdown, or images in seconds. Simple REST API, any language, $0.01 per PDF. Start with 100 free PDFs—no credit card needed. Need a custom integration or tweak? Talk to us and we'll work with you to make it happen."
-    primaryCTA={{ label: 'Start Free - No Credit Card', href: 'https://app.podpdf.com/signup' }}
+    subtitle="Integrate PodPDF into your application and generate professional PDFs from HTML, Markdown, or images in seconds. Simple REST API, any language, $0.01 per PDF. No subscriptions, no monthly minimums — credits never expire. Need a custom integration or tweak? Talk to us and we'll work with you to make it happen."
+    primaryCTA={{ label: 'Get Started', href: 'https://app.podpdf.com/signup' }}
     contactEmail="podpdfapp@gmail.com"
   />
 
@@ -131,16 +125,16 @@ const pricingPlans = [
     subtitle="A few lines of code is all it takes to start generating PDFs at scale."
     steps={[
       {
-        title: 'Sign up for free',
+        title: 'Sign up',
         description:
-          'Get 100 free PDFs, no credit card required',
+          'Create your account at app.podpdf.com',
         icon: 'lucide:user-plus',
       },
       {
-        title: 'Grab your API key',
+        title: 'Purchase credits',
         description:
-          'Instant access from your dashboard',
-        icon: 'lucide:key',
+          'Buy credits upfront — they never expire',
+        icon: 'lucide:credit-card',
       },
       {
         title: 'Generate PDFs at scale',
@@ -170,7 +164,7 @@ const pricingPlans = [
 
   <PricingTable
     title="Simple, transparent pricing"
-    subtitle="Start free, scale as you grow. No monthly fees—pay only per PDF generated."
+    subtitle="No monthly fees — pay only per PDF generated. Credits never expire."
     plans={pricingPlans}
     annualDiscount={0}
     background="default"
@@ -179,7 +173,7 @@ const pricingPlans = [
 
   <CTA
     title="Ready to automate PDF generation?"
-    description="A powerful, easy-to-integrate API for developers and teams building at scale. Start free, pay only for what you use."
-    action={{ label: 'Start Free Now', href: 'https://app.podpdf.com/signup' }}
+    description="A powerful, easy-to-integrate API for developers and teams building at scale. Purchase credits and start generating in minutes."
+    action={{ label: 'Get Started', href: 'https://app.podpdf.com/signup' }}
   />
 </MarketingLayout>
