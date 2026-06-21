@@ -112,12 +112,16 @@ const pricingPlans = [
   description={siteConfig.description}
 >
   <Hero
-    title="Automate PDF Generation — or Convert Right in the App"
+    title="PDF Generation — API and App"
     subtitle="PodPDF gives you two ways to make professional PDFs from HTML, Markdown, or images. Wire up the REST API to automate generation at scale, or skip the code entirely and convert directly in the built-in app — paste, upload, and download in seconds. Any language, $0.01 per PDF. No subscriptions, no monthly minimums — credits never expire. Need a custom integration? Talk to us and we'll make it happen."
     primaryCTA={{ label: 'Open the Converter', href: 'https://app.podpdf.com/convert' }}
     secondaryCTA={{ label: 'Get Started Free', href: 'https://app.podpdf.com/signup' }}
     contactEmail="podpdfapp@gmail.com"
-  />
+  >
+    <Fragment slot="title">
+      PDF Generation <span class="text-primary">API</span> <span class="text-text-muted font-semibold">and</span> <span class="text-primary">App</span>
+    </Fragment>
+  </Hero>
 
 
   <HowItWorks

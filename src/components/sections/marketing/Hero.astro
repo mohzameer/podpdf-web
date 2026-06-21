@@ -203,7 +203,7 @@ const buttonAlignClass = align === 'left' ? 'justify-start' : 'justify-center';
           textClasses.heading,
         ]}
       >
-        {title}
+        <slot name="title">{title}</slot>
       </h1>
       <p class:list={['mt-6 text-lg sm:text-xl leading-relaxed', textClasses.body]}>
         {subtitle}
